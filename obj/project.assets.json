@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Aether.Physics2D.MG/1.6.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Aether.Physics2D.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Aether.Physics2D.dll": {}
+        }
+      },
       "MonoGame.Content.Builder.Task/3.8.0.1641": {
         "type": "package",
         "build": {
@@ -58,6 +67,22 @@
     }
   },
   "libraries": {
+    "Aether.Physics2D.MG/1.6.1": {
+      "sha512": "bOC4A9hPppTBvSZ/D9dD8zTLnEI3ImDPNsJsoKApWgYrQHV/R854/KN7KAkgk6JqcSkXUymai32h9+v/F8mibw==",
+      "type": "package",
+      "path": "aether.physics2d.mg/1.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aether.physics2d.mg.1.6.1.nupkg.sha512",
+        "aether.physics2d.mg.nuspec",
+        "lib/net40/Aether.Physics2D.dll",
+        "lib/netcore50/Aether.Physics2D.dll",
+        "lib/netstandard2.0/Aether.Physics2D.dll",
+        "lib/portable-net40+win8/Aether.Physics2D.dll",
+        "lib/portable-net45+win8+wpa81/Aether.Physics2D.dll"
+      ]
+    },
     "MonoGame.Content.Builder.Task/3.8.0.1641": {
       "sha512": "oHA60q9MhkqGnSiJlXosdynD400sQ/j1Ef+0XkJYIQT4Io9RQ6Zk8i0vjpnIbQ0PgsoaQN3IRYjNzkhqq3uUGA==",
       "type": "package",
@@ -169,30 +194,31 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Aether.Physics2D.MG >= 1.6.1",
       "MonoGame.Content.Builder.Task >= 3.8.0.1641",
       "MonoGame.Framework.DesktopGL >= 3.8.0.1641"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SK\\.nuget\\packages\\": {},
+    "C:\\Users\\attno\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HW\\Year2\\2\\Computer Game\\Final\\Mid-Age Revolution\\MidAgeRevolution.csproj",
+      "projectUniqueName": "C:\\Users\\attno\\Documents\\GitHub\\MidAgeRevolution\\MidAgeRevolution.csproj",
       "projectName": "MidAgeRevolution",
-      "projectPath": "D:\\HW\\Year2\\2\\Computer Game\\Final\\Mid-Age Revolution\\MidAgeRevolution.csproj",
-      "packagesPath": "C:\\Users\\SK\\.nuget\\packages\\",
-      "outputPath": "D:\\HW\\Year2\\2\\Computer Game\\Final\\Mid-Age Revolution\\obj\\",
+      "projectPath": "C:\\Users\\attno\\Documents\\GitHub\\MidAgeRevolution\\MidAgeRevolution.csproj",
+      "packagesPath": "C:\\Users\\attno\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\attno\\Documents\\GitHub\\MidAgeRevolution\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\SK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\attno\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -220,6 +246,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Aether.Physics2D.MG": {
+            "target": "Package",
+            "version": "[1.6.1, )"
+          },
           "MonoGame.Content.Builder.Task": {
             "target": "Package",
             "version": "[3.8.0.1641, )"
@@ -244,7 +274,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }
