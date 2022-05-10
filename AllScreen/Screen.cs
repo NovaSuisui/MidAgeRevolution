@@ -8,7 +8,7 @@ namespace MidAgeRevolution.AllScreen
 {
     class Screen : ICloneable
     {
-        public Screen()
+        public Screen(Texture2D texture)
         {
 
         }

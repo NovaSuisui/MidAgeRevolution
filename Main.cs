@@ -1,6 +1,15 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
+
+using MidAgeRevolution.AllButton;
+using MidAgeRevolution.AllScreen;
+using MidAgeRevolution.AllSprite;
+using MidAgeRevolution.AllSprite.AllPlayer;
 
 namespace MidAgeRevolution
 {
@@ -8,6 +17,8 @@ namespace MidAgeRevolution
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
+        private List<Screen> _screen;
 
         public Main()
         {
@@ -19,6 +30,14 @@ namespace MidAgeRevolution
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            _graphics.PreferredBackBufferWidth = Singleton.WINDOWS_SIZE_X;
+            _graphics.PreferredBackBufferHeight = Singleton.WINDOWS_SIZE_Y;
+
+            _graphics.ApplyChanges();
+
+            _screen = new List<Screen>();
+
             // Commit From Non
             base.Initialize();
         }

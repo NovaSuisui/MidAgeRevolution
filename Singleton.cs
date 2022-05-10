@@ -10,7 +10,7 @@ namespace MidAgeRevolution
     {
 
         public const int WINDOWS_SIZE_X = 1600;
-        public const int WINDOWS_SIZE_Y = 800;
+        public const int WINDOWS_SIZE_Y = 900;
 
         public KeyboardState CurrentKey;
         public KeyboardState PrevoiusKey;
@@ -18,6 +18,15 @@ namespace MidAgeRevolution
         public MouseState PreviousMouse;
 
         public Dictionary<int, int> GameConfig;
+
+        public enum MainState
+        {
+            start,
+            mainMenu,
+            tutorial,
+            gamePlay,
+            gameEnd
+        }
 
         public enum GameStare
         {
@@ -27,6 +36,7 @@ namespace MidAgeRevolution
             Shooting,
             Shooting2
         }
+        public GameStare _gameState = GameStare.None;
 
         public enum Status
         {
