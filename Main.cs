@@ -40,8 +40,6 @@ namespace MidAgeRevolution
 
 
             _screen = new List<Screen>();
-            _screen.Add(new MenuScreen(test));
-            _screen.Add(new GameScreen(test));
 
             base.Initialize();
         }
@@ -62,16 +60,30 @@ namespace MidAgeRevolution
             switch (Singleton.Instance._mainState)
             {
                 case Singleton.MainState.start:
+                    _screen.Add(new MenuScreen(test));
+                    _screen.Add(new GameScreen(test));
 
                     Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;
+
                 case Singleton.MainState.mainMenu:
+
+                    Singleton.Instance._mainState = Singleton.MainState.gamePlay;
                     break;
+
                 case Singleton.MainState.tutorial:
+
+                    Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;
+
                 case Singleton.MainState.gamePlay:
+
+                    Singleton.Instance._mainState = Singleton.MainState.gameEnd;
                     break;
+
                 case Singleton.MainState.gameEnd:
+
+                    Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;
             }
 
