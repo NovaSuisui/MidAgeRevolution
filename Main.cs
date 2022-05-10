@@ -19,6 +19,8 @@ namespace MidAgeRevolution
         private SpriteBatch _spriteBatch;
 
         private List<Screen> _screen;
+            
+        Texture2D test;
 
         public Main()
         {
@@ -36,9 +38,11 @@ namespace MidAgeRevolution
 
             _graphics.ApplyChanges();
 
-            _screen = new List<Screen>();
 
-            // Commit From Non
+            _screen = new List<Screen>();
+            _screen.Add(new MenuScreen(test));
+            _screen.Add(new GameScreen(test));
+
             base.Initialize();
         }
 
@@ -55,6 +59,26 @@ namespace MidAgeRevolution
                 Exit();
 
             // TODO: Add your update logic here
+            switch (Singleton.Instance._mainState)
+            {
+                case Singleton.MainState.start:
+
+                    Singleton.Instance._mainState = Singleton.MainState.mainMenu;
+                    break;
+                case Singleton.MainState.mainMenu:
+                    break;
+                case Singleton.MainState.tutorial:
+                    break;
+                case Singleton.MainState.gamePlay:
+                    break;
+                case Singleton.MainState.gameEnd:
+                    break;
+            }
+
+
+
+
+
 
             base.Update(gameTime);
         }

@@ -27,8 +27,9 @@ namespace MidAgeRevolution
             gamePlay,
             gameEnd
         }
+        public MainState _mainState = MainState.start;
 
-        public enum GameStare
+        public enum GameState
         {
             None,
             P1Turn,
@@ -36,7 +37,6 @@ namespace MidAgeRevolution
             Shooting,
             Shooting2
         }
-        public GameStare _gameState = GameStare.None;
 
         public enum Status
         {
