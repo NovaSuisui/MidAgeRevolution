@@ -108,14 +108,24 @@ namespace MidAgeRevolution
             switch (Singleton.Instance._mainState)
             {
                 case Singleton.MainState.start:
+                    _screen[0].Draw(_spriteBatch);
+
                     break;
                 case Singleton.MainState.mainMenu:
+                    _screen[0].Draw(_spriteBatch);
+
                     break;
                 case Singleton.MainState.tutorial:
+                    _screen[0].Draw(_spriteBatch);
+
                     break;
                 case Singleton.MainState.gamePlay:
+                    _screen[1].Draw(_spriteBatch);
+
                     break;
                 case Singleton.MainState.gameEnd:
+                    _screen[1].Draw(_spriteBatch);
+
                     break;
             }
 
