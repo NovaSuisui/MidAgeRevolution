@@ -56,6 +56,8 @@ namespace MidAgeRevolution
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            Singleton.Instance._time = gameTime;
+
             // TODO: Add your update logic here
             switch (Singleton.Instance._mainState)
             {

@@ -19,6 +19,8 @@ namespace MidAgeRevolution
 
         public Dictionary<int, int> GameConfig;
 
+        public GameTime _time;
+
         public enum MainState
         {
             start,
@@ -31,13 +33,13 @@ namespace MidAgeRevolution
 
         public enum GameState
         {
-            None,
-            P1Turn,
-            P2Turn,
-            Shooting,
-            Shooting2
+            Setup,
+            WisdomTurn,
+            LuckTurn,
+            WisdomShooting,
+            LuckShooting
         }
-        public GameState _gameState = GameState.None;
+        public GameState _gameState = GameState.Setup;
 
         public enum Status
         {

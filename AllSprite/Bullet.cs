@@ -19,6 +19,28 @@ namespace MidAgeRevolution.AllSprite
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
         {
+            switch (Singleton.Instance._gameState)
+            {
+                case Singleton.GameState.Setup:
+                    break;
+                case Singleton.GameState.WisdomTurn:
+
+
+                    break;
+                case Singleton.GameState.LuckTurn:
+
+
+                    break;
+                case Singleton.GameState.WisdomShooting:
+
+
+                    break;
+                case Singleton.GameState.LuckShooting:
+
+
+                    break;
+            }
+
             base.Update(gameObject, gameTime);
         }
 
