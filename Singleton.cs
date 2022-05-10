@@ -37,6 +37,7 @@ namespace MidAgeRevolution
             Shooting,
             Shooting2
         }
+        public GameState _gameState = GameState.None;
 
         public enum Status
         {
