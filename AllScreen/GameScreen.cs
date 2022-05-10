@@ -17,7 +17,7 @@ namespace MidAgeRevolution.AllScreen
         {
             switch (Singleton.Instance._gameState)
             {
-                case Singleton.GameState.None:
+                case Singleton.GameState.Setup:
 
 
                     break;
