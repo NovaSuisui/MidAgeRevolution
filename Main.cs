@@ -67,6 +67,7 @@ namespace MidAgeRevolution
                     break;
 
                 case Singleton.MainState.mainMenu:
+                    _screen[0].Update(_screen[0]);
 
                     Singleton.Instance._mainState = Singleton.MainState.gamePlay;
                     break;
@@ -77,11 +78,13 @@ namespace MidAgeRevolution
                     break;
 
                 case Singleton.MainState.gamePlay:
+                    _screen[1].Update(_screen[1]);
 
                     Singleton.Instance._mainState = Singleton.MainState.gameEnd;
                     break;
 
                 case Singleton.MainState.gameEnd:
+                    _screen[1].Update(_screen[1]);
 
                     Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;
@@ -99,7 +102,24 @@ namespace MidAgeRevolution
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            _spriteBatch.Begin();
+
             // TODO: Add your drawing code here
+            switch (Singleton.Instance._mainState)
+            {
+                case Singleton.MainState.start:
+                    break;
+                case Singleton.MainState.mainMenu:
+                    break;
+                case Singleton.MainState.tutorial:
+                    break;
+                case Singleton.MainState.gamePlay:
+                    break;
+                case Singleton.MainState.gameEnd:
+                    break;
+            }
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }

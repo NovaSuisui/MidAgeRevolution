@@ -13,7 +13,7 @@ namespace MidAgeRevolution.AllScreen
 
         }
 
-        public override void Update(List<Screen> gameScreen)
+        public override void Update(Screen gameScreen)
         {
             base.Update(gameScreen);
         }

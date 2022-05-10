@@ -13,7 +13,7 @@ namespace MidAgeRevolution.AllScreen
 
         }
 
-        public virtual void Update(List<Screen> gameScreen)
+        public virtual void Update(Screen gameScreen)
         {
         }
 
