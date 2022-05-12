@@ -10,7 +10,6 @@ namespace MidAgeRevolution.AllSprite
     {
         public Obstacle(Texture2D texture) : base(texture)
         {
-
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)

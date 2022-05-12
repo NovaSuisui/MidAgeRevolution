@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
 using MidAgeRevolution.AllSprite;
@@ -12,11 +13,10 @@ namespace MidAgeRevolution.AllScreen
     class GameScreen : Screen
     {
         private List<GameSprite> _gameObj;
-        Texture2D test;
 
         public GameScreen(Texture2D texture) : base(texture)
         {
-
+            _gameObj = new List<GameSprite>();
         }
 
         public override void Update(Screen gameScreen)
@@ -24,24 +24,40 @@ namespace MidAgeRevolution.AllScreen
             switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
-                    _gameObj.Add(new Wisdom(test));
-                    _gameObj.Add(new Luck(test));
-                    _gameObj.Add(new Bullet(test));
-                    _gameObj.Add(new Obstacle(test));
+                    _gameObj.Clear();
+                    _gameObj.Add(new Wisdom(test)
+                    {
+                        position = new Vector2(0, 0)
+                    });
+                    _gameObj.Add(new Luck(test)
+                    {
+                        position = new Vector2(1540, 840)
+                    });
+                    //_gameObj.Add(new Bullet(test));
+                    //_gameObj.Add(new Obstacle(test));
 
+                    Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
                     break;
 
                 case Singleton.GameState.WisdomTurn:
                     _gameObj[0].Update(_gameObj, Singleton.Instance._time);
 
-                    Singleton.Instance._gameState = Singleton.GameState.WisdomShooting;
+                    if(Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    {
+                        Singleton.Instance._gameState = Singleton.GameState.WisdomShooting;
+                    }
                     break;
 
                 case Singleton.GameState.LuckTurn:
                     _gameObj[1].Update(_gameObj, Singleton.Instance._time);
 
 
-                    Singleton.Instance._gameState = Singleton.GameState.LuckShooting;
+                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    {
+                        Singleton.Instance._gameState = Singleton.GameState.LuckShooting;
+                    }
                     break;
 
                 case Singleton.GameState.WisdomShooting:
@@ -50,7 +66,11 @@ namespace MidAgeRevolution.AllScreen
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
 
-                    Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
+                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    {
+                        Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
+                    }
                     break;
 
                 case Singleton.GameState.LuckShooting:
@@ -59,7 +79,11 @@ namespace MidAgeRevolution.AllScreen
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
 
-                    Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
+                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    {
+                        Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
+                    }
                     break;
             }
 
@@ -71,7 +95,7 @@ namespace MidAgeRevolution.AllScreen
             switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
-
+                    
 
                     break;
 

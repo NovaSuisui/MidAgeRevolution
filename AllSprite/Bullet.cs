@@ -8,13 +8,15 @@ namespace MidAgeRevolution.AllSprite
 {
     class Bullet : GameSprite
     {
+        private Texture2D test;
+
         public float mass;
         public Vector2 velocity;
         public Vector2 damage;
 
         public Bullet(Texture2D texture) : base(texture)
         {
-
+            test = texture;
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)

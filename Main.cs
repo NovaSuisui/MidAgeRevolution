@@ -49,6 +49,7 @@ namespace MidAgeRevolution
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            test = this.Content.Load<Texture2D>("Test/test0");
         }
 
         protected override void Update(GameTime gameTime)
@@ -56,6 +57,8 @@ namespace MidAgeRevolution
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            Singleton.Instance.CurrentMouse = Mouse.GetState();
+            Singleton.Instance.CurrentKey = Keyboard.GetState();
             Singleton.Instance._time = gameTime;
 
             // TODO: Add your update logic here
@@ -82,7 +85,7 @@ namespace MidAgeRevolution
                 case Singleton.MainState.gamePlay:
                     _screen[1].Update(_screen[1]);
 
-                    Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+                    //Singleton.Instance._mainState = Singleton.MainState.gameEnd;
                     break;
 
                 case Singleton.MainState.gameEnd:
@@ -92,10 +95,8 @@ namespace MidAgeRevolution
                     break;
             }
 
-
-
-
-
+            Singleton.Instance.PreviousMouse = Singleton.Instance.CurrentMouse;
+            Singleton.Instance.PrevoiusKey = Singleton.Instance.CurrentKey;
 
             base.Update(gameTime);
         }

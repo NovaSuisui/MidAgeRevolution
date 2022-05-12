@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace MidAgeRevolution.AllSprite.AllPlayer
 {
     class Wisdom : Player
     {
+        Texture2D test;
+
         public Wisdom(Texture2D texture) : base(texture)
         {
-
+            test = texture;
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
@@ -20,7 +23,22 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.Setup:
                     break;
                 case Singleton.GameState.WisdomTurn:
-
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.W))
+                    {
+                        position.Y -= movespeed;
+                    }
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
+                    {
+                        position.X -= movespeed;
+                    }
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.S))
+                    {
+                        position.Y += movespeed;
+                    }
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
+                    {
+                        position.X += movespeed;
+                    }
 
 
                     break;
@@ -44,6 +62,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
         }
     }

@@ -10,13 +10,14 @@ namespace MidAgeRevolution.AllSprite
     {
         protected Texture2D _texture;
         protected bool isActive;
-        protected Vector2 position;
+        public Vector2 position;
         protected Vector2 origin;
         protected Vector2 scale;
 
         public GameSprite(Texture2D texture)
         {
-
+            _texture = texture;
+            position = Vector2.Zero;
         }
 
         public virtual void Update(List<GameSprite> gameObject, GameTime gameTime)
