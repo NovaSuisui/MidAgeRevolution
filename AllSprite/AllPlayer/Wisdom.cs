@@ -23,19 +23,27 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.Setup:
                     break;
                 case Singleton.GameState.WisdomTurn:
-                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.W))
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.W) &&
+                        position.Y > 0)
                     {
                         position.Y -= movespeed;
                     }
-                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
+                    else
+                    {
+                        if(position.Y < 840) position.Y += movespeed;
+                    }
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A) &&
+                        position.X > 0)
                     {
                         position.X -= movespeed;
                     }
-                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.S))
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.S) &&
+                        position.Y < 840)
                     {
                         position.Y += movespeed;
                     }
-                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D) &&
+                        position.X < 1540)
                     {
                         position.X += movespeed;
                     }
