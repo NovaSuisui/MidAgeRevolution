@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
+using MidAgeRevolution.AllSprite;
+
 namespace MidAgeRevolution.AllSprite.AllPlayer
 {
     class Wisdom : Player
@@ -27,25 +29,45 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                         position.Y > 0)
                     {
                         position.Y -= movespeed;
+                        if (isHit(gameObject))
+                        {
+                            position.Y += movespeed;
+                        }
                     }
                     else
                     {
                         if(position.Y < 840) position.Y += movespeed;
+                        if (isHit(gameObject))
+                        {
+                            position.Y -= movespeed;
+                        }
                     }
                     if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A) &&
                         position.X > 0)
                     {
                         position.X -= movespeed;
+                        if (isHit(gameObject))
+                        {
+                            position.X += movespeed;
+                        }
                     }
                     if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.S) &&
                         position.Y < 840)
                     {
                         position.Y += movespeed;
+                        if (isHit(gameObject))
+                        {
+                            position.Y -= movespeed;
+                        }
                     }
                     if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D) &&
                         position.X < 1540)
                     {
                         position.X += movespeed;
+                        if (isHit(gameObject))
+                        {
+                            position.X -= movespeed;
+                        }
                     }
 
 

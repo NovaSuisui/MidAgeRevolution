@@ -13,7 +13,8 @@ namespace MidAgeRevolution.AllSprite
         public Vector2 position;
         protected Vector2 origin;
         protected Vector2 scale;
-        public Rectangle hitbox;
+        public bool side;
+        //public Rectangle hitbox;
 
         public GameSprite(Texture2D texture)
         {
@@ -34,11 +35,11 @@ namespace MidAgeRevolution.AllSprite
             return this.MemberwiseClone();
         }
 
-        public Rectangle _rectangle
+        public Rectangle hitbox
         {
             get
             {
-                return new Rectangle(5, 5, 5, 5);
+                return new Rectangle((int)position.X, (int)position.Y, 60, 60);
             }
         }
     }
