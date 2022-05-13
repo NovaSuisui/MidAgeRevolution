@@ -79,6 +79,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.WisdomEndTurn:
                     if (hit_point < 1)
                     {
+                        colour = Color.Red;
                         isActive = false;
                     }
                     break;

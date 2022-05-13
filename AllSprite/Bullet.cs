@@ -67,6 +67,15 @@ namespace MidAgeRevolution.AllSprite
                         side = Side_ID.Luck_player;
                     }
 
+                    if (position.X < 0 ||
+                        position.X > Singleton.WINDOWS_SIZE_X ||
+                        position.Y < 0 ||
+                        position.Y > Singleton.WINDOWS_SIZE_Y)
+                    {
+                        Singleton.Instance._gameState = Singleton.GameState.WisdomEndTurn;
+                        side = Side_ID.Luck_player;
+                    }
+
                     break;
                 case Singleton.GameState.LuckShooting:
                     position.X += velocity.X;
@@ -78,21 +87,19 @@ namespace MidAgeRevolution.AllSprite
                         side = Side_ID.Wisdom_player;
                     }
 
-                    break;
-                case Singleton.GameState.WisdomEndTurn:
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    if (position.X < 0 ||
+                        position.X > Singleton.WINDOWS_SIZE_X ||
+                        position.Y < 0 ||
+                        position.Y > Singleton.WINDOWS_SIZE_Y)
                     {
-                        Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
+                        Singleton.Instance._gameState = Singleton.GameState.LuckEndTurn;
+                        side = Side_ID.Wisdom_player;
                     }
 
+                    break;
+                case Singleton.GameState.WisdomEndTurn:
                         break;
                 case Singleton.GameState.LuckEndTurn:
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
-                    {
-                        Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
-                    }
                         break;
             }
 

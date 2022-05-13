@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Test/font0.spritefont</SourceFile>
+  <SourceTime>2020-08-10T23:17:28+07:00</SourceTime>
+  <DestFile>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/bin/DesktopGL/Content/Test/font0.xnb</DestFile>
+  <DestTime>2022-05-13T23:14:26.3663102+07:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2020-08-10T23:17:54+07:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

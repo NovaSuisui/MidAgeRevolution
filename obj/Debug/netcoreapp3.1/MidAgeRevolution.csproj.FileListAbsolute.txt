@@ -24,3 +24,4 @@ D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAg
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.pdb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.genruntimeconfig.cache
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\test0.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\font0.xnb

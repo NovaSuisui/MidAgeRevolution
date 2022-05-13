@@ -9,6 +9,8 @@ namespace MidAgeRevolution.AllScreen
     class Screen : ICloneable
     {
         protected Texture2D test;
+        public String label;
+
         public Screen(Texture2D texture)
         {
             test = texture;

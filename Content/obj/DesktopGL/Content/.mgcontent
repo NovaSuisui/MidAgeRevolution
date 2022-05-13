@@ -4,9 +4,11 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Test/font0.spritefont</File>
     <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Test/test0.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

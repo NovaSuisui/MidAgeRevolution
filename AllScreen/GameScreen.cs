@@ -120,14 +120,27 @@ namespace MidAgeRevolution.AllScreen
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
 
-                    for (int i = 0; i < _gameObj.Count; i++)
+                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    {
+                        if (_gameObj[1].isActive)
+                        {
+                            Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
+                        }
+                        else
+                        {
+                            label = "Wisdom Win";
+                            Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+                        }
+                    }
+
+                    for (int i = 2; i < _gameObj.Count; i++)
                     {
                         if (!_gameObj[i].isActive)
                         {
                             _gameObj.RemoveAt(i);
                         }
                     }
-
                     break;
 
                 case Singleton.GameState.LuckEndTurn:
@@ -136,14 +149,27 @@ namespace MidAgeRevolution.AllScreen
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
 
-                    for (int i = 0; i < _gameObj.Count; i++)
+                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    {
+                        if (_gameObj[0].isActive)
+                        {
+                            Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
+                        }
+                        else
+                        {
+                            label = "Luck Win";
+                            Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+                        }
+                    }
+
+                    for (int i = 2; i < _gameObj.Count; i++)
                     {
                         if (!_gameObj[i].isActive)
                         {
                             _gameObj.RemoveAt(i);
                         }
                     }
-
                     break;
             }
 

@@ -17,6 +17,7 @@ namespace MidAgeRevolution
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private SpriteFont _spriteFont;
 
         private List<Screen> _screen;
             
@@ -50,6 +51,7 @@ namespace MidAgeRevolution
 
             // TODO: use this.Content to load your game content here
             test = this.Content.Load<Texture2D>("Test/test0");
+            _spriteFont = this.Content.Load<SpriteFont>("Test/font0");
         }
 
         protected override void Update(GameTime gameTime)
@@ -89,9 +91,9 @@ namespace MidAgeRevolution
                     break;
 
                 case Singleton.MainState.gameEnd:
-                    _screen[1].Update(_screen[1]);
+                    //_screen[1].Update(_screen[1]);
 
-                    Singleton.Instance._mainState = Singleton.MainState.mainMenu;
+                    //Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;
             }
 
@@ -128,7 +130,11 @@ namespace MidAgeRevolution
                     break;
                 case Singleton.MainState.gameEnd:
                     _screen[1].Draw(_spriteBatch);
+                    //_spriteBatch.DrawString(_spriteFont, _screen[1].label, new Vector2(100, 100), Color.Black);
+                    _spriteBatch.DrawString(_spriteFont, _screen[1].label, new Vector2(100, 100), Color.Black, 0, Vector2.Zero, new Vector2(5, 5), SpriteEffects.None, 0f);
 
+                    break;
+                default:
                     break;
             }
 
