@@ -13,7 +13,7 @@ namespace MidAgeRevolution.AllSprite
         public Vector2 position;
         protected Vector2 origin;
         public Vector2 scale;
-        //public bool Side_ID;
+        protected int movespeed;
         public int hitbox_size;
 
         public enum Side_ID
@@ -32,6 +32,7 @@ namespace MidAgeRevolution.AllSprite
             position = Vector2.Zero;
             origin = Vector2.Zero;
             scale = new Vector2(1, 1);
+            movespeed = 5;
             hitbox_size = (int)Singleton.Instance.TEXTURE_SIZE;
         }
 

@@ -35,7 +35,10 @@ namespace MidAgeRevolution.AllScreen
                         position = new Vector2(1220, 600),
                         side = GameSprite.Side_ID.Luck_player
                     });
-                    //_gameObj.Add(new Bullet(test));
+                    _gameObj.Add(new Bullet(test)
+                    {
+                        //TO DO
+                    });
                     _gameObj.Add(new Obstacle(test)
                     {
                         position = new Vector2(200, 660),
@@ -85,23 +88,14 @@ namespace MidAgeRevolution.AllScreen
 
                 case Singleton.GameState.WisdomTurn:
                     _gameObj[0].Update(_gameObj, Singleton.Instance._time);
+                    _gameObj[2].Update(_gameObj, Singleton.Instance._time);
 
-                    if(Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
-                    {
-                        Singleton.Instance._gameState = Singleton.GameState.WisdomShooting;
-                    }
                     break;
 
                 case Singleton.GameState.LuckTurn:
                     _gameObj[1].Update(_gameObj, Singleton.Instance._time);
+                    _gameObj[2].Update(_gameObj, Singleton.Instance._time);
 
-
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
-                    {
-                        Singleton.Instance._gameState = Singleton.GameState.LuckShooting;
-                    }
                     break;
 
                 case Singleton.GameState.WisdomShooting:
@@ -110,11 +104,6 @@ namespace MidAgeRevolution.AllScreen
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
 
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
-                    {
-                        Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
-                    }
                     break;
 
                 case Singleton.GameState.LuckShooting:
@@ -123,11 +112,6 @@ namespace MidAgeRevolution.AllScreen
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
 
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
-                    {
-                        Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
-                    }
                     break;
             }
 

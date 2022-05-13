@@ -8,11 +8,8 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 {
     class Player : GameSprite
     {
-        protected int movespeed;
-
         public Player(Texture2D texture) : base(texture)
         {
-            movespeed = 5;
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)

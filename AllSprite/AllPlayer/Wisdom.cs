@@ -70,7 +70,6 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                         }
                     }
 
-
                     break;
                 case Singleton.GameState.LuckTurn:
                     break;
