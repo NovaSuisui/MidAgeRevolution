@@ -99,7 +99,7 @@ namespace MidAgeRevolution.AllScreen
                     break;
 
                 case Singleton.GameState.WisdomShooting:
-                    foreach(GameSprite obj in _gameObj)
+                    foreach (GameSprite obj in _gameObj)
                     {
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
@@ -110,6 +110,38 @@ namespace MidAgeRevolution.AllScreen
                     foreach (GameSprite obj in _gameObj)
                     {
                         obj.Update(_gameObj, Singleton.Instance._time);
+                    }
+
+                    break;
+
+                case Singleton.GameState.WisdomEndTurn:
+                    foreach (GameSprite obj in _gameObj)
+                    {
+                        obj.Update(_gameObj, Singleton.Instance._time);
+                    }
+
+                    for (int i = 0; i < _gameObj.Count; i++)
+                    {
+                        if (!_gameObj[i].isActive)
+                        {
+                            _gameObj.RemoveAt(i);
+                        }
+                    }
+
+                    break;
+
+                case Singleton.GameState.LuckEndTurn:
+                    foreach (GameSprite obj in _gameObj)
+                    {
+                        obj.Update(_gameObj, Singleton.Instance._time);
+                    }
+
+                    for (int i = 0; i < _gameObj.Count; i++)
+                    {
+                        if (!_gameObj[i].isActive)
+                        {
+                            _gameObj.RemoveAt(i);
+                        }
                     }
 
                     break;

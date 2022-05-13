@@ -40,7 +40,9 @@ namespace MidAgeRevolution
             WisdomTurn,
             LuckTurn,
             WisdomShooting,
-            LuckShooting
+            LuckShooting,
+            WisdomEndTurn,
+            LuckEndTurn
         }
         public GameState _gameState = GameState.Setup;
 

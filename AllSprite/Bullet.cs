@@ -13,11 +13,12 @@ namespace MidAgeRevolution.AllSprite
 
         public float mass;
         public Vector2 velocity;
-        public Vector2 damage;
+        public float damage;
 
         public Bullet(Texture2D texture) : base(texture)
         {
             test = texture;
+            damage = 30;
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
@@ -60,9 +61,9 @@ namespace MidAgeRevolution.AllSprite
                     position.X += velocity.X;
                     position.Y += velocity.Y;
 
-                    if (isHit2(gameObject))
+                    if (isBulletHit(gameObject))
                     {
-                        Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
+                        Singleton.Instance._gameState = Singleton.GameState.WisdomEndTurn;
                         side = Side_ID.Luck_player;
                     }
 
@@ -71,13 +72,28 @@ namespace MidAgeRevolution.AllSprite
                     position.X += velocity.X;
                     position.Y += velocity.Y;
 
-                    if (isHit2(gameObject))
+                    if (isBulletHit(gameObject))
                     {
-                        Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
+                        Singleton.Instance._gameState = Singleton.GameState.LuckEndTurn;
                         side = Side_ID.Wisdom_player;
                     }
 
                     break;
+                case Singleton.GameState.WisdomEndTurn:
+                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    {
+                        Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
+                    }
+
+                        break;
+                case Singleton.GameState.LuckEndTurn:
+                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    {
+                        Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
+                    }
+                        break;
             }
 
             base.Update(gameObject, gameTime);
@@ -87,6 +103,27 @@ namespace MidAgeRevolution.AllSprite
         {
             spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, Color.White, 0, origin, scale, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
+        }
+
+        protected bool isBulletHit(List<GameSprite> gameObject)
+        {
+            foreach (var obj in gameObject)
+            {
+                if (obj.hitbox.Intersects(hitbox))
+                {
+                    if (this.side == Side_ID.Wisdom_player && (obj.side == Side_ID.Luck_player || obj.side == Side_ID.Luck_obstacle))
+                    {
+                        obj.hit_point -= this.damage;
+                        return true;
+                    }
+                    else if (this.side == Side_ID.Luck_player && (obj.side == Side_ID.Wisdom_player || obj.side == Side_ID.Wisdom_obstacle))
+                    {
+                        obj.hit_point -= this.damage;
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

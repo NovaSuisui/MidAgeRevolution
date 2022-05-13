@@ -8,12 +8,15 @@ namespace MidAgeRevolution.AllSprite
 {
     class GameSprite : ICloneable
     {
+        public bool isActive;
         protected Texture2D _texture;
-        protected bool isActive;
         public Vector2 position;
+        protected Color colour;
+        protected float rotation;
         protected Vector2 origin;
         public Vector2 scale;
         protected int movespeed;
+        public float hit_point;
         public int hitbox_size;
 
         public enum Side_ID
@@ -28,11 +31,15 @@ namespace MidAgeRevolution.AllSprite
 
         public GameSprite(Texture2D texture)
         {
+            isActive = true;
             _texture = texture;
             position = Vector2.Zero;
+            colour = Color.White;
+            rotation = 0;
             origin = Vector2.Zero;
             scale = new Vector2(1, 1);
             movespeed = 5;
+            hit_point = 100;
             hitbox_size = (int)Singleton.Instance.TEXTURE_SIZE;
         }
 
@@ -55,34 +62,6 @@ namespace MidAgeRevolution.AllSprite
             {
                 return new Rectangle((int)position.X, (int)position.Y, hitbox_size * (int)scale.X, hitbox_size * (int)scale.Y);
             }
-        }
-
-        protected bool isHit(List<GameSprite> gameObject)
-        {
-            foreach (var obj in gameObject)
-            {
-                if (obj.hitbox.Intersects(hitbox) &&
-                    obj.side != this.side)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        protected bool isHit2(List<GameSprite> gameObject)
-        {
-            foreach (var obj in gameObject)
-            {
-                if (obj.hitbox.Intersects(hitbox))
-                {
-                    if (this.side == Side_ID.Wisdom_player && (obj.side == Side_ID.Luck_player || obj.side == Side_ID.Luck_obstacle))
-                        return true;
-                    else if (this.side == Side_ID.Luck_player && (obj.side == Side_ID.Wisdom_player || obj.side == Side_ID.Wisdom_obstacle))
-                        return true;
-                }
-            }
-            return false;
         }
     }
 }

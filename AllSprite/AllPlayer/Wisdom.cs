@@ -16,6 +16,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         public Wisdom(Texture2D texture) : base(texture)
         {
             test = texture;
+            colour = Color.Green;
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
@@ -74,15 +75,16 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.LuckTurn:
                     break;
                 case Singleton.GameState.WisdomShooting:
-
-
-
                     break;
                 case Singleton.GameState.LuckShooting:
-
-
-
-
+                    break;
+                case Singleton.GameState.WisdomEndTurn:
+                    break;
+                case Singleton.GameState.LuckEndTurn:
+                    if (hit_point < 1)
+                    {
+                        isActive = false;
+                    }
                     break;
             }
 
@@ -91,7 +93,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, Color.Green, 0, origin, scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, colour, rotation, origin, scale, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
         }
     }
