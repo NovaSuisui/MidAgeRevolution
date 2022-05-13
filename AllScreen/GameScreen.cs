@@ -28,15 +28,57 @@ namespace MidAgeRevolution.AllScreen
                     _gameObj.Add(new Wisdom(test)
                     {
                         position = new Vector2(0, 0),
-                        side = true
-                    }); ;
+                        side = GameSprite.Side_ID.Wisdom_player
+                    });
                     _gameObj.Add(new Luck(test)
                     {
-                        position = new Vector2(1540, 840),
-                        side = false
+                        position = new Vector2(1540, 0),
+                        side = GameSprite.Side_ID.Luck_player
                     });
                     //_gameObj.Add(new Bullet(test));
-                    //_gameObj.Add(new Obstacle(test));
+                    _gameObj.Add(new Obstacle(test)
+                    {
+                        position = new Vector2(200, 660),
+                        scale = new Vector2(5, 1),
+                        side = GameSprite.Side_ID.Wisdom_obstacle
+                    });
+                    for (int i = 0; i < 3; i++)
+                    {
+                        _gameObj.Add(new Obstacle(test)
+                        {
+                            position = new Vector2(200 + (120 * i), 720),
+                            scale = new Vector2(1, 2),
+                            side = GameSprite.Side_ID.Wisdom_obstacle
+                        });
+                    }
+                    _gameObj.Add(new Obstacle(test)
+                    {
+                        position = new Vector2(200, 840),
+                        scale = new Vector2(5, 1),
+                        side = GameSprite.Side_ID.Wisdom_obstacle
+                    });
+                    _gameObj.Add(new Obstacle(test)
+                    {
+                        position = new Vector2(1100, 660),
+                        scale = new Vector2(5, 1),
+                        side = GameSprite.Side_ID.Luck_obstacle
+                    });
+                    for (int i = 0; i < 3; i++)
+                    {
+                        _gameObj.Add(new Obstacle(test)
+                        {
+                            position = new Vector2(1100 + (120 * i), 720),
+                            scale = new Vector2(1, 2),
+                            side = GameSprite.Side_ID.Luck_obstacle
+                        });
+                    }
+                    _gameObj.Add(new Obstacle(test)
+                    {
+                        position = new Vector2(1100, 840),
+                        scale = new Vector2(5, 1),
+                        side = GameSprite.Side_ID.Luck_obstacle
+                    });
+
 
                     Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
                     break;

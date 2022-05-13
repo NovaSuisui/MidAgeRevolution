@@ -22,6 +22,8 @@ namespace MidAgeRevolution
 
         public GameTime _time;
 
+        public float TEXTURE_SIZE = 60;
+
         public enum MainState
         {
             start,

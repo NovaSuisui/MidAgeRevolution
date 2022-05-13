@@ -8,8 +8,11 @@ namespace MidAgeRevolution.AllSprite
 {
     class Obstacle : GameSprite
     {
+        Texture2D test;
+
         public Obstacle(Texture2D texture) : base(texture)
         {
+            test = texture;
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
@@ -37,6 +40,7 @@ namespace MidAgeRevolution.AllSprite
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, Color.Black, 0, origin, new Vector2(scale.X, scale.Y), SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
         }
     }

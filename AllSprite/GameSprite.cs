@@ -12,14 +12,27 @@ namespace MidAgeRevolution.AllSprite
         protected bool isActive;
         public Vector2 position;
         protected Vector2 origin;
-        protected Vector2 scale;
-        public bool side;
-        //public Rectangle hitbox;
+        public Vector2 scale;
+        //public bool Side_ID;
+        public int hitbox_size;
+
+        public enum Side_ID
+        {
+            Wisdom_player,
+            Luck_player,
+            Wisdom_obstacle,
+            Luck_obstacle,
+
+        }
+        public Side_ID side;
 
         public GameSprite(Texture2D texture)
         {
             _texture = texture;
             position = Vector2.Zero;
+            origin = Vector2.Zero;
+            scale = new Vector2(1, 1);
+            hitbox_size = (int)Singleton.Instance.TEXTURE_SIZE;
         }
 
         public virtual void Update(List<GameSprite> gameObject, GameTime gameTime)
@@ -39,7 +52,7 @@ namespace MidAgeRevolution.AllSprite
         {
             get
             {
-                return new Rectangle((int)position.X, (int)position.Y, 60, 60);
+                return new Rectangle((int)position.X, (int)position.Y, hitbox_size * (int)scale.X, hitbox_size * (int)scale.Y);
             }
         }
     }

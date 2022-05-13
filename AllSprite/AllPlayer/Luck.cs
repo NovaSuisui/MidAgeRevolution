@@ -87,7 +87,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, Color.Red, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, Color.Red, 0, origin, scale, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
         }
     }
