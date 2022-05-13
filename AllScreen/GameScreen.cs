@@ -27,12 +27,12 @@ namespace MidAgeRevolution.AllScreen
                     _gameObj.Clear();
                     _gameObj.Add(new Wisdom(test)
                     {
-                        position = new Vector2(0, 0),
+                        position = new Vector2(320, 600),
                         side = GameSprite.Side_ID.Wisdom_player
                     });
                     _gameObj.Add(new Luck(test)
                     {
-                        position = new Vector2(1540, 0),
+                        position = new Vector2(1220, 600),
                         side = GameSprite.Side_ID.Luck_player
                     });
                     //_gameObj.Add(new Bullet(test));
