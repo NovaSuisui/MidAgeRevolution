@@ -56,5 +56,33 @@ namespace MidAgeRevolution.AllSprite
                 return new Rectangle((int)position.X, (int)position.Y, hitbox_size * (int)scale.X, hitbox_size * (int)scale.Y);
             }
         }
+
+        protected bool isHit(List<GameSprite> gameObject)
+        {
+            foreach (var obj in gameObject)
+            {
+                if (obj.hitbox.Intersects(hitbox) &&
+                    obj.side != this.side)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        protected bool isHit2(List<GameSprite> gameObject)
+        {
+            foreach (var obj in gameObject)
+            {
+                if (obj.hitbox.Intersects(hitbox))
+                {
+                    if (this.side == Side_ID.Wisdom_player && (obj.side == Side_ID.Luck_player || obj.side == Side_ID.Luck_obstacle))
+                        return true;
+                    else if (this.side == Side_ID.Luck_player && (obj.side == Side_ID.Wisdom_player || obj.side == Side_ID.Wisdom_obstacle))
+                        return true;
+                }
+            }
+            return false;
+        }
     }
 }

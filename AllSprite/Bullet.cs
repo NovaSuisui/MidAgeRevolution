@@ -60,8 +60,7 @@ namespace MidAgeRevolution.AllSprite
                     position.X += velocity.X;
                     position.Y += velocity.Y;
 
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    if (isHit2(gameObject))
                     {
                         Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
                         side = Side_ID.Luck_player;
@@ -72,8 +71,7 @@ namespace MidAgeRevolution.AllSprite
                     position.X += velocity.X;
                     position.Y += velocity.Y;
 
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    if (isHit2(gameObject))
                     {
                         Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
                         side = Side_ID.Wisdom_player;

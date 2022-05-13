@@ -21,18 +21,5 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         {
             base.Draw(spriteBatch);
         }
-
-        protected bool isHit(List<GameSprite> gameObject)
-        {
-            foreach (var obj in gameObject)
-            {
-                if (obj.hitbox.Intersects(hitbox) &&
-                    obj.side != this.side)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }
