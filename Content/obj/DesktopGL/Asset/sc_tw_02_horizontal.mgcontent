@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/rl_health_bar.png</SourceFile>
-  <SourceTime>2022-05-10T23:56:53.5927437+07:00</SourceTime>
-  <DestFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/bin/DesktopGL/Asset/rl_health_bar.xnb</DestFile>
-  <DestTime>2022-05-14T15:40:35.666946+07:00</DestTime>
+  <SourceFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/sc_tw_02_horizontal.png</SourceFile>
+  <SourceTime>2022-05-14T15:36:49.5430916+07:00</SourceTime>
+  <DestFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/bin/DesktopGL/Asset/sc_tw_02_horizontal.xnb</DestFile>
+  <DestTime>2022-05-14T15:40:35.675868+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

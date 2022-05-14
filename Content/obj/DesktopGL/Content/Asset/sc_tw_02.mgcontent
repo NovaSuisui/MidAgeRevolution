@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/sc_tw_02.png</SourceFile>
-<<<<<<< Updated upstream
-  <SourceTime>2022-05-14T15:29:11.4158928+07:00</SourceTime>
+  <SourceTime>2022-05-14T15:31:47.7269466+07:00</SourceTime>
   <DestFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sc_tw_02.xnb</DestFile>
-  <DestTime>2022-05-14T15:29:14.6441472+07:00</DestTime>
-=======
-  <SourceTime>2022-05-14T15:26:23.8527608+07:00</SourceTime>
-  <DestFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sc_tw_02.xnb</DestFile>
-  <DestTime>2022-05-14T15:26:53.7346812+07:00</DestTime>
->>>>>>> Stashed changes
+  <DestTime>2022-05-14T15:33:07.3534918+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

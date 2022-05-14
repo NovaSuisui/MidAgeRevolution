@@ -73,7 +73,7 @@
 /processorParam:TextureFormat=Color
 /build:Asset/sc_health_bar.png
 
-#begin Asset/sc_tw_02.png
+#begin Asset/sc_tw_02_horizontal.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -83,7 +83,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Asset/sc_tw_02.png
+/build:Asset/sc_tw_02_horizontal.png
+
+#begin Asset/sc_tw_02_vertical.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/sc_tw_02_vertical.png
 
 #begin Asset/science.png
 /importer:TextureImporter

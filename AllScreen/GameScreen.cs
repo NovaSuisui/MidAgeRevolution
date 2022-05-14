@@ -28,58 +28,62 @@ namespace MidAgeRevolution.AllScreen
                     _gameObj.Add(new Wisdom(Singleton.Instance.sc)
                     {
                         position = new Vector2(320, 600),
-                        scale = new Vector2(50, 87.74),
+                        hitbox_size = new Vector2(50, 87.74f),
                         side = GameSprite.Side_ID.Wisdom_player
                     });
                     _gameObj.Add(new Luck(Singleton.Instance.rl)
                     {
                         position = new Vector2(1220, 600),
+                        hitbox_size = new Vector2(50, 81.44f),
                         side = GameSprite.Side_ID.Luck_player
                     });
                     _gameObj.Add(new Bullet(test)
                     {
                         //TO DO
                     });
-                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
+                    // horizontal
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
                     {
                         position = new Vector2(200, 660),
-                        scale = new Vector2(5, 1),
+                        hitbox_size = new Vector2(98, 30),
                         side = GameSprite.Side_ID.Wisdom_obstacle
                     });
+                    //vertical
                     for (int i = 0; i < 3; i++)
                     {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
+                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
                         {
                             position = new Vector2(200 + (120 * i), 720),
-                            scale = new Vector2(1, 2),
+                            hitbox_size = new Vector2(30, 98),
                             side = GameSprite.Side_ID.Wisdom_obstacle
                         });
                     }
-                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
+                    // horizontal
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
                     {
                         position = new Vector2(200, 840),
-                        scale = new Vector2(5, 1),
+                        hitbox_size = new Vector2(98, 30),
                         side = GameSprite.Side_ID.Wisdom_obstacle
                     });
-                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
                     {
                         position = new Vector2(1100, 660),
-                        scale = new Vector2(5, 1),
+                        hitbox_size = new Vector2(98, 30),
                         side = GameSprite.Side_ID.Luck_obstacle
                     });
                     for (int i = 0; i < 3; i++)
                     {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
+                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
                         {
                             position = new Vector2(1100 + (120 * i), 720),
-                            scale = new Vector2(1, 2),
+                            hitbox_size = new Vector2(30, 98),
                             side = GameSprite.Side_ID.Luck_obstacle
                         });
                     }
-                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
                     {
                         position = new Vector2(1100, 840),
-                        scale = new Vector2(5, 1),
+                        hitbox_size = new Vector2(98, 30),
                         side = GameSprite.Side_ID.Luck_obstacle
                     });
 

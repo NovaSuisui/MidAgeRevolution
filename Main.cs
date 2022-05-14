@@ -57,7 +57,8 @@ namespace MidAgeRevolution
             Singleton.Instance.rl_hp_bar = this.Content.Load<Texture2D>("Asset/rl_health_bar");
             Singleton.Instance.screenBorder = this.Content.Load<Texture2D>("Asset/play_screen_border");
             Singleton.Instance.bg = this.Content.Load<Texture2D>("Asset/background");
-            Singleton.Instance.sc_tw_02 = this.Content.Load<Texture2D>("Asset/sc_tw_02");
+            Singleton.Instance.sc_tw_02_v = this.Content.Load<Texture2D>("Asset/sc_tw_02_vertical");
+            Singleton.Instance.sc_tw_02_h = this.Content.Load<Texture2D>("Asset/sc_tw_02_horizontal");
             _spriteFont = this.Content.Load<SpriteFont>("Test/font0");
         }
 

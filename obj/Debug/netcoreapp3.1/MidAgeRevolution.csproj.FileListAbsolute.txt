@@ -68,3 +68,5 @@ D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Conte
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\science.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_health_bar.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02_horizontal.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02_vertical.xnb
