@@ -92,14 +92,18 @@ namespace MidAgeRevolution.AllScreen
                     break;
 
                 case Singleton.GameState.WisdomTurn:
-                    _gameObj[0].Update(_gameObj, Singleton.Instance._time);
-                    _gameObj[2].Update(_gameObj, Singleton.Instance._time);
+                    foreach (GameSprite obj in _gameObj)
+                    {
+                        obj.Update(_gameObj, Singleton.Instance._time);
+                    }
 
                     break;
 
                 case Singleton.GameState.LuckTurn:
-                    _gameObj[1].Update(_gameObj, Singleton.Instance._time);
-                    _gameObj[2].Update(_gameObj, Singleton.Instance._time);
+                    foreach (GameSprite obj in _gameObj)
+                    {
+                        obj.Update(_gameObj, Singleton.Instance._time);
+                    }
 
                     break;
 
