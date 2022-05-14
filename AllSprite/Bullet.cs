@@ -88,9 +88,9 @@ namespace MidAgeRevolution.AllSprite
                     }
 
                     if (position.X < 0 ||
-                        position.X > Singleton.WINDOWS_SIZE_X ||
+                        position.X > Singleton.WINDOWS_SIZE_X - Singleton.Instance.TEXTURE_SIZE ||
                         position.Y < 0 ||
-                        position.Y > Singleton.WINDOWS_SIZE_Y)
+                        position.Y > Singleton.WINDOWS_SIZE_Y - Singleton.Instance.TEXTURE_SIZE)
                     {
                         Singleton.Instance._gameState = Singleton.GameState.LuckEndTurn;
                         side = Side_ID.Wisdom_player;

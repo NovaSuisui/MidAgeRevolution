@@ -12,11 +12,13 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
     class Wisdom : Player
     {
         Texture2D test;
+        Color hp_color;
 
         public Wisdom(Texture2D texture) : base(texture)
         {
             test = texture;
             colour = Color.Green;
+            hp_color = Color.Green;
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
@@ -81,6 +83,15 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.WisdomEndTurn:
                     break;
                 case Singleton.GameState.LuckEndTurn:
+                    if (hit_point < 33)
+                    {
+                        hp_color = Color.Red;
+                    }
+                    else if (hit_point < 66)
+                    {
+                        hp_color = Color.Orange;
+                    }
+
                     if (hit_point < 1)
                     {
                         colour = Color.Red;
@@ -94,6 +105,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(test, new Vector2(200, 100), null, hp_color, rotation, origin, new Vector2(5 * (hit_point / 100), 1), SpriteEffects.None, 0f);
             spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, colour, rotation, origin, scale, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
         }
