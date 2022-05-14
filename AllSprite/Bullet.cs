@@ -28,7 +28,7 @@ namespace MidAgeRevolution.AllSprite
                 case Singleton.GameState.Setup:
                     break;
                 case Singleton.GameState.WisdomTurn:
-                    position.X = gameObject[0].position.X + Singleton.Instance.TEXTURE_SIZE;
+                    position.X = gameObject[0].position.X + gameObject[0].hitbox_size.X;
                     position.Y = gameObject[0].position.Y;
 
                     if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
@@ -43,7 +43,7 @@ namespace MidAgeRevolution.AllSprite
 
                     break;
                 case Singleton.GameState.LuckTurn:
-                    position.X = gameObject[1].position.X - Singleton.Instance.TEXTURE_SIZE;
+                    position.X = gameObject[1].position.X - gameObject[1].hitbox_size.X;
                     position.Y = gameObject[1].position.Y;
 
                     if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
