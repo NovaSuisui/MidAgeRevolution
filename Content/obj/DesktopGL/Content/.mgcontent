@@ -4,15 +4,15 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/background.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/play_screen_border.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/relegious.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/rl_health_bar.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/sc_health_bar.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/sc_tw_02.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Asset/science.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Test/font0.spritefont</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/MidAgeRevolution/Content/Test/test0.png</File>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Asset/background.png</File>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Asset/play_screen_border.png</File>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Asset/relegious.png</File>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Asset/rl_health_bar.png</File>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Asset/sc_health_bar.png</File>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Asset/sc_tw_02.png</File>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Asset/science.png</File>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Test/font0.spritefont</File>
+    <File>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Test/test0.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

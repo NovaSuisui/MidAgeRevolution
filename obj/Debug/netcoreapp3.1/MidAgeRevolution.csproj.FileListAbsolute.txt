@@ -60,3 +60,11 @@ D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\MidAgeRevoluti
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_health_bar.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\religious.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\relegious.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\background.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\play_screen_border.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\religious.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rl_health_bar.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\science.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_health_bar.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02.xnb

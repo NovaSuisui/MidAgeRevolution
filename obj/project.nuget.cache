@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "vJrpHb11NHUSgUqVhc7b7jlKio9r7hBrm69dlY58Jpkl+XP6vK2xkm78pyb7jEVCUFDoRhgVBei4PSDcC58y2Q==",
+  "dgSpecHash": "BMNSu4uXsm+iQAYyegOg5t9lvYQWa4Y7a+Mh7Mvjmon2OsAjqKN7BDX2zB3caz8mn5ChDQyzr68IjlWK5B3vaw==",
   "success": true,
-  "projectFilePath": "D:\\KMITL\\Year 2\\Season 2\\Computer Game Progamming\\._Final Project\\MidAgeRevolution\\MidAgeRevolution.csproj",
+  "projectFilePath": "D:\\HW\\Year2\\2\\Computer Game\\Final\\MidAgeRevolution\\MidAgeRevolution.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\User\\.nuget\\packages\\aether.physics2d.mg\\1.6.1\\aether.physics2d.mg.1.6.1.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+    "C:\\Users\\SK\\.nuget\\packages\\aether.physics2d.mg\\1.6.1\\aether.physics2d.mg.1.6.1.nupkg.sha512",
+    "C:\\Users\\SK\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\SK\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
   ],
   "logs": []
 }

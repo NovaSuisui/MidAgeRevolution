@@ -17,7 +17,7 @@ namespace MidAgeRevolution.AllSprite
         public Vector2 scale;
         protected int movespeed;
         public float hit_point;
-        public int hitbox_size;
+        public Vector2 hitbox_size;
 
         public enum Side_ID
         {
@@ -40,7 +40,7 @@ namespace MidAgeRevolution.AllSprite
             scale = new Vector2(1, 1);
             movespeed = 5;
             hit_point = 100;
-            hitbox_size = (int)Singleton.Instance.TEXTURE_SIZE;
+            hitbox_size = new Vector2(Singleton.Instance.TEXTURE_SIZE, Singleton.Instance.TEXTURE_SIZE);
         }
 
         public virtual void Update(List<GameSprite> gameObject, GameTime gameTime)
@@ -60,7 +60,7 @@ namespace MidAgeRevolution.AllSprite
         {
             get
             {
-                return new Rectangle((int)position.X, (int)position.Y, hitbox_size * (int)scale.X, hitbox_size * (int)scale.Y);
+                return new Rectangle((int)position.X, (int)position.Y, (int)(hitbox_size.X * scale.X), (int)(hitbox_size.Y * scale.Y));
             }
         }
     }
