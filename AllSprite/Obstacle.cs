@@ -13,7 +13,7 @@ namespace MidAgeRevolution.AllSprite
         public Obstacle(Texture2D texture) : base(texture)
         {
             test = texture;
-            colour = Color.Gray;
+            colour = Color.White;
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
