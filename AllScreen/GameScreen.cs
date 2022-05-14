@@ -35,7 +35,7 @@ namespace MidAgeRevolution.AllScreen
                     _gameObj.Add(new Luck(Singleton.Instance.rl)
                     {
                         // position = new Vector2(1220, 600),
-                        position = new Vector2(1296, 328),
+                        position = new Vector2(1296, 320),
                         hitbox_size = new Vector2(50, 87.74f),
                         side = GameSprite.Side_ID.Luck_player
                     });
@@ -43,54 +43,95 @@ namespace MidAgeRevolution.AllScreen
                     {
                         //TO DO
                     });
-                    // horizontal
+                    // horizontal wisdom
                     for (int i = 0; i < 2; i++)
                     {
                         _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
                         {
-                            position = new Vector2(279 + (98 * i), 409),
+                            position = new Vector2(255 + (98 * i), 409),
                             hitbox_size = new Vector2(98, 30),
                             side = GameSprite.Side_ID.Wisdom_obstacle
                         });
                     }
-                    //vertical
+                    for (int i = 0; i < 4; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                            {
+                                position = new Vector2(157 + (98 * i), 537 + (128 * j)),
+                                hitbox_size = new Vector2(98, 30),
+                                side = GameSprite.Side_ID.Wisdom_obstacle
+                            });
+                        }
+                    }
+                    //vertical wisdom
                     for (int i = 0; i < 3; i++)
                     {
                         _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
                         {
-                            position = new Vector2(200 + (120 * i), 720),
+                            position = new Vector2(240 + (98 * i), 439),
                             hitbox_size = new Vector2(30, 98),
                             side = GameSprite.Side_ID.Wisdom_obstacle
                         });
                     }
-                    // horizontal
-                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                    for (int i = 0; i < 5; i++)
                     {
-                        position = new Vector2(200, 840),
-                        hitbox_size = new Vector2(98, 30),
-                        side = GameSprite.Side_ID.Wisdom_obstacle
-                    });
-                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                        for (int j = 0; j < 3; j++)
+                        {
+                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
+                            {
+                                position = new Vector2(142 + (98 * i), 567 + (128 * j)),
+                                hitbox_size = new Vector2(30, 98),
+                                side = GameSprite.Side_ID.Wisdom_obstacle
+                            });
+                        }
+                    }
+
+                    // horizontal luck
+                    for (int i = 0; i < 2; i++)
                     {
-                        position = new Vector2(1100, 660),
-                        hitbox_size = new Vector2(98, 30),
-                        side = GameSprite.Side_ID.Luck_obstacle
-                    });
+                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                        {
+                            position = new Vector2(1188 + (98 * i), 409),
+                            hitbox_size = new Vector2(98, 30),
+                            side = GameSprite.Side_ID.Luck_obstacle
+                        });
+                    }
+                    for (int i = 0; i < 4; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                            {
+                                position = new Vector2(1090 + (98 * i), 537 + (128 * j)),
+                                hitbox_size = new Vector2(98, 30),
+                                side = GameSprite.Side_ID.Luck_obstacle
+                            });
+                        }
+                    }
+                    //vertical luck
                     for (int i = 0; i < 3; i++)
                     {
                         _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
                         {
-                            position = new Vector2(1100 + (120 * i), 720),
+                            position = new Vector2(1173 + (98 * i), 439),
                             hitbox_size = new Vector2(30, 98),
                             side = GameSprite.Side_ID.Luck_obstacle
                         });
                     }
-                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                    for (int i = 0; i < 5; i++)
                     {
-                        position = new Vector2(1100, 840),
-                        hitbox_size = new Vector2(98, 30),
-                        side = GameSprite.Side_ID.Luck_obstacle
-                    });
+                        for (int j = 0; j < 3; j++)
+                        {
+                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
+                            {
+                                position = new Vector2(1075 + (98 * i), 567 + (128 * j)),
+                                hitbox_size = new Vector2(30, 98),
+                                side = GameSprite.Side_ID.Luck_obstacle
+                            });
+                        }
+                    }
 
 
                     Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
@@ -134,27 +175,6 @@ namespace MidAgeRevolution.AllScreen
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
 
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
-                    {
-                        if (_gameObj[1].isActive)
-                        {
-                            Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
-                        }
-                        else
-                        {
-                            label = "Wisdom Win";
-                            Singleton.Instance._mainState = Singleton.MainState.gameEnd;
-                        }
-                    }
-
-                    for (int i = 2; i < _gameObj.Count; i++)
-                    {
-                        if (!_gameObj[i].isActive)
-                        {
-                            _gameObj.RemoveAt(i);
-                        }
-                    }
                     break;
 
                 case Singleton.GameState.LuckEndTurn:
@@ -163,20 +183,6 @@ namespace MidAgeRevolution.AllScreen
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
 
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
-                    {
-                        if (_gameObj[0].isActive)
-                        {
-                            Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
-                        }
-                        else
-                        {
-                            label = "Luck Win";
-                            Singleton.Instance._mainState = Singleton.MainState.gameEnd;
-                        }
-                    }
-
                     for (int i = 2; i < _gameObj.Count; i++)
                     {
                         if (!_gameObj[i].isActive)
@@ -185,6 +191,25 @@ namespace MidAgeRevolution.AllScreen
                         }
                     }
                     break;
+            }
+
+            if (!_gameObj[0].isActive)
+            {
+                label = "Luck Win";
+                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+            }
+            else if(!_gameObj[1].isActive)
+            {
+                label = "Wisdom Win";
+                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+            }
+
+            for (int i = 2; i < _gameObj.Count; i++)
+            {
+                if (!_gameObj[i].isActive)
+                {
+                    _gameObj.RemoveAt(i);
+                }
             }
 
             base.Update(gameScreen);

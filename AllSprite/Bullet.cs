@@ -98,9 +98,15 @@ namespace MidAgeRevolution.AllSprite
 
                     break;
                 case Singleton.GameState.WisdomEndTurn:
-                        break;
+                    Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
+                    side = Side_ID.Luck_player;
+
+                    break;
                 case Singleton.GameState.LuckEndTurn:
-                        break;
+                    Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
+                    side = Side_ID.Wisdom_player;
+
+                    break;
             }
 
             base.Update(gameObject, gameTime);

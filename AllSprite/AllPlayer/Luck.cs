@@ -26,32 +26,32 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.Setup:
                     break;
                 case Singleton.GameState.WisdomTurn:
-                    position.Y += movespeed;
+                    /*position.Y += movespeed;
                     if (isHit(gameObject) ||
                         position.Y > Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
                     {
                         position.Y -= movespeed;
-                    }
+                    }*/
 
                     break;
                 case Singleton.GameState.LuckTurn:
                     if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.W) &&
                         position.Y > 0)
                     {
-                        position.Y -= movespeed;
+                        position.Y -= movespeed * 2;
                         if (isHit(gameObject))
                         {
                             position.Y += movespeed;
                         }
                     }
-                    else
+                    /*else
                     {
                         if (position.Y < Singleton.WINDOWS_SIZE_Y - hitbox_size.Y) position.Y += movespeed;
                         if (isHit(gameObject))
                         {
                             position.Y -= movespeed;
                         }
-                    }
+                    }*/
                     if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A) &&
                         position.X > 0)
                     {
@@ -82,21 +82,21 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
                     break;
                 case Singleton.GameState.WisdomShooting:
-                    position.Y += movespeed;
+                    /*position.Y += movespeed;
                     if (isHit(gameObject) ||
                         position.Y > Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
                     {
                         position.Y -= movespeed;
-                    }
+                    }*/
 
                     break;
                 case Singleton.GameState.LuckShooting:
-                    position.Y += movespeed;
+                    /*position.Y += movespeed;
                     if (isHit(gameObject) ||
                         position.Y > Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
                     {
                         position.Y -= movespeed;
-                    }
+                    }*/
 
                     break;
                 case Singleton.GameState.WisdomEndTurn:
@@ -119,6 +119,31 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                     break;
             }
 
+            position.Y += movespeed;
+            if (isHit(gameObject))
+            {
+                position.Y -= movespeed;
+            }
+            else if (position.Y > Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
+            {
+                position.Y -= movespeed;
+                hit_point = 0;
+            }
+
+            if (hit_point < 33)
+            {
+                hp_color = Color.Red;
+            }
+            else if (hit_point < 66)
+            {
+                hp_color = Color.Orange;
+            }
+
+            if (hit_point < 1)
+            {
+                colour = Color.Red;
+                isActive = false;
+            }
 
             base.Update(gameObject, gameTime);
         }
