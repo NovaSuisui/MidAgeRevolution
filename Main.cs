@@ -51,6 +51,13 @@ namespace MidAgeRevolution
 
             // TODO: use this.Content to load your game content here
             test = this.Content.Load<Texture2D>("Test/test0");
+            Singleton.Instance.sc = this.Content.Load<Texture2D>("Asset/science");
+            Singleton.Instance.rl = this.Content.Load<Texture2D>("Asset/religious");
+            Singleton.Instance.sc_hp_bar = this.Content.Load<Texture2D>("Asset/sc_health_bar");
+            Singleton.Instance.rl_hp_bar = this.Content.Load<Texture2D>("Asset/rl_health_bar");
+            Singleton.Instance.screenBorder = this.Content.Load<Texture2D>("Asset/play_screen_border");
+            Singleton.Instance.bg = this.Content.Load<Texture2D>("Asset/background");
+            Singleton.Instance.sc_tw_02 = this.Content.Load<Texture2D>("Asset/sc_tw_02");
             _spriteFont = this.Content.Load<SpriteFont>("Test/font0");
         }
 

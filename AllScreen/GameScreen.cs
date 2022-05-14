@@ -25,12 +25,12 @@ namespace MidAgeRevolution.AllScreen
             {
                 case Singleton.GameState.Setup:
                     _gameObj.Clear();
-                    _gameObj.Add(new Wisdom(test)
+                    _gameObj.Add(new Wisdom(Singleton.Instance.sc)
                     {
                         position = new Vector2(320, 600),
                         side = GameSprite.Side_ID.Wisdom_player
                     });
-                    _gameObj.Add(new Luck(test)
+                    _gameObj.Add(new Luck(Singleton.Instance.rl)
                     {
                         position = new Vector2(1220, 600),
                         side = GameSprite.Side_ID.Luck_player
@@ -39,7 +39,7 @@ namespace MidAgeRevolution.AllScreen
                     {
                         //TO DO
                     });
-                    _gameObj.Add(new Obstacle(test)
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
                     {
                         position = new Vector2(200, 660),
                         scale = new Vector2(5, 1),
@@ -47,20 +47,20 @@ namespace MidAgeRevolution.AllScreen
                     });
                     for (int i = 0; i < 3; i++)
                     {
-                        _gameObj.Add(new Obstacle(test)
+                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
                         {
                             position = new Vector2(200 + (120 * i), 720),
                             scale = new Vector2(1, 2),
                             side = GameSprite.Side_ID.Wisdom_obstacle
                         });
                     }
-                    _gameObj.Add(new Obstacle(test)
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
                     {
                         position = new Vector2(200, 840),
                         scale = new Vector2(5, 1),
                         side = GameSprite.Side_ID.Wisdom_obstacle
                     });
-                    _gameObj.Add(new Obstacle(test)
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
                     {
                         position = new Vector2(1100, 660),
                         scale = new Vector2(5, 1),
@@ -68,14 +68,14 @@ namespace MidAgeRevolution.AllScreen
                     });
                     for (int i = 0; i < 3; i++)
                     {
-                        _gameObj.Add(new Obstacle(test)
+                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
                         {
                             position = new Vector2(1100 + (120 * i), 720),
                             scale = new Vector2(1, 2),
                             side = GameSprite.Side_ID.Luck_obstacle
                         });
                     }
-                    _gameObj.Add(new Obstacle(test)
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02)
                     {
                         position = new Vector2(1100, 840),
                         scale = new Vector2(5, 1),

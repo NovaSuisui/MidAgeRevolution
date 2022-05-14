@@ -55,8 +55,15 @@ namespace MidAgeRevolution
         {
 
         }
-
-
+        
+        //texture2d
+        public Texture2D sc;
+        public Texture2D rl;
+        public Texture2D screenBorder;
+        public Texture2D rl_hp_bar;
+        public Texture2D sc_hp_bar;
+        public Texture2D bg;
+        public Texture2D sc_tw_02;
         //singleton
         private static Singleton instance;
 
