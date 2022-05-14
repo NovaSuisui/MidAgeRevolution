@@ -17,7 +17,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         public Wisdom(Texture2D texture) : base(texture)
         {
             test = texture;
-            colour = Color.Green;
+            colour = Color.White;
             hp_color = Color.Green;
         }
 

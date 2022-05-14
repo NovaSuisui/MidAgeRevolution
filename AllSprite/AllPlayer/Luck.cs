@@ -15,7 +15,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         public Luck(Texture2D texture) : base(texture)
         {
             test = texture;
-            colour = Color.Yellow;
+            colour = Color.White;
             hp_color = Color.Green;
         }
 
