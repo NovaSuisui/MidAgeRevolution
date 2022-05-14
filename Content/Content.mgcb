@@ -47,7 +47,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Asset/relegious.png
+/build:Asset/relegious.png;Asset/religious.png
 
 #begin Asset/rl_health_bar.png
 /importer:TextureImporter
