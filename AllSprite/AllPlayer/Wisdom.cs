@@ -77,8 +77,22 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.LuckTurn:
                     break;
                 case Singleton.GameState.WisdomShooting:
+                    position.Y += movespeed;
+                    if (isHit(gameObject) ||
+                        position.Y < 1)
+                    {
+                        position.Y -= movespeed;
+                    }
+
                     break;
                 case Singleton.GameState.LuckShooting:
+                    position.Y += movespeed;
+                    if (isHit(gameObject) ||
+                        position.Y < 1)
+                    {
+                        position.Y -= movespeed;
+                    }
+
                     break;
                 case Singleton.GameState.WisdomEndTurn:
                     break;
