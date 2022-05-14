@@ -28,6 +28,7 @@ namespace MidAgeRevolution.AllScreen
                     _gameObj.Add(new Wisdom(Singleton.Instance.sc)
                     {
                         position = new Vector2(320, 600),
+                        scale = new Vector2(50, 87.74),
                         side = GameSprite.Side_ID.Wisdom_player
                     });
                     _gameObj.Add(new Luck(Singleton.Instance.rl)
