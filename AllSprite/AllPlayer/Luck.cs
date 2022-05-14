@@ -39,7 +39,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                     }
                     else
                     {
-                        if (position.Y < 840) position.Y += movespeed;
+                        if (position.Y < Singleton.WINDOWS_SIZE_Y - hitbox_size.Y) position.Y += movespeed;
                         if (isHit(gameObject))
                         {
                             position.Y -= movespeed;
@@ -55,7 +55,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                         }
                     }
                     if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.S) &&
-                        position.Y < 840)
+                        position.Y < Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
                     {
                         position.Y += movespeed;
                         if (isHit(gameObject))
@@ -64,7 +64,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                         }
                     }
                     if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D) &&
-                        position.X < 1540)
+                        position.X < Singleton.WINDOWS_SIZE_X - hitbox_size.X)
                     {
                         position.X += movespeed;
                         if (isHit(gameObject))
@@ -77,7 +77,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.WisdomShooting:
                     position.Y += movespeed;
                     if (isHit(gameObject) ||
-                        position.Y < 1)
+                        position.Y < Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
                     {
                         position.Y -= movespeed;
                     }
@@ -86,7 +86,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.LuckShooting:
                     position.Y += movespeed;
                     if (isHit(gameObject) ||
-                        position.Y < 1)
+                        position.Y < Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
                     {
                         position.Y -= movespeed;
                     }
