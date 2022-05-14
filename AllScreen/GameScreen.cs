@@ -28,13 +28,13 @@ namespace MidAgeRevolution.AllScreen
                     _gameObj.Add(new Wisdom(Singleton.Instance.sc)
                     {
                         position = new Vector2(320, 600),
-                        hitbox_size = new Vector2(50, 87.74f),
+                        hitbox_size = new Vector2(50, 81.44f),
                         side = GameSprite.Side_ID.Wisdom_player
                     });
                     _gameObj.Add(new Luck(Singleton.Instance.rl)
                     {
                         position = new Vector2(1220, 600),
-                        hitbox_size = new Vector2(50, 81.44f),
+                        hitbox_size = new Vector2(50, 87.74f),
                         side = GameSprite.Side_ID.Luck_player
                     });
                     _gameObj.Add(new Bullet(test)

@@ -125,7 +125,8 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(test, new Vector2(1400, 100), null, hp_color, rotation, new Vector2( 60, 0), new Vector2(5 * (hit_point / 100), 1), SpriteEffects.None, 0f);
+            spriteBatch.Draw(Singleton.Instance.rl_hp_bar, new Vector2(997, 35), null, Color.White, rotation, origin, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(1353, 57), null, Color.White, rotation, new Vector2(324, 0), new Vector2(hit_point / 100, 1), SpriteEffects.None, 0f);
             spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, colour, rotation, origin, scale, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
         }
