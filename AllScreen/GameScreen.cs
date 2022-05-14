@@ -27,13 +27,15 @@ namespace MidAgeRevolution.AllScreen
                     _gameObj.Clear();
                     _gameObj.Add(new Wisdom(Singleton.Instance.sc)
                     {
-                        position = new Vector2(320, 600),
+                        // position = new Vector2(320, 600),
+                        position = new Vector2(1296, 328),
                         hitbox_size = new Vector2(50, 81.44f),
                         side = GameSprite.Side_ID.Wisdom_player
                     });
                     _gameObj.Add(new Luck(Singleton.Instance.rl)
                     {
-                        position = new Vector2(1220, 600),
+                        // position = new Vector2(1220, 600),
+                        position = new Vector2(304, 321),
                         hitbox_size = new Vector2(50, 87.74f),
                         side = GameSprite.Side_ID.Luck_player
                     });
@@ -42,12 +44,16 @@ namespace MidAgeRevolution.AllScreen
                         //TO DO
                     });
                     // horizontal
-                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                    for (int i = 0; i < 2; i++)
                     {
-                        position = new Vector2(200, 660),
-                        hitbox_size = new Vector2(98, 30),
-                        side = GameSprite.Side_ID.Wisdom_obstacle
-                    });
+                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                        {
+                            position = new Vector2(279 + (98 * i), 409),
+                            hitbox_size = new Vector2(98, 30),
+                            side = GameSprite.Side_ID.Wisdom_obstacle
+                        });
+                    }
+                        
                     //vertical
                     for (int i = 0; i < 3; i++)
                     {
