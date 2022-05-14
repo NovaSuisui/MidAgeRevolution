@@ -190,7 +190,7 @@ namespace MidAgeRevolution.AllScreen
             switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
-                    
+                    //spriteBatch.Draw(Singleton.Instance.screenBorder, new Vector2(-177, -7), null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 
                     break;
 
@@ -199,11 +199,13 @@ namespace MidAgeRevolution.AllScreen
                     {
                         obj.Draw(spriteBatch);
                     }*/
-                    for(int i = _gameObj.Count - 1; i >= 0; i--)
+                    spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                    for (int i = _gameObj.Count - 1; i >= 0; i--)
                     {
                         _gameObj[i].Draw(spriteBatch);
                     }
 
+                    spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                     break;
             }
 
