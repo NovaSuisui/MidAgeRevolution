@@ -12,7 +12,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
     class Wisdom : Player
     {
         Texture2D test;
-        Color hp_color;
+        public Color hp_color;
 
         public Wisdom(Texture2D texture) : base(texture)
         {
@@ -79,7 +79,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.WisdomShooting:
                     position.Y += movespeed;
                     if (isHit(gameObject) ||
-                        position.Y < Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
+                        position.Y > Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
                     {
                         position.Y -= movespeed;
                     }
@@ -88,7 +88,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.LuckShooting:
                     position.Y += movespeed;
                     if (isHit(gameObject) ||
-                        position.Y < Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
+                        position.Y > Singleton.WINDOWS_SIZE_Y - hitbox_size.Y)
                     {
                         position.Y -= movespeed;
                     }
@@ -119,8 +119,8 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, colour, rotation, origin, scale, SpriteEffects.None, 0f);
             spriteBatch.Draw(test, new Vector2(200, 100), null, hp_color, rotation, origin, new Vector2(5 * (hit_point / 100), 1), SpriteEffects.None, 0f);
+            spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, colour, rotation, origin, scale, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
         }
     }

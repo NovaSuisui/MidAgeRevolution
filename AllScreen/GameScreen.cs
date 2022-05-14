@@ -191,10 +191,15 @@ namespace MidAgeRevolution.AllScreen
                     break;
 
                 default:
-                    foreach (GameSprite obj in _gameObj)
+                    /*foreach (GameSprite obj in _gameObj)
                     {
                         obj.Draw(spriteBatch);
+                    }*/
+                    for(int i = _gameObj.Count - 1; i >= 0; i--)
+                    {
+                        _gameObj[i].Draw(spriteBatch);
                     }
+
                     break;
             }
 
