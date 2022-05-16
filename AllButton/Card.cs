@@ -16,13 +16,17 @@ namespace MidAgeRevolution.AllButton
             1
         };
         private int[] wisdomSkillCount;
-        private Color[] wisdomColor =
+        private int[] luckSkill;
+        private Color[] skillColor =
         {
+            Color.White,
             Color.White,
             Color.White
         };
         private int CurrentSkill;
         private int PreviousSkill;
+        private Random _random;
+
 
         public Card(Texture2D texture) : base(texture)
         {
@@ -30,6 +34,8 @@ namespace MidAgeRevolution.AllButton
             wisdomSkillCount = new int[2];
             CurrentSkill = -1;
             PreviousSkill = -1;
+            luckSkill = new int[3];
+            _random = new Random();
         }
 
         public override void Update(Button gameButton)
@@ -43,6 +49,8 @@ namespace MidAgeRevolution.AllButton
                         wisdomSkillCount[i] = wisdomSkillPool[i];
                     }
 
+                    randomAmmo();
+
                     break;
                 case Singleton.GameState.WisdomTurn:
                     if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
@@ -55,14 +63,14 @@ namespace MidAgeRevolution.AllButton
                         {
                             Singleton.Instance.ammo = Singleton.AmmoType.x2dmg;
                             CurrentSkill = 0;
-                            setAmmo();
+                            setAmmoWisdom();
                         }
                         else if (Singleton.Instance.CurrentMouse.X < position.X + 120 && 
                             Singleton.Instance.CurrentMouse.X > position.X + 60)
                         {
                             Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
                             CurrentSkill = 1;
-                            setAmmo();
+                            setAmmoWisdom();
                         }
                     }
 
@@ -76,12 +84,20 @@ namespace MidAgeRevolution.AllButton
                         if (Singleton.Instance.CurrentMouse.X < position.X + 60 &&
                             Singleton.Instance.CurrentMouse.X > position.X)
                         {
-
+                            CurrentSkill = 0;
+                            setAmmoLuck();
                         }
                         else if (Singleton.Instance.CurrentMouse.X < position.X + 120 &&
                             Singleton.Instance.CurrentMouse.X > position.X + 60)
                         {
-                            
+                            CurrentSkill = 1;
+                            setAmmoLuck();
+                        }
+                        else if (Singleton.Instance.CurrentMouse.X < position.X + 180 &&
+                            Singleton.Instance.CurrentMouse.X > position.X + 120)
+                        {
+                            CurrentSkill = 2;
+                            setAmmoLuck();
                         }
                     }
 
@@ -100,7 +116,7 @@ namespace MidAgeRevolution.AllButton
                     }
                     for (int i = 0; i < wisdomSkillCount.Length; i++)
                     {
-                        wisdomColor[i] = Color.White;
+                        skillColor[i] = Color.White;
                     }
                     CurrentSkill = -1;
                     PreviousSkill = -1;
@@ -108,7 +124,7 @@ namespace MidAgeRevolution.AllButton
 
                     break;
                 case Singleton.GameState.LuckEndTurn:
-                    //random for nextround
+                    randomAmmo();
 
                     break;
             }
@@ -125,15 +141,22 @@ namespace MidAgeRevolution.AllButton
                 case Singleton.GameState.WisdomTurn:
                     for (int i = 0; i < wisdomSkillCount.Length; i++) // for test
                     {
-                        //spriteBatch.Draw(test, new Vector2(position.X + 60 * i, position.Y), null, wisdomColor[i], 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                        //spriteBatch.Draw(test, new Vector2(position.X + 60 * i, position.Y), null, skillColor[i], 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                         //spriteBatch.Draw(test, rect, Color.White);
-                        spriteBatch.Draw(test, new Rectangle(rect.X + (i * rect.Width), rect.Y, rect.Width, rect.Height), wisdomColor[i]);
+                        spriteBatch.Draw(test, new Rectangle(rect.X + (i * rect.Width), rect.Y, rect.Width, rect.Height), skillColor[i]);
                         spriteBatch.DrawString(Singleton.Instance.testfont, ""+wisdomSkillCount[i], new Vector2(position.X + 60 * i, 265), Color.Black, 0, Vector2.Zero, new Vector2(5, 5), SpriteEffects.None, 0f);
                     }
 
-
                     break;
                 case Singleton.GameState.LuckTurn:
+                    for (int i = 0; i < 3; i++) // for test
+                    {
+                        //spriteBatch.Draw(test, new Vector2(position.X + 60 * i, position.Y), null, skillColor[i], 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                        //spriteBatch.Draw(test, rect, Color.White);
+                        spriteBatch.Draw(test, new Rectangle(rect.X + (i * rect.Width), rect.Y, rect.Width, rect.Height), skillColor[i]);
+                        spriteBatch.DrawString(Singleton.Instance.testfont, "" + luckSkill[i], new Vector2(position.X + 60 * i, 265), Color.Black, 0, Vector2.Zero, new Vector2(5, 5), SpriteEffects.None, 0f);
+                    }
+
                     break;
                 case Singleton.GameState.WisdomShooting:
                     break;
@@ -166,13 +189,13 @@ namespace MidAgeRevolution.AllButton
             return false;
         }
 
-        private void setAmmo()
+        private void setAmmoWisdom()
         {
             if (PreviousSkill == -1 &&
-                            wisdomSkillCount[CurrentSkill] > 0)
+                wisdomSkillCount[CurrentSkill] > 0)
             {
                 wisdomSkillCount[CurrentSkill]--;
-                wisdomColor[CurrentSkill] = Color.LightBlue;
+                skillColor[CurrentSkill] = Color.LightBlue;
                 PreviousSkill = CurrentSkill;
             }
             else if (CurrentSkill != PreviousSkill &&
@@ -180,20 +203,115 @@ namespace MidAgeRevolution.AllButton
             {
                 wisdomSkillCount[CurrentSkill]--;
                 wisdomSkillCount[PreviousSkill]++;
-                wisdomColor[CurrentSkill] = Color.LightBlue;
-                wisdomColor[PreviousSkill] = Color.White;
+                skillColor[CurrentSkill] = Color.LightBlue;
+                skillColor[PreviousSkill] = Color.White;
                 PreviousSkill = CurrentSkill;
             }
             else if (CurrentSkill == PreviousSkill)
             {
                 wisdomSkillCount[CurrentSkill]++;
-                wisdomColor[CurrentSkill] = Color.White;
+                skillColor[CurrentSkill] = Color.White;
                 PreviousSkill = -1;
                 Singleton.Instance.ammo = Singleton.AmmoType.normal;
             }
             else
             {
                 Singleton.Instance.ammo = Singleton.AmmoType.normal;
+            }
+        }
+
+        private void setAmmoLuck()
+        {
+            if (PreviousSkill == -1)
+            {
+                skillColor[CurrentSkill] = Color.LightBlue;
+                PreviousSkill = CurrentSkill;
+            }
+            else if (CurrentSkill != PreviousSkill)
+            {
+                skillColor[CurrentSkill] = Color.LightBlue;
+                skillColor[PreviousSkill] = Color.White;
+                PreviousSkill = CurrentSkill;
+            }
+            else if (CurrentSkill == PreviousSkill)
+            {
+                skillColor[CurrentSkill] = Color.White;
+                CurrentSkill = -1;
+                Singleton.Instance.ammo = Singleton.AmmoType.normal;
+            }
+            else
+            {
+                Singleton.Instance.ammo = Singleton.AmmoType.normal;
+            }
+
+            PreviousSkill = CurrentSkill;
+        }
+
+        private void randomAmmo()
+        {
+            List<int> rankB = new List<int>();
+            rankB.Add(0);
+            rankB.Add(1);
+            rankB.Add(2);
+            List<int> rankA = new List<int>();
+            rankA.Add(0);
+            rankA.Add(1);
+            rankA.Add(2);
+            int jackpot = 1;
+            int rank;
+            int type;
+            for (int i = 0; i < 3; i++)
+            {
+                rank = _random.Next(0, 99 + jackpot);
+                if (rank < 49)
+                {
+                    //B
+                    type = _random.Next(0, rankB.Count);
+                    switch (rankB[type])
+                    {
+                        case 0:
+                            //Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                            luckSkill[i] = 1;
+                            break;
+                        case 1:
+                            //Singleton.Instance.ammo = Singleton.AmmoType.x0dmg;
+                            luckSkill[i] = 2;
+                            break;
+                        case 2:
+                            //Singleton.Instance.ammo = Singleton.AmmoType.x0p5dmg;
+                            luckSkill[i] = 3;
+                            break;
+                    }
+                    rankB.RemoveAt(type);
+                }
+                else if (rank < 99)
+                {
+                    //A
+                    type = _random.Next(0, rankA.Count);
+                    switch (rankA[type])
+                    {
+                        case 0:
+                            //Singleton.Instance.ammo = Singleton.AmmoType.x1p5dmg;
+                            luckSkill[i] = 4;
+                            break;
+                        case 1:
+                            //Singleton.Instance.ammo = Singleton.AmmoType.x2dmg;
+                            luckSkill[i] = 5;
+                            break;
+                        case 2:
+                            //Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
+                            luckSkill[i] = 6;
+                            break;
+                    }
+                    rankA.RemoveAt(type);
+                }
+                else
+                {
+                    //S
+                    //Singleton.Instance.ammo = Singleton.AmmoType.otk;
+                    luckSkill[i] = 7;
+                    jackpot = 0;
+                }
             }
         }
     }

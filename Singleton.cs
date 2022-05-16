@@ -49,6 +49,9 @@ namespace MidAgeRevolution
         public enum AmmoType
         {
             normal,
+            x0dmg,
+            x0p5dmg,
+            x1p5dmg,
             x2dmg,
             x3dmg,
             otk

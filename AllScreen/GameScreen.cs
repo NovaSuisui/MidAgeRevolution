@@ -159,6 +159,7 @@ namespace MidAgeRevolution.AllScreen
                     {
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
+                    _skill.Update(_skill);
 
                     break;
 

@@ -31,7 +31,8 @@ namespace MidAgeRevolution.AllSprite
                     position.X = gameObject[0].position.X + gameObject[0].hitbox_size.X;
                     position.Y = gameObject[0].position.Y;
 
-                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space))
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space) &&
+                        Singleton.Instance.CurrentKey != Singleton.Instance.PrevoiusKey)
                     {
                         Singleton.Instance._gameState = Singleton.GameState.WisdomShooting;
                         velocity = new Vector2(
@@ -45,7 +46,8 @@ namespace MidAgeRevolution.AllSprite
                     position.X = gameObject[1].position.X - gameObject[1].hitbox_size.X;
                     position.Y = gameObject[1].position.Y;
 
-                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space))
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space) &&
+                        Singleton.Instance.CurrentKey != Singleton.Instance.PrevoiusKey)
                     {
                         Singleton.Instance._gameState = Singleton.GameState.LuckShooting;
                         velocity = new Vector2(
@@ -147,12 +149,28 @@ namespace MidAgeRevolution.AllSprite
                     obj.hit_point -= this.damage;
 
                     break;
+
+                case Singleton.AmmoType.x0dmg:
+                    break;
+
+                case Singleton.AmmoType.x0p5dmg:
+                    obj.hit_point -= this.damage * 0.5f;
+
+                    break;
+                case Singleton.AmmoType.x1p5dmg:
+                    obj.hit_point -= this.damage * 1.5f;
+
+                    break;
                 case Singleton.AmmoType.x2dmg:
                     obj.hit_point -= this.damage * 2;
 
                     break;
                 case Singleton.AmmoType.x3dmg:
                     obj.hit_point -= this.damage * 3;
+
+                    break;
+                case Singleton.AmmoType.otk:
+                    obj.hit_point -= this.damage * 10;
 
                     break;
             }
