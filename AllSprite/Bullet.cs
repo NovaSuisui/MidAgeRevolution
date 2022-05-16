@@ -96,13 +96,11 @@ namespace MidAgeRevolution.AllSprite
 
                     break;
                 case Singleton.GameState.WisdomEndTurn:
-                    Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
                     side = Side_ID.Luck_player;
                     Singleton.Instance.ammo = Singleton.AmmoType.normal;
 
                     break;
                 case Singleton.GameState.LuckEndTurn:
-                    Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
                     side = Side_ID.Wisdom_player;
                     Singleton.Instance.ammo = Singleton.AmmoType.normal;
 

@@ -179,11 +179,12 @@ namespace MidAgeRevolution.AllScreen
                     break;
 
                 case Singleton.GameState.WisdomEndTurn:
-                    _skill.Update(_skill);
                     foreach (GameSprite obj in _gameObj)
                     {
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
+                    _skill.Update(_skill);
+                    Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
 
                     break;
 
@@ -192,14 +193,9 @@ namespace MidAgeRevolution.AllScreen
                     {
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
+                    _skill.Update(_skill);
 
-                    for (int i = 2; i < _gameObj.Count; i++)
-                    {
-                        if (!_gameObj[i].isActive)
-                        {
-                            _gameObj.RemoveAt(i);
-                        }
-                    }
+                    Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
                     break;
             }
 

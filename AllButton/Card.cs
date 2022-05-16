@@ -68,7 +68,22 @@ namespace MidAgeRevolution.AllButton
 
                     break;
                 case Singleton.GameState.LuckTurn:
+                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released &&
+                        Singleton.Instance.CurrentMouse.Y < position.Y + field_size.Y &&
+                        Singleton.Instance.CurrentMouse.Y > position.Y)
+                    {
+                        if (Singleton.Instance.CurrentMouse.X < position.X + 60 &&
+                            Singleton.Instance.CurrentMouse.X > position.X)
+                        {
 
+                        }
+                        else if (Singleton.Instance.CurrentMouse.X < position.X + 120 &&
+                            Singleton.Instance.CurrentMouse.X > position.X + 60)
+                        {
+                            
+                        }
+                    }
 
                     break;
                 case Singleton.GameState.WisdomShooting:

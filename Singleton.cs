@@ -51,6 +51,7 @@ namespace MidAgeRevolution
             normal,
             x2dmg,
             x3dmg,
+            otk
         }
         public AmmoType ammo = AmmoType.normal;
         public SpriteFont testfont;
