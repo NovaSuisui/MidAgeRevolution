@@ -7,12 +7,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 using MidAgeRevolution.AllSprite;
 using MidAgeRevolution.AllSprite.AllPlayer;
+using MidAgeRevolution.AllButton;
 
 namespace MidAgeRevolution.AllScreen
 {
     class GameScreen : Screen
     {
         private List<GameSprite> _gameObj;
+        private Button _skill;
 
         public GameScreen(Texture2D texture) : base(texture)
         {
@@ -27,14 +29,12 @@ namespace MidAgeRevolution.AllScreen
                     _gameObj.Clear();
                     _gameObj.Add(new Wisdom(Singleton.Instance.sc)
                     {
-                        // position = new Vector2(320, 600),
                         position = new Vector2(304, 321),
                         hitbox_size = new Vector2(50, 81.44f),
                         side = GameSprite.Side_ID.Wisdom_player
                     });
                     _gameObj.Add(new Luck(Singleton.Instance.rl)
                     {
-                        // position = new Vector2(1220, 600),
                         position = new Vector2(1296, 320),
                         hitbox_size = new Vector2(50, 87.74f),
                         side = GameSprite.Side_ID.Luck_player
@@ -43,6 +43,14 @@ namespace MidAgeRevolution.AllScreen
                     {
                         //TO DO
                     });
+
+                    _skill = new Card(test)
+                    {
+                        position = new Vector2(200, 200),
+                        field_size = new Vector2(60, 60)
+                    };
+                    _skill.Update(_skill);
+
                     // horizontal wisdom
                     for (int i = 0; i < 2; i++)
                     {
@@ -142,6 +150,7 @@ namespace MidAgeRevolution.AllScreen
                     {
                         obj.Update(_gameObj, Singleton.Instance._time);
                     }
+                    _skill.Update(_skill);
 
                     break;
 
@@ -170,6 +179,7 @@ namespace MidAgeRevolution.AllScreen
                     break;
 
                 case Singleton.GameState.WisdomEndTurn:
+                    _skill.Update(_skill);
                     foreach (GameSprite obj in _gameObj)
                     {
                         obj.Update(_gameObj, Singleton.Instance._time);
@@ -220,7 +230,8 @@ namespace MidAgeRevolution.AllScreen
             switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
-                    //spriteBatch.Draw(Singleton.Instance.screenBorder, new Vector2(-177, -7), null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 
                     break;
 
@@ -234,6 +245,7 @@ namespace MidAgeRevolution.AllScreen
                     {
                         _gameObj[i].Draw(spriteBatch);
                     }
+                    _skill.Draw(spriteBatch);
 
                     spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                     break;

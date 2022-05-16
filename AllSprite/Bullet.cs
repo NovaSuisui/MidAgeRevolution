@@ -13,7 +13,7 @@ namespace MidAgeRevolution.AllSprite
 
         public float mass;
         public Vector2 velocity;
-        public float damage;
+        private float damage;
 
         public Bullet(Texture2D texture) : base(texture)
         {
@@ -31,8 +31,7 @@ namespace MidAgeRevolution.AllSprite
                     position.X = gameObject[0].position.X + gameObject[0].hitbox_size.X;
                     position.Y = gameObject[0].position.Y;
 
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space))
                     {
                         Singleton.Instance._gameState = Singleton.GameState.WisdomShooting;
                         velocity = new Vector2(
@@ -46,8 +45,7 @@ namespace MidAgeRevolution.AllSprite
                     position.X = gameObject[1].position.X - gameObject[1].hitbox_size.X;
                     position.Y = gameObject[1].position.Y;
 
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
-                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space))
                     {
                         Singleton.Instance._gameState = Singleton.GameState.LuckShooting;
                         velocity = new Vector2(
@@ -100,11 +98,13 @@ namespace MidAgeRevolution.AllSprite
                 case Singleton.GameState.WisdomEndTurn:
                     Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
                     side = Side_ID.Luck_player;
+                    Singleton.Instance.ammo = Singleton.AmmoType.normal;
 
                     break;
                 case Singleton.GameState.LuckEndTurn:
                     Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
                     side = Side_ID.Wisdom_player;
+                    Singleton.Instance.ammo = Singleton.AmmoType.normal;
 
                     break;
             }
@@ -118,7 +118,7 @@ namespace MidAgeRevolution.AllSprite
             base.Draw(spriteBatch);
         }
 
-        protected bool isBulletHit(List<GameSprite> gameObject)
+        private bool isBulletHit(List<GameSprite> gameObject)
         {
             foreach (var obj in gameObject)
             {
@@ -126,17 +126,38 @@ namespace MidAgeRevolution.AllSprite
                 {
                     if (this.side == Side_ID.Wisdom_player && (obj.side == Side_ID.Luck_player || obj.side == Side_ID.Luck_obstacle))
                     {
-                        obj.hit_point -= this.damage;
+                        DmgCal(obj);
+                        //obj.hit_point -= this.damage;
                         return true;
                     }
                     else if (this.side == Side_ID.Luck_player && (obj.side == Side_ID.Wisdom_player || obj.side == Side_ID.Wisdom_obstacle))
                     {
-                        obj.hit_point -= this.damage;
+                        DmgCal(obj);
+                        //obj.hit_point -= this.damage;
                         return true;
                     }
                 }
             }
             return false;
+        }
+
+        private void DmgCal(GameSprite obj)
+        {
+            switch (Singleton.Instance.ammo)
+            {
+                case Singleton.AmmoType.normal:
+                    obj.hit_point -= this.damage;
+
+                    break;
+                case Singleton.AmmoType.x2dmg:
+                    obj.hit_point -= this.damage * 2;
+
+                    break;
+                case Singleton.AmmoType.x3dmg:
+                    obj.hit_point -= this.damage * 3;
+
+                    break;
+            }
         }
     }
 }

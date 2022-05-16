@@ -61,6 +61,7 @@ namespace MidAgeRevolution
             Singleton.Instance.sc_tw_02_h = this.Content.Load<Texture2D>("Asset/sc_tw_02_horizontal");
             Singleton.Instance.ghb = this.Content.Load<Texture2D>("Asset/green_health");
             _spriteFont = this.Content.Load<SpriteFont>("Test/font0");
+            Singleton.Instance.testfont = _spriteFont;
         }
 
         protected override void Update(GameTime gameTime)
@@ -96,12 +97,17 @@ namespace MidAgeRevolution
                 case Singleton.MainState.gamePlay:
                     _screen[1].Update(_screen[1]);
 
-                    //Singleton.Instance._mainState = Singleton.MainState.gameEnd;
                     break;
 
                 case Singleton.MainState.gameEnd:
                     //_screen[1].Update(_screen[1]);
 
+                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                        Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released)
+                    {
+                        Singleton.Instance._gameState = Singleton.GameState.Setup;
+                        Singleton.Instance._mainState = Singleton.MainState.gamePlay;  
+                    }
                     //Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;
             }

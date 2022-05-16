@@ -46,16 +46,15 @@ namespace MidAgeRevolution
         }
         public GameState _gameState = GameState.Setup;
 
-        public enum Status
-        {
-
-        }
-
         public enum AmmoType
         {
-
+            normal,
+            x2dmg,
+            x3dmg,
         }
-        
+        public AmmoType ammo = AmmoType.normal;
+        public SpriteFont testfont;
+
         //texture2d
         public Texture2D sc;
         public Texture2D rl;
@@ -66,6 +65,7 @@ namespace MidAgeRevolution
         public Texture2D sc_tw_02_v;
         public Texture2D sc_tw_02_h;
         public Texture2D ghb;
+
         //singleton
         private static Singleton instance;
 

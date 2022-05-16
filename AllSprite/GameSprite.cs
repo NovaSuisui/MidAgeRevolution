@@ -25,9 +25,16 @@ namespace MidAgeRevolution.AllSprite
             Luck_player,
             Wisdom_obstacle,
             Luck_obstacle,
-
         }
         public Side_ID side;
+
+        public enum Status
+        {
+            normal,
+            isBurn,
+            isColosal,
+        }
+        public Status _status;
 
         public GameSprite(Texture2D texture)
         {
