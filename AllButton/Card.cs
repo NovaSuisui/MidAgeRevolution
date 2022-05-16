@@ -124,6 +124,13 @@ namespace MidAgeRevolution.AllButton
 
                     break;
                 case Singleton.GameState.LuckEndTurn:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        skillColor[i] = Color.White;
+                    }
+                    CurrentSkill = -1;
+                    PreviousSkill = -1;
+                    Singleton.Instance.ammo = Singleton.AmmoType.normal;
                     randomAmmo();
 
                     break;
@@ -225,12 +232,14 @@ namespace MidAgeRevolution.AllButton
             if (PreviousSkill == -1)
             {
                 skillColor[CurrentSkill] = Color.LightBlue;
+                modAmmoLuck();
                 PreviousSkill = CurrentSkill;
             }
             else if (CurrentSkill != PreviousSkill)
             {
                 skillColor[CurrentSkill] = Color.LightBlue;
                 skillColor[PreviousSkill] = Color.White;
+                modAmmoLuck();
                 PreviousSkill = CurrentSkill;
             }
             else if (CurrentSkill == PreviousSkill)
@@ -245,6 +254,34 @@ namespace MidAgeRevolution.AllButton
             }
 
             PreviousSkill = CurrentSkill;
+        }
+
+        private void modAmmoLuck()
+        {
+            switch (luckSkill[CurrentSkill])
+            {
+                case 1:
+                    Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                    break;
+                case 2:
+                    Singleton.Instance.ammo = Singleton.AmmoType.x0dmg;
+                    break;
+                case 3:
+                    Singleton.Instance.ammo = Singleton.AmmoType.x0p5dmg;
+                    break;
+                case 4:
+                    Singleton.Instance.ammo = Singleton.AmmoType.x1p5dmg;
+                    break;
+                case 5:
+                    Singleton.Instance.ammo = Singleton.AmmoType.x2dmg;
+                    break;
+                case 6:
+                    Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
+                    break;
+                case 7:
+                    Singleton.Instance.ammo = Singleton.AmmoType.otk;
+                    break;
+            }
         }
 
         private void randomAmmo()
