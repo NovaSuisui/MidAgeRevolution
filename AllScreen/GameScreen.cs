@@ -5,16 +5,31 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
+using System;
+using System.Diagnostics;
+using System.Collections.Generic;
+
+using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Diagnostics;
+using tainicom.Aether.Physics2D.Common;
+
 using MidAgeRevolution.AllSprite;
 using MidAgeRevolution.AllSprite.AllPlayer;
 using MidAgeRevolution.AllButton;
+
 
 namespace MidAgeRevolution.AllScreen
 {
     class GameScreen : Screen
     {
+
+        World world;
+        DebugView debugView;
+        Camera2D camera;
+        BasicEffect batchEffect;
         private List<GameSprite> _gameObj;
         private Button _skill;
+
 
         public GameScreen(Texture2D texture) : base(texture)
         {

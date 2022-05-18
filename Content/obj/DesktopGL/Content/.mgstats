@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+<<<<<<< Updated upstream
 "D:/Test/MidAgeRevolution/Content/Asset/background.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/background.xnb","TextureProcessor","Texture2DContent",751535,5760085,0.5281698
 "D:/Test/MidAgeRevolution/Content/Asset/green_health.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/green_health.xnb","TextureProcessor","Texture2DContent",225,40261,0.0033062
 "D:/Test/MidAgeRevolution/Content/Asset/play_screen_border.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/play_screen_border.xnb","TextureProcessor","Texture2DContent",61721,5760085,0.2262806
@@ -10,3 +11,16 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "D:/Test/MidAgeRevolution/Content/Asset/science.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/science.xnb","TextureProcessor","Texture2DContent",7198,16485,0.0018645
 "D:/Test/MidAgeRevolution/Content/Test/font0.spritefont","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Test/font0.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21538,0.1080285
 "D:/Test/MidAgeRevolution/Content/Test/test0.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Test/test0.xnb","TextureProcessor","Texture2DContent",8987,14485,0.0018489
+=======
+"D:/Test/MidAgeRevolution/Content/Asset/background.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/background.xnb","TextureProcessor","Texture2DContent",751535,5760085,0.5155643
+"D:/Test/MidAgeRevolution/Content/Asset/green_health.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/green_health.xnb","TextureProcessor","Texture2DContent",225,40261,0.0048467
+"D:/Test/MidAgeRevolution/Content/Asset/play_screen_border.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/play_screen_border.xnb","TextureProcessor","Texture2DContent",61721,5760085,0.4347251
+"D:/Test/MidAgeRevolution/Content/Asset/religious.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/religious.xnb","TextureProcessor","Texture2DContent",7371,17685,0.0218534
+"D:/Test/MidAgeRevolution/Content/Asset/rl_health_bar.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/rl_health_bar.xnb","TextureProcessor","Texture2DContent",28569,242085,0.0181413
+"D:/Test/MidAgeRevolution/Content/Asset/sc_health_bar.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sc_health_bar.xnb","TextureProcessor","Texture2DContent",30039,240085,0.0270072
+"D:/Test/MidAgeRevolution/Content/Asset/sc_tw_02_horizontal.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sc_tw_02_horizontal.xnb","TextureProcessor","Texture2DContent",3107,11845,0.004582
+"D:/Test/MidAgeRevolution/Content/Asset/sc_tw_02_vertical.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sc_tw_02_vertical.xnb","TextureProcessor","Texture2DContent",3268,11845,0.0066597
+"D:/Test/MidAgeRevolution/Content/Asset/science.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/science.xnb","TextureProcessor","Texture2DContent",7198,16485,0.0095282
+"D:/Test/MidAgeRevolution/Content/Test/font0.spritefont","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Test/font0.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21538,0.2972863
+"D:/Test/MidAgeRevolution/Content/Test/test0.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Test/test0.xnb","TextureProcessor","Texture2DContent",8987,14485,0.0056322
+>>>>>>> Stashed changes

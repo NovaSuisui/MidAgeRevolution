@@ -3,7 +3,11 @@
   <SourceFile>D:/Test/MidAgeRevolution/Content/Test/font0.spritefont</SourceFile>
   <SourceTime>2022-05-14T18:27:27.8710292+07:00</SourceTime>
   <DestFile>D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Test/font0.xnb</DestFile>
+<<<<<<< Updated upstream
   <DestTime>2022-05-18T23:46:07.0432771+07:00</DestTime>
+=======
+  <DestTime>2022-05-14T18:37:51.0435362+07:00</DestTime>
+>>>>>>> Stashed changes
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

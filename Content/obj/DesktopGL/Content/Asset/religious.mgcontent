@@ -3,7 +3,11 @@
   <SourceFile>D:/Test/MidAgeRevolution/Content/Asset/religious.png</SourceFile>
   <SourceTime>2022-05-14T18:27:27.8690373+07:00</SourceTime>
   <DestFile>D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/religious.xnb</DestFile>
+<<<<<<< Updated upstream
   <DestTime>2022-05-18T23:46:06.9071904+07:00</DestTime>
+=======
+  <DestTime>2022-05-14T18:37:50.6650164+07:00</DestTime>
+>>>>>>> Stashed changes
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
