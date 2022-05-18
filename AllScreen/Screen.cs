@@ -20,6 +20,10 @@ namespace MidAgeRevolution.AllScreen
         {
         }
 
+        public virtual void Update(Screen gameScreen, GameTime gameTime)
+        {
+        }
+
         public virtual void Draw(SpriteBatch spriteBatch)
         {
         }

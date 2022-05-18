@@ -59,17 +59,29 @@ namespace MidAgeRevolution
             Singleton.Instance.bg = this.Content.Load<Texture2D>("Asset/background");
             Singleton.Instance.sc_tw_02_v = this.Content.Load<Texture2D>("Asset/sc_tw_02_vertical");
             Singleton.Instance.sc_tw_02_h = this.Content.Load<Texture2D>("Asset/sc_tw_02_horizontal");
-            Singleton.Instance.ghb = this.Content.Load<Texture2D>("Asset/green_health");
+            Singleton.Instance.Arrow = this.Content.Load<Texture2D>("Test/Arrow");
+            
+            Singleton.Instance.ghb = new Texture2D(GraphicsDevice, 1, 1);
+            Singleton.Instance.ghb.SetData(new[] { Color.White });
+
             _spriteFont = this.Content.Load<SpriteFont>("Test/font0");
+
+            Singleton.Instance.Content = Content;
+            Singleton.Instance.GraphicsDevice = _graphics.GraphicsDevice;
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            Singleton.Instance.PreviousMouse = Singleton.Instance.CurrentMouse;
             Singleton.Instance.CurrentMouse = Mouse.GetState();
+            Singleton.Instance.PrevoiusKey = Singleton.Instance.CurrentKey;
             Singleton.Instance.CurrentKey = Keyboard.GetState();
+
+            Singleton.Instance._prvGameState = Singleton.Instance._GameState;
+            Singleton.Instance._GameState = Singleton.Instance._nextGameState;
+
             Singleton.Instance._time = gameTime;
 
             // TODO: Add your update logic here
@@ -94,7 +106,7 @@ namespace MidAgeRevolution
                     break;
 
                 case Singleton.MainState.gamePlay:
-                    _screen[1].Update(_screen[1]);
+                    _screen[1].Update(_screen[1], gameTime);
 
                     //Singleton.Instance._mainState = Singleton.MainState.gameEnd;
                     break;

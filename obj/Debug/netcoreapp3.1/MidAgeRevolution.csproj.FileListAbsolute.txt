@@ -117,3 +117,47 @@ D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Conte
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\science.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\sc_health_bar.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\green_health.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\religious.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\rl_health_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\science.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\sc_health_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\background.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\green_health.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\play_screen_border.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\religious.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rl_health_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\science.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_health_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02_horizontal.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02_vertical.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\font0.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\test0.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.exe
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.deps.json
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.runtimeconfig.json
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.runtimeconfig.dev.json
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.pdb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Aether.Physics2D.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libSDL2-2.0.so.0
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libopenal.so.1
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\osx\native\libSDL2-2.0.0.dylib
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\osx\native\libopenal.1.dylib
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SDL2.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\soft_oal.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SDL2.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\soft_oal.dll
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.csproj.AssemblyReference.cache
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.GeneratedMSBuildEditorConfig.editorconfig
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.AssemblyInfoInputs.cache
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.AssemblyInfo.cs
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.csproj.CoreCompileInputs.cache
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.csproj.CopyComplete
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.dll
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.pdb
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.genruntimeconfig.cache
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\DiagnosticsFont.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Aether.Physics2D.Diagnostics.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\Arrow.xnb

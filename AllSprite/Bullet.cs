@@ -4,26 +4,83 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Dynamics.Contacts;
+using MidAgeRevolution.AllSprite.AllPlayer;
+using System.Diagnostics;
 
 namespace MidAgeRevolution.AllSprite
 {
     class Bullet : GameSprite
     {
-        private Texture2D test;
-
-        public float mass;
-        public Vector2 velocity;
         public float damage;
 
         public Bullet(Texture2D texture) : base(texture)
         {
-            test = texture;
             damage = 30;
+        }
+
+        public Bullet(Texture2D texture,Body bulletBody) : base(texture)
+        {
+            damage = 30;
+            body = bulletBody;
+            body.OnCollision += collisionHandler;
+            body.OnSeparation += separationHandler;
+            body.Tag = this;
+        }
+
+        // sender = วัตถุนี้, other = วัตถุที่ถูกชน  (*Fixture เป็นหน่วยย่อยของ Body)
+        public virtual bool collisionHandler(Fixture sender, Fixture other, Contact contact)
+        {
+            isActive = false;
+
+            //check obj contact with this
+            Bullet bullet = (Bullet)sender.Body.Tag;
+            var b = other.Body.Tag;
+            if (b as Player != null)
+            {
+                /*Debug.WriteLine("itPlayer");*/
+                Player player = (Player)b;
+                onhitPlayer(player, bullet);
+            }
+            else if (b as Obstacle != null)
+            {
+                /*Debug.WriteLine("itObs");*/
+                Obstacle obstacle = (Obstacle)b;
+                onhitObstacle(obstacle,bullet);
+            }
+
+            else if (b as Bullet != null) Debug.WriteLine("itBull");
+            else Debug.WriteLine("Unknown");
+            
+            return false;
+        }
+
+        public virtual void separationHandler(Fixture sender, Fixture other, Contact contact)
+        {
+
         }
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
         {
-            switch (Singleton.Instance._gameState)
+            switch (Singleton.Instance._GameState)
+            {
+                case Singleton.GameState.Setup:
+                    break;
+                case Singleton.GameState.WisdomTurn:
+                    break;
+                case Singleton.GameState.LuckTurn:
+                    break;
+                case Singleton.GameState.WisdomShooting:
+                    break;
+                case Singleton.GameState.LuckShooting:
+                    break;
+                case Singleton.GameState.WisdomEndTurn:
+                    break;
+                case Singleton.GameState.LuckEndTurn:
+                    break;
+            }
+            /*switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
                     break;
@@ -108,35 +165,32 @@ namespace MidAgeRevolution.AllSprite
 
                     break;
             }
-
+*/
             base.Update(gameObject, gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(test, new Vector2(position.X, position.Y), null, Color.White, 0, origin, scale, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
         }
 
-        protected bool isBulletHit(List<GameSprite> gameObject)
+        protected void onhitPlayer(Player player,Bullet bullet)
         {
-            foreach (var obj in gameObject)
-            {
-                if (obj.hitbox.Intersects(hitbox))
-                {
-                    if (this.side == Side_ID.Wisdom_player && (obj.side == Side_ID.Luck_player || obj.side == Side_ID.Luck_obstacle))
-                    {
-                        obj.hit_point -= this.damage;
-                        return true;
-                    }
-                    else if (this.side == Side_ID.Luck_player && (obj.side == Side_ID.Wisdom_player || obj.side == Side_ID.Wisdom_obstacle))
-                    {
-                        obj.hit_point -= this.damage;
-                        return true;
-                    }
-                }
-            }
-            return false;
+            if (player.side == bullet.side) player.hit_point -= bullet.damage / 2f;
+            else player.hit_point -= bullet.damage;
+
+            player.hit_point = Math.Clamp(player.hit_point, 0, 100);
+            
+            string side = (player.side == Side.Wisdom) ? "Wisdom" : "Luck";
+            Debug.WriteLine($"{side} HP = {player.hit_point}");
+        }
+
+        protected void onhitObstacle(Obstacle obstacle,Bullet bullet)
+        {
+            obstacle.hit_point -= bullet.damage;
+            string side = (obstacle.side == Side.Wisdom) ? "Wisdom" : "Luck";
+            obstacle.hit_point = Math.Clamp(obstacle.hit_point, 0, 100);
+            Debug.WriteLine($"{side}'bock HP = {obstacle.hit_point}");
         }
     }
 }

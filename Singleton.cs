@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace MidAgeRevolution
 {
@@ -12,6 +13,9 @@ namespace MidAgeRevolution
 
         public const int WINDOWS_SIZE_X = 1600;
         public const int WINDOWS_SIZE_Y = 900;
+
+        public const float worldScale = 0.04f;
+        public const float screenScale = 25.0f;
 
         public KeyboardState CurrentKey;
         public KeyboardState PrevoiusKey;
@@ -24,6 +28,10 @@ namespace MidAgeRevolution
 
         public float TEXTURE_SIZE = 60;
 
+        public GraphicsDevice GraphicsDevice;
+        public ContentManager Content;
+
+        public Random rnd = new Random();
         public enum MainState
         {
             start,
@@ -44,7 +52,10 @@ namespace MidAgeRevolution
             WisdomEndTurn,
             LuckEndTurn
         }
-        public GameState _gameState = GameState.Setup;
+
+        public GameState _GameState = GameState.Setup;
+        public GameState _prvGameState;
+        public GameState _nextGameState;
 
         public enum Status
         {
@@ -66,6 +77,9 @@ namespace MidAgeRevolution
         public Texture2D sc_tw_02_v;
         public Texture2D sc_tw_02_h;
         public Texture2D ghb;
+        public Texture2D Arrow;
+
+        public static float Degree2Radian(float degrees) { return (float)(degrees * (Math.PI / 180)); }
         //singleton
         private static Singleton instance;
 

@@ -1,10 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
+using System.Diagnostics;
+using System.Text;
+using System.Collections.Generic;
+using System;
+
+using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Diagnostics;
+using tainicom.Aether.Physics2D.Common;
+
+using MidAgeRevolution.ScreenSystem;
 using MidAgeRevolution.AllSprite;
 using MidAgeRevolution.AllSprite.AllPlayer;
 
@@ -12,234 +20,258 @@ namespace MidAgeRevolution.AllScreen
 {
     class GameScreen : Screen
     {
+        World world;
+        DebugView debugView;
+        BasicEffect batchEffect;
         private List<GameSprite> _gameObj;
+        private bool loadedContent;
+        public float wind =0.0f;
 
         public GameScreen(Texture2D texture) : base(texture)
         {
             _gameObj = new List<GameSprite>();
+            world = new World(new Vector2(0.0f,5f));
+            world.ContactManager.VelocityConstraintsMultithreadThreshold = 256;
+            world.ContactManager.PositionConstraintsMultithreadThreshold = 256;
+            world.ContactManager.CollideMultithreadThreshold = 256;
+
+            Vertices borders = new Vertices(4);
+            borders.Add(new Vector2(0, 36));  // Lower left
+            borders.Add(new Vector2(64, 36));   // Lower right
+            borders.Add(new Vector2(64, -60));  // Upper right
+            borders.Add(new Vector2(0, -60)); // Upper left
+            Body border = world.CreateLoopShape(borders);
+            border.SetCollidesWith(Category.All & ~Category.Cat2);
+            debugView = new DebugView(world);
+            debugView.LoadContent(Singleton.Instance.GraphicsDevice, Singleton.Instance.Content);
+            debugView.Flags = DebugViewFlags.None;
+            debugView.Flags = (DebugViewFlags)2047;
+            /*debugView.AppendFlags(DebugViewFlags.Shape);*/
+
+
+            batchEffect = new BasicEffect(Singleton.Instance.GraphicsDevice);
+            batchEffect.VertexColorEnabled = true;
+            batchEffect.TextureEnabled = true;
+            loadedContent = false;
         }
 
-        public override void Update(Screen gameScreen)
+        public override void Update(Screen gameScreen,GameTime gameTime)
         {
-            switch (Singleton.Instance._gameState)
+            int numSprite = _gameObj.Count;
+            switch (Singleton.Instance._GameState)
             {
                 case Singleton.GameState.Setup:
-                    _gameObj.Clear();
-                    _gameObj.Add(new Wisdom(Singleton.Instance.sc)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.Setup) loadedContent = false;
+                    if(loadedContent == false)
                     {
-                        // position = new Vector2(320, 600),
-                        position = new Vector2(304, 321),
-                        hitbox_size = new Vector2(50, 81.44f),
-                        side = GameSprite.Side_ID.Wisdom_player
-                    });
-                    _gameObj.Add(new Luck(Singleton.Instance.rl)
-                    {
-                        // position = new Vector2(1220, 600),
-                        position = new Vector2(1296, 320),
-                        hitbox_size = new Vector2(50, 87.74f),
-                        side = GameSprite.Side_ID.Luck_player
-                    });
-                    _gameObj.Add(new Bullet(test)
-                    {
-                        //TO DO
-                    });
-                    // horizontal wisdom
-                    for (int i = 0; i < 2; i++)
-                    {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                        _gameObj.Clear();
+                        _gameObj.Add(new Wisdom(Singleton.Instance.sc, world)
                         {
-                            position = new Vector2(255 + (98 * i), 409),
-                            hitbox_size = new Vector2(98, 30),
-                            side = GameSprite.Side_ID.Wisdom_obstacle
+                            // position = new Vector2(320, 600),
+                            position = new Vector2(450, 200),
                         });
-                    }
-                    for (int i = 0; i < 4; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
+                        _gameObj.Add(new Luck(Singleton.Instance.rl, world)
                         {
-                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
-                            {
-                                position = new Vector2(157 + (98 * i), 537 + (128 * j)),
-                                hitbox_size = new Vector2(98, 30),
-                                side = GameSprite.Side_ID.Wisdom_obstacle
-                            });
-                        }
-                    }
-                    //vertical wisdom
-                    for (int i = 0; i < 3; i++)
-                    {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
-                        {
-                            position = new Vector2(240 + (98 * i), 439),
-                            hitbox_size = new Vector2(30, 98),
-                            side = GameSprite.Side_ID.Wisdom_obstacle
+                            // position = new Vector2(1220, 600),
+                            position = new Vector2(1296, 220),
                         });
-                    }
-                    for (int i = 0; i < 5; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
-                            {
-                                position = new Vector2(142 + (98 * i), 567 + (128 * j)),
-                                hitbox_size = new Vector2(30, 98),
-                                side = GameSprite.Side_ID.Wisdom_obstacle
-                            });
-                        }
-                    }
 
-                    // horizontal luck
-                    for (int i = 0; i < 2; i++)
-                    {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
-                        {
-                            position = new Vector2(1188 + (98 * i), 409),
-                            hitbox_size = new Vector2(98, 30),
-                            side = GameSprite.Side_ID.Luck_obstacle
-                        });
+                        createTower(new Vector2(200f, 300f), GameSprite.Side.Wisdom);
+                        createTower(new Vector2(1000f, 300f), GameSprite.Side.Luck);
+                        loadedContent = true;
                     }
-                    for (int i = 0; i < 4; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
-                            {
-                                position = new Vector2(1090 + (98 * i), 537 + (128 * j)),
-                                hitbox_size = new Vector2(98, 30),
-                                side = GameSprite.Side_ID.Luck_obstacle
-                            });
-                        }
+                    else
+                    {   
+                        if(isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.WisdomTurn;
                     }
-                    //vertical luck
-                    for (int i = 0; i < 3; i++)
-                    {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
-                        {
-                            position = new Vector2(1173 + (98 * i), 439),
-                            hitbox_size = new Vector2(30, 98),
-                            side = GameSprite.Side_ID.Luck_obstacle
-                        });
-                    }
-                    for (int i = 0; i < 5; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
-                            {
-                                position = new Vector2(1075 + (98 * i), 567 + (128 * j)),
-                                hitbox_size = new Vector2(30, 98),
-                                side = GameSprite.Side_ID.Luck_obstacle
-                            });
-                        }
-                    }
-
-
-                    Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
                     break;
 
                 case Singleton.GameState.WisdomTurn:
-                    foreach (GameSprite obj in _gameObj)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomTurn)
                     {
-                        obj.Update(_gameObj, Singleton.Instance._time);
+                        wind = Singleton.Instance.rnd.Next(-100,100) / 10f;
+                        Player.wind = this.wind;
+                        Debug.WriteLine($"WisdomTurn wind:{wind}");
                     }
 
                     break;
 
                 case Singleton.GameState.LuckTurn:
-                    foreach (GameSprite obj in _gameObj)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.LuckTurn)
                     {
-                        obj.Update(_gameObj, Singleton.Instance._time);
+                        wind = Singleton.Instance.rnd.Next(-100, 100) / 10f;
+                        Player.wind = this.wind;
+                        Debug.WriteLine($"LuckTurn wind:{wind}");
                     }
-
                     break;
 
                 case Singleton.GameState.WisdomShooting:
-                    foreach (GameSprite obj in _gameObj)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomShooting) Debug.WriteLine("WisdomShooting");
+                    if (Singleton.Instance._prvGameState==Singleton.GameState.WisdomShooting)
                     {
-                        obj.Update(_gameObj, Singleton.Instance._time);
+                        if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.LuckTurn;
                     }
-
                     break;
 
                 case Singleton.GameState.LuckShooting:
-                    foreach (GameSprite obj in _gameObj)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.LuckShooting) Debug.WriteLine("LuckShooting");
+                    if (Singleton.Instance._prvGameState == Singleton.GameState.LuckShooting)
                     {
-                        obj.Update(_gameObj, Singleton.Instance._time);
+                        if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.WisdomTurn;
                     }
-
                     break;
 
                 case Singleton.GameState.WisdomEndTurn:
-                    foreach (GameSprite obj in _gameObj)
-                    {
-                        obj.Update(_gameObj, Singleton.Instance._time);
-                    }
+                    
 
                     break;
 
                 case Singleton.GameState.LuckEndTurn:
-                    foreach (GameSprite obj in _gameObj)
-                    {
-                        obj.Update(_gameObj, Singleton.Instance._time);
-                    }
-
-                    for (int i = 2; i < _gameObj.Count; i++)
-                    {
-                        if (!_gameObj[i].isActive)
-                        {
-                            _gameObj.RemoveAt(i);
-                        }
-                    }
+                    
                     break;
             }
 
-            if (!_gameObj[0].isActive)
+            for (int i = 0; i < numSprite; i++)
             {
-                label = "Luck Win";
-                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
-            }
-            else if(!_gameObj[1].isActive)
-            {
-                label = "Wisdom Win";
-                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
-            }
-
-            for (int i = 2; i < _gameObj.Count; i++)
-            {
-                if (!_gameObj[i].isActive)
+                if (_gameObj[i].isActive)
                 {
-                    _gameObj.RemoveAt(i);
+                    _gameObj[i].Update(_gameObj, Singleton.Instance._time);
                 }
             }
 
+            for (int i = 0; i < numSprite; i++)
+            {
+                if (!_gameObj[i].isActive)
+                {
+                    _gameObj[i].Remove(world);
+                    _gameObj.RemoveAt(i);
+                    i--;
+                    numSprite--;
+                }
+            }
+            /*
+                        if (!_gameObj[0].isActive)
+                        {
+                            label = "Luck Win";
+                            Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+                        }
+                        else if(!_gameObj[1].isActive)
+                        {
+                            label = "Wisdom Win";
+                            Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+                        }
+
+                        for (int i = 2; i < _gameObj.Count; i++)
+                        {
+                            if (!_gameObj[i].isActive)
+                            {
+                                _gameObj.RemoveAt(i);
+                            }
+                        }*/
+
+            world.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalSeconds, (1f / 30f)));
             base.Update(gameScreen);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            switch (Singleton.Instance._gameState)
+            switch (Singleton.Instance._GameState)
             {
-                case Singleton.GameState.Setup:
-                    //spriteBatch.Draw(Singleton.Instance.screenBorder, new Vector2(-177, -7), null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-
-                    break;
-
+                
                 default:
                     /*foreach (GameSprite obj in _gameObj)
                     {
                         obj.Draw(spriteBatch);
                     }*/
-                    spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                    spriteBatch.End();
+
+                    batchEffect.View = Camera2D.GetView();
+                    batchEffect.Projection = Camera2D.GetProjection();
+                    spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, RasterizerState.CullNone, batchEffect);
+                    spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f * Singleton.worldScale, SpriteEffects.None, 0f);
                     for (int i = _gameObj.Count - 1; i >= 0; i--)
                     {
                         _gameObj[i].Draw(spriteBatch);
                     }
 
-                    spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f * Singleton.worldScale, SpriteEffects.None, 0f);
+                    spriteBatch.End();
+                    debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
+                    spriteBatch.Begin();
                     break;
             }
 
             base.Draw(spriteBatch);
+        }
+
+        public bool isWorldStop()
+        {
+            bool allBodyStop = true;
+            var bodylist = world.BodyList;
+            foreach (var body in bodylist)
+            {
+                if (body.LinearVelocity != Vector2.Zero)
+                {
+                    allBodyStop = false;
+                    break;
+                }
+            }
+            return allBodyStop;
+        }
+
+        private void createTower(Vector2 position,GameSprite.Side objectside)
+        {
+            float gap = 5f;
+            float height = 98f;
+            float width = 30f;
+
+            // horizontal wisdom
+            for (int i = 1; i < 3; i++)
+            {
+                _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v,world)
+                {
+                    position = new Vector2(position.X + height / 2 +(height * i), position.Y + ((height + width + gap * 2) * 0)),
+                    hitbox_size = new Vector2(width, height),
+                    side = objectside,
+                    rotation = Singleton.Degree2Radian(90)
+                });
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 1; j < 4; j++)
+                {
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v, world)
+                    {
+                        position = new Vector2(position.X + height/2  + (height * i), position.Y + ((height + width + gap * 2) * j)),
+                        hitbox_size = new Vector2(width, height),
+                        side = objectside,
+                        rotation = Singleton.Degree2Radian(90)
+                    });
+                }
+            }
+            //vertical wisdom
+            for (int i = 1; i < 4; i++)
+            {
+                _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v,world)
+                {
+                    position = new Vector2(position.X + (height * i), position.Y + (width + height + 10) / 2 + ((height + width + gap * 2) * 0)),
+                    hitbox_size = new Vector2(width, height),
+                    side = objectside
+                });
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 1; j < 4; j++)
+                {
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v,world)
+                    {
+                        position = new Vector2(position.X + (height * i), position.Y + (width+height+10)/2 + ((height+width + gap*2) * j)),
+                        hitbox_size = new Vector2(width, height),
+                        side = objectside
+                    });
+                }
+            }
+
         }
     }
 }
