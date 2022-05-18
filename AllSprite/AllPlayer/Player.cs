@@ -13,7 +13,9 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
     class Player : GameSprite
     {
         float Movespeed = 20f;
-        public bool turnLeft = false;
+        public bool turnLeft { get { return leftDirection; } set { leftDirection = value; spriteEffects = (value) ? SpriteEffects.FlipHorizontally : SpriteEffects.None; } }
+        private bool leftDirection = false;
+
         public float aimAngle= 0;
         public float power = 0;
         public Vector2 collisionBox = new Vector2(50f, 82f);
@@ -143,11 +145,11 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             bulletBody.Position = (position + new Vector2((turnLeft)? -x:x, -y)*60)*Singleton.worldScale;
             bulletBody.ApplyForce(new Vector2((turnLeft) ? -x : x, -y) * (400+power*10));
             bulletBody.ApplyForce(new Vector2(wind*20, 0));
+            bulletBody.ApplyTorque((turnLeft)?-5 :5f);
 
             Bullet bullet = new Bullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
             {
-                damage = 60
-
+                damage = 20,
             };
             bullet.side = side;
             gameObject.Add(bullet);

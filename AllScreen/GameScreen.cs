@@ -74,6 +74,7 @@ namespace MidAgeRevolution.AllScreen
                         {
                             // position = new Vector2(1220, 600),
                             position = new Vector2(1296, 220),
+                            turnLeft = true
                         });
 
                         createTower(new Vector2(200f, 300f), GameSprite.Side.Wisdom);
