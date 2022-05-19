@@ -68,6 +68,7 @@ namespace MidAgeRevolution
 
             Singleton.Instance.Content = Content;
             Singleton.Instance.GraphicsDevice = _graphics.GraphicsDevice;
+            Singleton.Instance.testfont = this.Content.Load<SpriteFont>("Test/font0");
         }
 
         protected override void Update(GameTime gameTime)
@@ -79,8 +80,8 @@ namespace MidAgeRevolution
             Singleton.Instance.PrevoiusKey = Singleton.Instance.CurrentKey;
             Singleton.Instance.CurrentKey = Keyboard.GetState();
 
-            Singleton.Instance._prvGameState = Singleton.Instance._GameState;
-            Singleton.Instance._GameState = Singleton.Instance._nextGameState;
+            Singleton.Instance._prvGameState = Singleton.Instance._gameState;
+            Singleton.Instance._gameState = Singleton.Instance._nextGameState;
 
             Singleton.Instance._time = gameTime;
 

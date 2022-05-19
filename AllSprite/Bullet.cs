@@ -13,7 +13,8 @@ namespace MidAgeRevolution.AllSprite
 {
     class Bullet : GameSprite
     {
-        public float damage;
+        public float damage { get { return baseDamage*damageBuff(); } set { baseDamage = value; } }
+        public float baseDamage;
 
         public Bullet(Texture2D texture) : base(texture)
         {
@@ -63,7 +64,7 @@ namespace MidAgeRevolution.AllSprite
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
         {
-            switch (Singleton.Instance._GameState)
+            switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
                     break;
@@ -191,6 +192,26 @@ namespace MidAgeRevolution.AllSprite
             string side = (obstacle.side == Side.Wisdom) ? "Wisdom" : "Luck";
             obstacle.hit_point = Math.Clamp(obstacle.hit_point, 0, 100);
             Debug.WriteLine($"{side}'bock HP = {obstacle.hit_point}");
+        }
+
+        private float damageBuff()
+        {
+            switch(Singleton.Instance.ammo)
+            {
+                case Singleton.AmmoType.normal:
+                    return 1f;
+                case Singleton.AmmoType.x0dmg:
+                    return 0f;
+                case Singleton.AmmoType.x0p5dmg:
+                    return 0.5f;
+                case Singleton.AmmoType.x1p5dmg:
+                    return 1.5f;
+                case Singleton.AmmoType.x2dmg:
+                    return 2f;
+                case Singleton.AmmoType.x3dmg:
+                    return 3f;
+                default: return 1f;
+            }
         }
     }
 }

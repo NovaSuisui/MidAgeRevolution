@@ -32,7 +32,7 @@ namespace MidAgeRevolution.AllSprite
 
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
         {
-            switch (Singleton.Instance._GameState)
+            switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
                     break;

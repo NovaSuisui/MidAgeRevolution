@@ -153,14 +153,14 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             };
             bullet.side = side;
             gameObject.Add(bullet);
-            if (Singleton.Instance._GameState == Singleton.GameState.WisdomTurn) Singleton.Instance._nextGameState = Singleton.GameState.WisdomShooting;
-            if (Singleton.Instance._GameState == Singleton.GameState.LuckTurn) Singleton.Instance._nextGameState = Singleton.GameState.LuckShooting;
+            if (Singleton.Instance._gameState == Singleton.GameState.WisdomTurn) Singleton.Instance._nextGameState = Singleton.GameState.WisdomShooting;
+            if (Singleton.Instance._gameState == Singleton.GameState.LuckTurn) Singleton.Instance._nextGameState = Singleton.GameState.LuckShooting;
 
         }
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
         {
             if (hit_point <= 0 || position.Y > Singleton.WINDOWS_SIZE_Y) isActive = false;
-            switch (Singleton.Instance._GameState)
+            switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
                     break;

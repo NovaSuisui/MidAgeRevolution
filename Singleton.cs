@@ -53,20 +53,23 @@ namespace MidAgeRevolution
             LuckEndTurn
         }
 
-        public GameState _GameState = GameState.Setup;
+        public GameState _gameState = GameState.Setup;
         public GameState _prvGameState;
         public GameState _nextGameState;
 
-        public enum Status
-        {
-
-        }
-
         public enum AmmoType
         {
-
+            normal,
+            x0dmg,
+            x0p5dmg,
+            x1p5dmg,
+            x2dmg,
+            x3dmg,
+            otk
         }
-        
+        public AmmoType ammo = AmmoType.normal;
+        public SpriteFont testfont;
+
         //texture2d
         public Texture2D sc;
         public Texture2D rl;

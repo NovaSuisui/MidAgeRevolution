@@ -53,51 +53,79 @@ namespace MidAgeRevolution.AllButton
 
                     break;
                 case Singleton.GameState.WisdomTurn:
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                    if(Singleton.Instance._prvGameState != Singleton.GameState.WisdomTurn)
+                    {
+                        for (int i = 0; i < 3; i++)
+                        {
+                            skillColor[i] = Color.White;
+                        }
+                        CurrentSkill = -1;
+                        PreviousSkill = -1;
+                        Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                        randomAmmo();
+                    }
+                    else
+                    {
+                        if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
                         Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released &&
                         Singleton.Instance.CurrentMouse.Y < position.Y + field_size.Y &&
                         Singleton.Instance.CurrentMouse.Y > position.Y)
-                    {
-                        if (Singleton.Instance.CurrentMouse.X < position.X + 60 &&
-                            Singleton.Instance.CurrentMouse.X > position.X)
                         {
-                            Singleton.Instance.ammo = Singleton.AmmoType.x2dmg;
-                            CurrentSkill = 0;
-                            setAmmoWisdom();
-                        }
-                        else if (Singleton.Instance.CurrentMouse.X < position.X + 120 && 
-                            Singleton.Instance.CurrentMouse.X > position.X + 60)
-                        {
-                            Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
-                            CurrentSkill = 1;
-                            setAmmoWisdom();
+                            if (Singleton.Instance.CurrentMouse.X < position.X + 60 &&
+                                Singleton.Instance.CurrentMouse.X > position.X)
+                            {
+                                Singleton.Instance.ammo = Singleton.AmmoType.x2dmg;
+                                CurrentSkill = 0;
+                                setAmmoWisdom();
+                            }
+                            else if (Singleton.Instance.CurrentMouse.X < position.X + 120 &&
+                                Singleton.Instance.CurrentMouse.X > position.X + 60)
+                            {
+                                Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
+                                CurrentSkill = 1;
+                                setAmmoWisdom();
+                            }
                         }
                     }
 
                     break;
                 case Singleton.GameState.LuckTurn:
-                    if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.LuckTurn)
+                    {
+                        for (int i = 0; i < 3; i++)
+                        {
+                            skillColor[i] = Color.White;
+                        }
+                        CurrentSkill = -1;
+                        PreviousSkill = -1;
+                        Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                        randomAmmo();
+                    }
+                    else
+                    {
+                        if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed &&
                         Singleton.Instance.PreviousMouse.LeftButton == ButtonState.Released &&
                         Singleton.Instance.CurrentMouse.Y < position.Y + field_size.Y &&
                         Singleton.Instance.CurrentMouse.Y > position.Y)
-                    {
-                        if (Singleton.Instance.CurrentMouse.X < position.X + 60 &&
-                            Singleton.Instance.CurrentMouse.X > position.X)
                         {
-                            CurrentSkill = 0;
-                            setAmmoLuck();
-                        }
-                        else if (Singleton.Instance.CurrentMouse.X < position.X + 120 &&
-                            Singleton.Instance.CurrentMouse.X > position.X + 60)
-                        {
-                            CurrentSkill = 1;
-                            setAmmoLuck();
-                        }
-                        else if (Singleton.Instance.CurrentMouse.X < position.X + 180 &&
-                            Singleton.Instance.CurrentMouse.X > position.X + 120)
-                        {
-                            CurrentSkill = 2;
-                            setAmmoLuck();
+                            if (Singleton.Instance.CurrentMouse.X < position.X + 60 &&
+                                Singleton.Instance.CurrentMouse.X > position.X)
+                            {
+                                CurrentSkill = 0;
+                                setAmmoLuck();
+                            }
+                            else if (Singleton.Instance.CurrentMouse.X < position.X + 120 &&
+                                Singleton.Instance.CurrentMouse.X > position.X + 60)
+                            {
+                                CurrentSkill = 1;
+                                setAmmoLuck();
+                            }
+                            else if (Singleton.Instance.CurrentMouse.X < position.X + 180 &&
+                                Singleton.Instance.CurrentMouse.X > position.X + 120)
+                            {
+                                CurrentSkill = 2;
+                                setAmmoLuck();
+                            }
                         }
                     }
 

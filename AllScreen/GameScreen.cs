@@ -15,6 +15,7 @@ using tainicom.Aether.Physics2D.Common;
 using MidAgeRevolution.ScreenSystem;
 using MidAgeRevolution.AllSprite;
 using MidAgeRevolution.AllSprite.AllPlayer;
+using MidAgeRevolution.AllButton;
 
 namespace MidAgeRevolution.AllScreen
 {
@@ -26,6 +27,7 @@ namespace MidAgeRevolution.AllScreen
         private List<GameSprite> _gameObj;
         private bool loadedContent;
         public float wind =0.0f;
+        private Button _skill;
 
         public GameScreen(Texture2D texture) : base(texture)
         {
@@ -58,7 +60,7 @@ namespace MidAgeRevolution.AllScreen
         public override void Update(Screen gameScreen,GameTime gameTime)
         {
             int numSprite = _gameObj.Count;
-            switch (Singleton.Instance._GameState)
+            switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
                     if (Singleton.Instance._prvGameState != Singleton.GameState.Setup) loadedContent = false;
@@ -79,6 +81,14 @@ namespace MidAgeRevolution.AllScreen
 
                         createTower(new Vector2(200f, 300f), GameSprite.Side.Wisdom);
                         createTower(new Vector2(1000f, 300f), GameSprite.Side.Luck);
+
+                        _skill = new Card(test)
+                        {
+                            position = new Vector2(200, 200),
+                            field_size = new Vector2(60, 60)
+                        };
+                        _skill.Update(_skill);
+
                         loadedContent = true;
                     }
                     else
@@ -94,7 +104,7 @@ namespace MidAgeRevolution.AllScreen
                         Player.wind = this.wind;
                         Debug.WriteLine($"WisdomTurn wind:{wind}");
                     }
-
+                    _skill.Update(_skill);
                     break;
 
                 case Singleton.GameState.LuckTurn:
@@ -104,6 +114,7 @@ namespace MidAgeRevolution.AllScreen
                         Player.wind = this.wind;
                         Debug.WriteLine($"LuckTurn wind:{wind}");
                     }
+                    _skill.Update(_skill);
                     break;
 
                 case Singleton.GameState.WisdomShooting:
@@ -176,7 +187,7 @@ namespace MidAgeRevolution.AllScreen
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            switch (Singleton.Instance._GameState)
+            switch (Singleton.Instance._gameState)
             {
                 
                 default:
@@ -184,21 +195,24 @@ namespace MidAgeRevolution.AllScreen
                     {
                         obj.Draw(spriteBatch);
                     }*/
+
+                    spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                    _skill.Draw(spriteBatch);
                     spriteBatch.End();
 
                     batchEffect.View = Camera2D.GetView();
                     batchEffect.Projection = Camera2D.GetProjection();
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, RasterizerState.CullNone, batchEffect);
-                    spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f * Singleton.worldScale, SpriteEffects.None, 0f);
                     for (int i = _gameObj.Count - 1; i >= 0; i--)
                     {
                         _gameObj[i].Draw(spriteBatch);
                     }
-
-                    spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f * Singleton.worldScale, SpriteEffects.None, 0f);
                     spriteBatch.End();
+
                     debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
+
                     spriteBatch.Begin();
+                    spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                     break;
             }
 
