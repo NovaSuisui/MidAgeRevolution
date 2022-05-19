@@ -177,10 +177,8 @@ namespace MidAgeRevolution.AllSprite
 
         protected void onhitPlayer(Player player,Bullet bullet)
         {
-            if (player.side == bullet.side) player.hit_point -= bullet.damage / 2f;
-            else player.hit_point -= bullet.damage;
-
-            player.hit_point = Math.Clamp(player.hit_point, 0, 100);
+            if (player.side == bullet.side) player.ApplyDamage(bullet.damage / 2f);
+            else player.ApplyDamage(bullet.damage);
             
             string side = (player.side == Side.Wisdom) ? "Wisdom" : "Luck";
             Debug.WriteLine($"{side} HP = {player.hit_point}");
