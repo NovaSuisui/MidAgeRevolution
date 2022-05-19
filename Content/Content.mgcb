@@ -49,6 +49,18 @@
 /processorParam:TextureFormat=Color
 /build:Asset/bg.png
 
+#begin Asset/detail.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/detail.png
+
 #begin Asset/exit.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -96,6 +108,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Asset/religious.png
+
+#begin Asset/religious_new.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/religious_new.png
+
+#begin Asset/return.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/return.png
 
 #begin Asset/rl_health_bar.png
 /importer:TextureImporter
@@ -192,6 +228,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Asset/tutorial.png
+
+#begin Asset/tutorial_title.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/tutorial_title.png
 
 #begin Test/Arrow.png
 /importer:TextureImporter

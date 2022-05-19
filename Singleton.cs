@@ -89,6 +89,9 @@ namespace MidAgeRevolution
         public Texture2D tu_btn;
         public Texture2D ex_btn;
         public Texture2D ghibi;
+        public Texture2D re_btn;
+        public Texture2D tu_title;
+        public Texture2D tu_detail;
 
         public static float Degree2Radian(float degrees) { return (float)(degrees * (Math.PI / 180)); }
         //singleton

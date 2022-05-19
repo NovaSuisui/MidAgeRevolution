@@ -170,3 +170,7 @@ D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeR
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\start.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\title.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\detail.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\return.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial_title.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\religious_new.xnb
