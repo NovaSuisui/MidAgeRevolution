@@ -161,3 +161,12 @@ D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.genruntimeconf
 D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\DiagnosticsFont.xnb
 D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Aether.Physics2D.Diagnostics.dll
 D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\Arrow.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\DiagnosticsFont.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\Arrow.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Aether.Physics2D.Diagnostics.dll
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\animator.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\exit.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\start.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\title.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial.xnb

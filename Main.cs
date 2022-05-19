@@ -61,6 +61,14 @@ namespace MidAgeRevolution
             Singleton.Instance.sc_tw_02_h = this.Content.Load<Texture2D>("Asset/sc_tw_02_horizontal");
             Singleton.Instance.Arrow = this.Content.Load<Texture2D>("Test/Arrow");
             
+            //main menu texture2D
+            Singleton.Instance.menu_bg = this.Content.Load<Texture2D>("Asset/bg");
+            Singleton.Instance.title = this.Content.Load<Texture2D>("Asset/title");
+            Singleton.Instance.st_btn = this.Content.Load<Texture2D>("Asset/start");
+            Singleton.Instance.tu_btn = this.Content.Load<Texture2D>("Asset/tutorial");
+            Singleton.Instance.ex_btn = this.Content.Load<Texture2D>("Asset/exit");
+            Singleton.Instance.ghibi = this.Content.Load<Texture2D>("Asset/animator");
+
             Singleton.Instance.ghb = new Texture2D(GraphicsDevice, 1, 1);
             Singleton.Instance.ghb.SetData(new[] { Color.White });
 
@@ -89,25 +97,22 @@ namespace MidAgeRevolution
             switch (Singleton.Instance._mainState)
             {
                 case Singleton.MainState.start:
-                    _screen.Add(new MenuScreen(test));
-                    _screen.Add(new GameScreen(test));
-
+                    _screen.Add(new MenuScreen(this, test)); //0
+                    _screen.Add(new GameScreen(this, test)); //1
+                    //_screen.Add(new Tutorial(this, test)); //2
                     Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;
 
                 case Singleton.MainState.mainMenu:
-                    _screen[0].Update(_screen[0]);
-
-                    Singleton.Instance._mainState = Singleton.MainState.gamePlay;
+                    _screen[0].Update(_screen[0], gameTime);
                     break;
 
                 case Singleton.MainState.tutorial:
-
-                    Singleton.Instance._mainState = Singleton.MainState.mainMenu;
+                    //_screen[2].Update(_screen[2]);
                     break;
 
                 case Singleton.MainState.gamePlay:
-                    _screen[1].Update(_screen[1], gameTime);
+                    _screen[1].Update(_screen[1]);
 
                     //Singleton.Instance._mainState = Singleton.MainState.gameEnd;
                     break;
@@ -135,15 +140,13 @@ namespace MidAgeRevolution
             switch (Singleton.Instance._mainState)
             {
                 case Singleton.MainState.start:
-                    _screen[0].Draw(_spriteBatch);
-
                     break;
                 case Singleton.MainState.mainMenu:
-                    _screen[0].Draw(_spriteBatch);
+                    _screen[0].Draw(_spriteBatch, gameTime);
 
                     break;
                 case Singleton.MainState.tutorial:
-                    _screen[0].Draw(_spriteBatch);
+                    _screen[2].Draw(_spriteBatch);
 
                     break;
                 case Singleton.MainState.gamePlay:
