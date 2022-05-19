@@ -53,7 +53,7 @@ namespace MidAgeRevolution
             LuckEndTurn
         }
 
-        public GameState _gameState = GameState.Setup;
+        public GameState _gameState /*= GameState.Setup*/;
         public GameState _prvGameState;
         public GameState _nextGameState;
 
@@ -81,6 +81,14 @@ namespace MidAgeRevolution
         public Texture2D sc_tw_02_h;
         public Texture2D ghb;
         public Texture2D Arrow;
+
+        //menu texture2d
+        public Texture2D menu_bg;
+        public Texture2D title;
+        public Texture2D st_btn;
+        public Texture2D tu_btn;
+        public Texture2D ex_btn;
+        public Texture2D ghibi;
 
         public static float Degree2Radian(float degrees) { return (float)(degrees * (Math.PI / 180)); }
         //singleton

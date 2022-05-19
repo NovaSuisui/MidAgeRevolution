@@ -29,7 +29,7 @@ namespace MidAgeRevolution.AllScreen
         public float wind =0.0f;
         private Button _skill;
 
-        public GameScreen(Texture2D texture) : base(texture)
+        public GameScreen(Main game, Texture2D texture) : base(game, texture)
         {
             _gameObj = new List<GameSprite>();
             world = new World(new Vector2(0.0f,5f));
@@ -187,9 +187,14 @@ namespace MidAgeRevolution.AllScreen
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            if(loadedContent == false)
+            {
+                return;
+            }
             switch (Singleton.Instance._gameState)
             {
-                
+                /*case Singleton.GameState.Setup:
+                    break;*/
                 default:
                     /*foreach (GameSprite obj in _gameObj)
                     {

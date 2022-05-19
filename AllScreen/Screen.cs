@@ -9,11 +9,13 @@ namespace MidAgeRevolution.AllScreen
     class Screen : ICloneable
     {
         protected Texture2D test;
+        protected Main _game;
         public String label;
 
-        public Screen(Texture2D texture)
+        public Screen(Main game, Texture2D texture)
         {
             test = texture;
+            _game = game;
         }
 
         public virtual void Update(Screen gameScreen)
@@ -27,7 +29,9 @@ namespace MidAgeRevolution.AllScreen
         public virtual void Draw(SpriteBatch spriteBatch)
         {
         }
-
+        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+        }
         public object Clone()
         {
             return this.MemberwiseClone();

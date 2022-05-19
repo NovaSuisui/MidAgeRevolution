@@ -4,6 +4,8 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using MidAgeRevolution.AllScreen;
+
 namespace MidAgeRevolution.AllButton
 {
     class Button : ICloneable
@@ -14,7 +16,7 @@ namespace MidAgeRevolution.AllButton
         public Vector2 field_size;
         protected Rectangle rect;
         protected Color color;
-        protected EventHandler onClick;
+        public EventHandler onClick;
         public Button(Texture2D texture)
         {
         }
@@ -26,11 +28,18 @@ namespace MidAgeRevolution.AllButton
         public virtual void Update(List<Button> gameButton)
         {
         }
-
+        public virtual void Update(Screen gameScreen, GameTime gameTime)
+        {
+        }
+        public virtual void Update(GameTime gameTime)
+        {
+        }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
         }
-
+        public virtual void Draw(SpriteBatch spritebatch, GameTime GameTime)
+        {
+        }
         public object Clone()
         {
             return this.MemberwiseClone();
