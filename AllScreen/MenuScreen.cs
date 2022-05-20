@@ -26,21 +26,21 @@ namespace MidAgeRevolution.AllScreen
             tu_tex2d = (Texture2D)Singleton.Instance.tu_btn;
             ex_tex2d = (Texture2D)Singleton.Instance.ex_btn;
 
-            _start = new ScreenButton(st_tex2d)
+            _start = new MenuButton(st_tex2d)
             {
                 Position = new Vector2(623, 472)
             };
 
             _start.onClick += _startClick;
 
-            _tutorial = new ScreenButton(tu_tex2d)
+            _tutorial = new MenuButton(tu_tex2d)
             {
                 Position = new Vector2(623, 611)
             };
 
             _tutorial.onClick += _tutorialClick;
 
-            _exit = new ScreenButton(ex_tex2d)
+            _exit = new MenuButton(ex_tex2d)
             {
                 Position = new Vector2(623, 750)
             };

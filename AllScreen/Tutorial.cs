@@ -21,7 +21,7 @@ namespace MidAgeRevolution.AllScreen
             detail = (Texture2D)Singleton.Instance.tu_detail;
             re_tex2d = (Texture2D)Singleton.Instance.re_btn;
 
-            _return = new ScreenButton(re_tex2d)
+            _return = new MenuButton(re_tex2d)
             {
                 Position = new Vector2(1210, 50)
             };

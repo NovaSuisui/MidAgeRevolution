@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using MidAgeRevolution;
 namespace MidAgeRevolution.AllButton
 {
-    class ScreenButton : Button
+    class MenuButton : Button
     {
         private MouseState _currentMouse;
         private SpriteFont _font;
@@ -28,7 +28,7 @@ namespace MidAgeRevolution.AllButton
         }
         public string Text { get; set; }
 
-        public ScreenButton(Texture2D texture) : base(texture)
+        public MenuButton(Texture2D texture) : base(texture)
         {
             _texture = texture;
             PenColour = Color.LightGray;
