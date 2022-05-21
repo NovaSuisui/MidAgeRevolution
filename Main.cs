@@ -186,7 +186,7 @@ namespace MidAgeRevolution
                     //_spriteBatch.DrawString(_spriteFont, _screen[1].label, new Vector2(100, 100), Color.Black);
                     _spriteBatch.DrawString(_spriteFont, _screen[1].label, new Vector2(100, 100), Color.Black, 0, Vector2.Zero, new Vector2(5, 5), SpriteEffects.None, 0f);
                     //win
-                    if(Singleton.Instance.gameResult == Singleton.GameResult.LuckWin)
+                    if(Singleton.Instance._gameResult == Singleton.GameResult.LuckWin)
                     {
                         _spriteBatch.Draw(rl_win_popup, new Vector2(320, 216), Color.White);
                     } else
@@ -208,7 +208,7 @@ namespace MidAgeRevolution
         {
             Singleton.Instance._gameState = Singleton.GameState.Setup;
             Singleton.Instance._mainState = Singleton.MainState.gamePlay;
-            Singleton.Instance.gameResult = Singleton.GameResult.None;
+            Singleton.Instance._gameResult = Singleton.GameResult.None;
         }
         private void _mmClick(object sender, EventArgs e)
         {
