@@ -10,14 +10,18 @@
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/detail.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/exit.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/green_health.png</File>
+    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/mm_b.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/play_screen_border.png</File>
+    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/re_b.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/religious.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/religious_new.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/return.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/rl_health_bar.png</File>
+    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/rl_win.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/sc_health_bar.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/sc_tw_02_horizontal.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/sc_tw_02_vertical.png</File>
+    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/sc_win.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/science.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/start.png</File>
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/title.png</File>
@@ -28,6 +32,10 @@
     <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Test/test0.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

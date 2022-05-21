@@ -85,6 +85,18 @@
 /processorParam:TextureFormat=Color
 /build:Asset/green_health.png
 
+#begin Asset/mm_b.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/mm_b.png
+
 #begin Asset/play_screen_border.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -96,6 +108,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Asset/play_screen_border.png
+
+#begin Asset/re_b.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/re_b.png
 
 #begin Asset/religious.png
 /importer:TextureImporter
@@ -145,6 +169,18 @@
 /processorParam:TextureFormat=Color
 /build:Asset/rl_health_bar.png
 
+#begin Asset/rl_win.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/rl_win.png
+
 #begin Asset/sc_health_bar.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -180,6 +216,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Asset/sc_tw_02_vertical.png
+
+#begin Asset/sc_win.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/sc_win.png
 
 #begin Asset/science.png
 /importer:TextureImporter
