@@ -76,42 +76,58 @@ namespace MidAgeRevolution
             // 3 bit (0-2) for damage 7 option
             MultiplyDamage = 0b111,
             x1dmg =   0,  // 000
-            x0dmg   =   1,  // 001
-            x0p3dmg =   2,  // 010
-            x0p5dmg =   3,  // 011
-            x0p6dmg =   4,  // 100
-            x1p5dmg =   5,  // 101
-            x2dmg   =   6,  // 110
-            x3dmg   =   7,  // 111
+            x2dmg   =   1,  // 001
+            x3dmg   =   2,  // 010
+            xrndAdmg   =   3,  //011
+            xrndBdmg =   4,  //100
 
-            // 3 bit (3-5) for debuf 7 option
-            DebufAmmo = 0b111000,
-            none_debuf = 0,     // 000
-            fire_debuf = 8,     // 001
-            week_debuf = 16,    // 010
-            random_debuf = 24,  // 011
+            // 2 bit (3-4) for debuf 7 option
+            DebufAmmo = 0b11000,
+            none_debuf = 0,     // 00
+            fire_debuf = 8,     // 01
+            week_debuf = 16,    // 10
+            random_debuf = 24,  // 11
 
-            // 2 bit (6-7) for Bullet Behavior
-            Behavior = 0b11000000,
+            // 2 bit (5-6) for Bullet Behavior
+            Behavior = 0b1100000,
             nomalBullet = 0,        // 00
-            bounceBullet = 64,       // 01
-            explosionBullet = 128,    // 10
-            boostBullet = 192,      // 11
+            bounceBullet = 32,       // 01
+            explosionBullet = 64,    // 10
+            boostBullet = 96,      // 11
 
-            // 1 bit (8) if bullet apply physics to the word
-            applyPhysics = 256, 
+            // 1 bit (7) if bullet apply physics to the word
+            applyPhysics = 128,
+            
+            // 1 bit (8) if no wind
+            turnOffWind = 256,
 
 
             // 3 bit (9-11) for extra ammo
             Shooting = 0b111000000000,
             x1ammo = 0,         // 000
             x3ammo = 512,        // 001
-            x2time = 1048,        // 010      
+            xrndammo = 1024,        // 010      
 
-            otk = 0b1100000000000001
+            // 1 bit (12) for special Bullet
+
+            // 2 bit (14-15) for Controller
+            Controller  = 0b1100000000000000,
+            projectile  = 0b0000000000000000,
+            laser       = 0b0100000000000000,
+            power       = 0b1000000000000000,
+            useItem     = 0b1100000000000000,
+
+            // itemlist
+            itemNumber  = 0b0011111111111111,
+            otk = 1,
         }
         public AmmoType ammo = AmmoType.x1dmg;
         public SpriteFont testfont;
+
+        public Vector2 TopLeft(Texture2D texture, Vector2 position)
+        {
+            return position + new Vector2(texture.Width / 2, texture.Height / 2);
+        }
 
         public enum StatusEffect
         {

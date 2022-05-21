@@ -26,10 +26,12 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         private uint _HPcolor_ptr2;
         public static float wind = 0.0f;
 
-        public float hit_point = 100f;
-        public float prv_damage = 0f;
+
+        public float MaxHP = 300f;
+        public float hit_point = 300f;
+        public float prv_hitpoint = 300f;
         public float damageTimer = 0.0f;
-        float animated_HP = 100f;
+        float animated_HP = 300f;
         public bool isAlive = true;
 
         public IDictionary<Singleton.StatusEffect, uint> statusEffect = new Dictionary<Singleton.StatusEffect, uint>()
@@ -39,7 +41,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public void ApplyDamage(float Damage)
         {
-            prv_damage = Damage + prv_damage * (damageTimer / 0.5f);
+            prv_hitpoint = animated_HP; 
             damageTimer = 0.5f;
             hit_point = hit_point - Damage;
             hit_point = Math.Clamp(hit_point, 0, 100);
@@ -82,14 +84,16 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         #region move Method
         public void moveLeft()
         {
-            if(Math.Abs(body.LinearVelocity.X) < limitSpeed) body.ApplyForce(new Vector2(-Movespeed,-10f));
+            if (body.LinearVelocity.X > 0) body.ResetDynamics();
+            if(Math.Abs(body.LinearVelocity.X) < limitSpeed) body.ApplyForce(new Vector2(-Movespeed,-15f));
             spriteEffects = SpriteEffects.FlipHorizontally;
             turnLeft = true;
         }
 
         public void moveRight()
         {
-            if (Math.Abs(body.LinearVelocity.X) < limitSpeed) body.ApplyForce(new Vector2(Movespeed, -10f));
+            if (body.LinearVelocity.X < 0) body.ResetDynamics();
+            if (Math.Abs(body.LinearVelocity.X) < limitSpeed) body.ApplyForce(new Vector2(Movespeed, -15f));
             spriteEffects = SpriteEffects.None;
             turnLeft = false;
         }
@@ -97,40 +101,47 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         private int i = 1;
         public virtual void controlHandler(List<GameSprite> gameObject, GameTime gameTime)
         {
-
             if (freeFall()) return;
             if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space))
             {
                 charger(Keys.Space);
             }
-            else if (Singleton.Instance.CurrentKey.IsKeyUp(Keys.Space) && Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.Space))
+            if (Singleton.Instance.CurrentKey.IsKeyUp(Keys.Space) && Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.Space))
             {
-                shoot(gameObject);
+                if (Singleton.Instance._gameState == Singleton.GameState.WisdomTurn) Singleton.Instance._nextGameState = Singleton.GameState.WisdomShooting;
+                if (Singleton.Instance._gameState == Singleton.GameState.LuckTurn) Singleton.Instance._nextGameState = Singleton.GameState.LuckShooting;
             }
-            else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.W))
+
+
+
+            if(Singleton.Instance.CurrentKey.IsKeyUp(Keys.Space))
             {
-                aimAngle += 1;
-                if (aimAngle > 85) aimAngle = 85;
-                Debug.WriteLine(aimAngle);
+                if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.W))
+                {
+                    aimAngle += 1;
+                    if (aimAngle > 80) aimAngle = 80;
+                    Debug.WriteLine(aimAngle);
+                }
+                if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.S))
+                {
+                    aimAngle -= 1;
+                    if (aimAngle < -30) aimAngle = -30;
+                    Debug.WriteLine(aimAngle);
+                }
+                if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
+                {
+                    moveLeft();
+                }
+                else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
+                {
+                    moveRight();
+                }
+                else if (Singleton.Instance.CurrentKey.IsKeyUp(Keys.A) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.D))
+                {
+                    body.LinearVelocity *= new Vector2(0, 1);
+                }
             }
-            else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.S))
-            {
-                aimAngle -= 1;
-                if (aimAngle < -30) aimAngle = -30;
-                Debug.WriteLine(aimAngle);
-            }
-            else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
-            {
-                moveLeft();
-            }
-            else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
-            {
-                moveRight();
-            }
-            else if (Singleton.Instance.CurrentKey.IsKeyUp(Keys.A) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.D))
-            {
-                body.LinearVelocity *= new Vector2(0, 1);
-            }
+
         }
 
         public void charger(Keys keys)
@@ -147,11 +158,40 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         #endregion
         public void shoot(List<GameSprite> gameObject)
         {
+            switch(Singleton.Instance.ammo & Singleton.AmmoType.Controller)
+            {
+                case Singleton.AmmoType.projectile:
+                    shootProjectile(gameObject);
+                    break;
+                case Singleton.AmmoType.useItem:
+                    useItem(gameObject);
+                    break;
+                    
+            }
+            
+        }
+
+        public void useItem(List<GameSprite> gameObject)
+        {
+            switch(Singleton.Instance.ammo & Singleton.AmmoType.itemNumber)
+            {
+                case Singleton.AmmoType.otk:
+                    Item.otk(gameObject);
+                    break;
+            }
+        }
+
+        public void shootProjectile(List<GameSprite> gameObject)
+        {
             int bulletPerShot = 1;
             switch (Singleton.Instance.ammo & Singleton.AmmoType.Shooting)
             {
                 case Singleton.AmmoType.x3ammo:
                     bulletPerShot = 3;
+                    break;
+                case Singleton.AmmoType.xrndammo:
+                    bulletPerShot = Singleton.Instance.rnd.Next(1, 7);
+                    Debug.WriteLine(bulletPerShot);
                     break;
                 case Singleton.AmmoType.x1ammo:
                 default:
@@ -160,65 +200,55 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             }
 
             int mid = bulletPerShot / 2;
-            for(int i = 0; i<bulletPerShot; i++)
+            for (int i = 0; i < bulletPerShot; i++)
             {
-                float bulletAngle = aimAngle + (i - mid) * 30f/ bulletPerShot;
+                float bulletAngle = aimAngle + (i - mid) * 30f / bulletPerShot;
                 float x = (float)Math.Cos(Singleton.Degree2Radian(bulletAngle));
                 float y = (float)-Math.Sin(Singleton.Degree2Radian(bulletAngle));
                 if (turnLeft) x = -x;
                 Bullet bullet = createBullet();
                 bullet.body.Position = (position + new Vector2(x, y) * 60) * Singleton.worldScale;
+                // ใส่แรงยิง
                 bullet.body.ApplyForce(new Vector2(x, y) * (400 + power * 10));
-                bullet.body.ApplyForce(new Vector2(wind * 20, 0));
+                // ใส่แรงลม
+                if ((Singleton.Instance.ammo & Singleton.AmmoType.turnOffWind) != 0)
+                    bullet.body.ApplyForce(new Vector2(wind * 20, 0));
+                // หมุนดิ้ว
                 bullet.body.ApplyTorque((turnLeft) ? -5 : 5);
                 bullet.side = side;
                 gameObject.Add(bullet);
             }
 
-            if((int)(Singleton.Instance.ammo & Singleton.AmmoType.applyPhysics) !=0)
+            if ((int)(Singleton.Instance.ammo & Singleton.AmmoType.applyPhysics) != 0)
             {
-                foreach(GameSprite sprite in gameObject)
+                foreach (GameSprite sprite in gameObject)
                 {
                     sprite.body.BodyType = BodyType.Dynamic;
                 }
             }
-            if (Singleton.Instance._gameState == Singleton.GameState.WisdomTurn) Singleton.Instance._nextGameState = Singleton.GameState.WisdomShooting;
-            if (Singleton.Instance._gameState == Singleton.GameState.LuckTurn) Singleton.Instance._nextGameState = Singleton.GameState.LuckShooting;
 
         }
 
-        public Bullet createBullet()
+        public virtual Bullet createBullet()
         {
             World w = body.World;
             Body bulletBody = w.CreateCircle(10f * Singleton.worldScale, 1f, bodyType: BodyType.Dynamic);
             bulletBody.Mass = 0;
             Bullet bullet;
-            switch (Singleton.Instance.ammo & (Singleton.AmmoType)0b11000000)
+            switch (Singleton.Instance.ammo & Singleton.AmmoType.Behavior)
             {
                 case Singleton.AmmoType.explosionBullet:
-                    bullet = new explosionBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
-                    {
-                        damage = 40,
-                    };
+                    bullet = new explosionBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
                     break;
                 case Singleton.AmmoType.bounceBullet:
-                    bullet = new bounceBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
-                    {
-                        damage = 30,
-                    };
+                    bullet = new bounceBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
                     break;
                 case Singleton.AmmoType.boostBullet:
-                    bullet = new boostBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
-                    {
-                        damage = 0
-                    };
+                    bullet = new boostBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
                     break;
                 case Singleton.AmmoType.nomalBullet:
                 default :
-                    bullet = new Bullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
-                    {
-                        damage = 20,
-                    };
+                    bullet = new Bullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
                     break;
             }
             return bullet;
@@ -230,7 +260,8 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             {
                 damageTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 damageTimer = Math.Clamp(damageTimer, 0, 0.5f);
-                animated_HP = (hit_point + prv_damage * (damageTimer / 0.5f));
+                float dv = prv_hitpoint - hit_point;
+                animated_HP = hit_point + (dv * (damageTimer / 0.5f));
             }
             //if (hit_point <= 0 || position.Y > Singleton.WINDOWS_SIZE_Y) isActive = false;
             switch (Singleton.Instance._gameState)
@@ -262,7 +293,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            float p = power/100f;
+            float p = power/MaxHP;
             Color color = new Color((p * new Vector3(255, 38, 0) + (1 - p) * new Vector3(0, 0, 0))/255);
             float x = (float)Math.Cos(Singleton.Degree2Radian(aimAngle));
             float y = (float)Math.Sin(Singleton.Degree2Radian(aimAngle));
@@ -292,11 +323,11 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             spriteBatch.Draw(border, borderPosition * Singleton.worldScale, null, Color.White, 0f, Vector2.Zero, 1f * Singleton.worldScale, SpriteEffects.None, 0f);
             if(decreedToRight)
             {
-                spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(hpPosition.X+hpSize.X, hpPosition.Y) * Singleton.worldScale, null, hp_color, 0f, new Vector2(1, 0f), new Vector2(hpSize.X * (animated_HP / 100f), hpSize.Y) * Singleton.worldScale, SpriteEffects.None, 0f);
+                spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(hpPosition.X+hpSize.X, hpPosition.Y) * Singleton.worldScale, null, hp_color, 0f, new Vector2(1, 0f), new Vector2(hpSize.X * (animated_HP / MaxHP), hpSize.Y) * Singleton.worldScale, SpriteEffects.None, 0f);
             }
             else
             {
-                spriteBatch.Draw(Singleton.Instance.ghb, hpPosition * Singleton.worldScale, null, hp_color, 0f, new Vector2(0, 0f), new Vector2(hpSize.X * (animated_HP / 100f), hpSize.Y) * Singleton.worldScale, SpriteEffects.None, 0f);
+                spriteBatch.Draw(Singleton.Instance.ghb, hpPosition * Singleton.worldScale, null, hp_color, 0f, new Vector2(0, 0f), new Vector2(hpSize.X * (animated_HP / MaxHP), hpSize.Y) * Singleton.worldScale, SpriteEffects.None, 0f);
             }
         }
     }

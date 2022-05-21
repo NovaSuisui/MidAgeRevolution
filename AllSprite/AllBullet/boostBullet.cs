@@ -26,7 +26,7 @@ namespace MidAgeRevolution.AllSprite
                 int x = Singleton.Instance.CurrentMouse.X;
                 int y = Singleton.Instance.CurrentMouse.Y;
                 Vector2 direction = Vector2.Normalize(new Vector2(x, y) - this.position);
-                body.LinearVelocity = direction * 600f;
+                body.LinearVelocity = direction * 50f;
             }
 
                 switch (Singleton.Instance._gameState)

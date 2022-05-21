@@ -94,8 +94,10 @@ namespace MidAgeRevolution.AllSprite
                 case Singleton.GameState.LuckTurn:
                     break;
                 case Singleton.GameState.WisdomShooting:
+                    body.BodyType = BodyType.Dynamic;
                     break;
                 case Singleton.GameState.LuckShooting:
+                    body.BodyType = BodyType.Dynamic;
                     break;
                 case Singleton.GameState.WisdomEndTurn:
                     break;
@@ -117,7 +119,7 @@ namespace MidAgeRevolution.AllSprite
             else
             {
                 player.ApplyDamage(bullet.damage);
-                switch(Singleton.Instance.ammo & (Singleton.AmmoType)0b111000)
+                switch(Singleton.Instance.ammo & Singleton.AmmoType.DebufAmmo)
                 {
                     case Singleton.AmmoType.fire_debuf:
                         player.ApplyStatus(Singleton.StatusEffect.fire);
@@ -131,7 +133,17 @@ namespace MidAgeRevolution.AllSprite
 
         protected void onhitObstacle(Obstacle obstacle,Bullet bullet)
         {
-            obstacle.hit_point -= bullet.damage;
+            if (obstacle.side == bullet.side) obstacle.ApplyDamage(bullet.damage);
+            else
+            {
+                obstacle.ApplyDamage(bullet.damage);
+                switch (Singleton.Instance.ammo & Singleton.AmmoType.DebufAmmo)
+                {
+                    case Singleton.AmmoType.fire_debuf:
+                        obstacle.ApplyStatus(Singleton.StatusEffect.fire);
+                        break;
+                }
+            }
             string side = (obstacle.side == Side.Wisdom) ? "Wisdom" : "Luck";
             obstacle.hit_point = Math.Clamp(obstacle.hit_point, 0, 100);
             Debug.WriteLine($"{side}'bock HP = {obstacle.hit_point}");
@@ -139,20 +151,16 @@ namespace MidAgeRevolution.AllSprite
 
         protected float damageBuff()
         {
-            switch(Singleton.Instance.ammo & (Singleton.AmmoType)0b111)
+            switch(Singleton.Instance.ammo & Singleton.AmmoType.MultiplyDamage)
             {
                 case Singleton.AmmoType.x1dmg:
                     return 1f;
-                case Singleton.AmmoType.x0dmg:
-                    return 0f;
-                case Singleton.AmmoType.x0p5dmg:
-                    return 0.5f;
-                case Singleton.AmmoType.x1p5dmg:
-                    return 1.5f;
                 case Singleton.AmmoType.x2dmg:
                     return 2f;
                 case Singleton.AmmoType.x3dmg:
                     return 3f;
+                case Singleton.AmmoType.xrndBdmg:
+                    return (Singleton.Instance.rnd.Next(0, 16) / 10f);
                 default: return 1f;
             }
         }

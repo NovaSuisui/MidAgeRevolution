@@ -40,12 +40,6 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.Setup:
                     break;
                 case Singleton.GameState.WisdomTurn:
-
-                    if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomTurn)
-                    {
-                        foreach (GameSprite spite in gameObject) spite.body.BodyType = BodyType.Kinematic;
-                        body.BodyType = BodyType.Dynamic;
-                    }
                     controlHandler(gameObject,gameTime);
                     break;
                 case Singleton.GameState.LuckTurn:

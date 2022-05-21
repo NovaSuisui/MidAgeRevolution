@@ -16,6 +16,7 @@ using MidAgeRevolution.ScreenSystem;
 using MidAgeRevolution.AllSprite;
 using MidAgeRevolution.AllSprite.AllPlayer;
 using MidAgeRevolution.AllButton;
+using tainicom.Aether.Physics2D.Collision.Shapes;
 
 namespace MidAgeRevolution.AllScreen
 {
@@ -53,12 +54,17 @@ namespace MidAgeRevolution.AllScreen
             batchEffect.TextureEnabled = true;
             loadedContent = false;
         }
+        public void setupPlayTurn()
+        {
+            foreach (GameSprite sprite in _gameObj) sprite.body.BodyType = BodyType.Kinematic;
+            wisdom.body.BodyType = BodyType.Dynamic;
+            luck.body.BodyType = BodyType.Dynamic;
+        }
 
         public override void Update(Screen gameScreen,GameTime gameTime)
         {
             if(Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.P) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.P))
             {
-
                 Singleton.Instance._nextGameState = Singleton.GameState.Setup;
                 Singleton.Instance._gameResult = Singleton.GameResult.None;
                 Singleton.Instance._mainState = Singleton.MainState.gamePlay;
@@ -81,7 +87,6 @@ namespace MidAgeRevolution.AllScreen
                         borders.Add(new Vector2(0, -60)); // Upper left
                         Body border = world.CreateLoopShape(borders);
                         border.SetCollidesWith(Category.All & ~Category.Cat2);
-
                         wisdom = new Wisdom(Singleton.Instance.sc, world)
                         {
                             // position = new Vector2(320, 600),
@@ -119,6 +124,8 @@ namespace MidAgeRevolution.AllScreen
                         wind = Singleton.Instance.rnd.Next(-100,100) / 10f;
                         Player.wind = this.wind;
                         Debug.WriteLine($"WisdomTurn wind:{wind}");
+
+                        setupPlayTurn();
                     }
                     _skill.Update(_skill);
                     break;
@@ -129,12 +136,23 @@ namespace MidAgeRevolution.AllScreen
                         wind = Singleton.Instance.rnd.Next(-100, 100) / 10f;
                         Player.wind = this.wind;
                         Debug.WriteLine($"LuckTurn wind:{wind}");
+
+                        setupPlayTurn();
                     }
                     _skill.Update(_skill);
                     break;
 
                 case Singleton.GameState.WisdomShooting:
-                    if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomShooting) Debug.WriteLine("WisdomShooting");
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomShooting)
+                    {
+                        Debug.WriteLine("WisdomShooting");
+                        foreach (GameSprite sprite in _gameObj)
+                        {
+                            sprite.body.ResetDynamics();
+                            sprite.body.BodyType = BodyType.Kinematic; 
+                        }
+                        wisdom.shoot(_gameObj);
+                    } 
                     if (Singleton.Instance._prvGameState==Singleton.GameState.WisdomShooting)
                     {
                         if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.WisdomEndTurn;
@@ -142,7 +160,16 @@ namespace MidAgeRevolution.AllScreen
                     break;
 
                 case Singleton.GameState.LuckShooting:
-                    if (Singleton.Instance._prvGameState != Singleton.GameState.LuckShooting) Debug.WriteLine("LuckShooting");
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.LuckShooting)
+                    {
+                        Debug.WriteLine("LuckShooting");
+                        foreach (GameSprite sprite in _gameObj)
+                        {
+                            sprite.body.ResetDynamics();
+                            sprite.body.BodyType = BodyType.Kinematic;
+                        }
+                        luck.shoot(_gameObj);
+                    }
                     if (Singleton.Instance._prvGameState == Singleton.GameState.LuckShooting)
                     {
                         if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.LuckEndTurn;
@@ -151,7 +178,6 @@ namespace MidAgeRevolution.AllScreen
 
                 case Singleton.GameState.WisdomEndTurn:
                         Singleton.Instance._nextGameState = Singleton.GameState.LuckTurn;
-
                     break;
 
                 case Singleton.GameState.LuckEndTurn:
@@ -256,13 +282,15 @@ namespace MidAgeRevolution.AllScreen
             // horizontal wisdom
             for (int i = 1; i < 3; i++)
             {
-                _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v,world)
+                Obstacle obs = new Obstacle(Singleton.Instance.sc_tw_02_v, world)
                 {
-                    position = new Vector2(position.X + height / 2 +(height * i), position.Y + ((height + width + gap * 2) * 0)),
+                    position = new Vector2(position.X + height / 2 + (height * i), position.Y + ((height + width + gap * 2) * 0)),
                     hitbox_size = new Vector2(width, height),
                     side = objectside,
                     rotation = Singleton.Degree2Radian(90)
-                });
+                };
+
+                _gameObj.Add(obs);
             }
             for (int i = 0; i < 4; i++)
             {

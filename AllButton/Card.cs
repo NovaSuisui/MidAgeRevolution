@@ -74,14 +74,14 @@ namespace MidAgeRevolution.AllButton
                             if (Singleton.Instance.CurrentMouse.X < position.X + 60 &&
                                 Singleton.Instance.CurrentMouse.X > position.X)
                             {
-                                Singleton.Instance.ammo = Singleton.AmmoType.x2dmg | Singleton.AmmoType.fire_debuf | Singleton.AmmoType.boostBullet;
+                                Singleton.Instance.ammo = Singleton.AmmoType.x2dmg | Singleton.AmmoType.fire_debuf | Singleton.AmmoType.bounceBullet ;
                                 CurrentSkill = 0;
                                 setAmmoWisdom();
                             }
                             else if (Singleton.Instance.CurrentMouse.X < position.X + 120 &&
                                 Singleton.Instance.CurrentMouse.X > position.X + 60)
                             {
-                                Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
+                                Singleton.Instance.ammo = Singleton.AmmoType.x3dmg | Singleton.AmmoType.bounceBullet;
                                 CurrentSkill = 1;
                                 setAmmoWisdom();
                             }
@@ -289,22 +289,22 @@ namespace MidAgeRevolution.AllButton
             switch (luckSkill[CurrentSkill])
             {
                 case 1:
-                    Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
+                    Singleton.Instance.ammo = Singleton.AmmoType.otk | Singleton.AmmoType.useItem;
                     break;
                 case 2:
-                    Singleton.Instance.ammo = Singleton.AmmoType.x0dmg;
+                    Singleton.Instance.ammo = Singleton.AmmoType.xrndBdmg | Singleton.AmmoType.xrndammo;
                     break;
                 case 3:
-                    Singleton.Instance.ammo = Singleton.AmmoType.x0p5dmg;
+                    Singleton.Instance.ammo = Singleton.AmmoType.xrndBdmg | Singleton.AmmoType.xrndammo;
                     break;
                 case 4:
-                    Singleton.Instance.ammo = Singleton.AmmoType.x1p5dmg;
+                    Singleton.Instance.ammo = Singleton.AmmoType.xrndBdmg | Singleton.AmmoType.xrndammo;
                     break;
                 case 5:
-                    Singleton.Instance.ammo = Singleton.AmmoType.x2dmg;
+                    Singleton.Instance.ammo = Singleton.AmmoType.x2dmg | Singleton.AmmoType.xrndammo;
                     break;
                 case 6:
-                    Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
+                    Singleton.Instance.ammo = Singleton.AmmoType.x3dmg | Singleton.AmmoType.xrndammo;
                     break;
                 case 7:
                     Singleton.Instance.ammo = Singleton.AmmoType.otk;

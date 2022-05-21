@@ -11,12 +11,12 @@ namespace MidAgeRevolution.AllSprite
 {
     class bounceBullet : Bullet
     {
-        uint bounceTime;
+        public uint bounceTime;
         public bounceBullet(Texture2D texture,Body body) : base(texture, body)
         {
             damage = 30;
             bounceTime = 2;
-            body.SetRestitution(1f);
+            body.SetRestitution(0.6f);
 
         }
         public void checkBounce()
@@ -51,6 +51,7 @@ namespace MidAgeRevolution.AllSprite
                 onhitObstacle(obstacle, bullet);
                 checkBounce();
                 return true;
+               
             }
 
             else if (b as Bullet != null)

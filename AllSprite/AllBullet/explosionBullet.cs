@@ -19,7 +19,7 @@ namespace MidAgeRevolution.AllSprite
         Body area;
         public explosionBullet(Texture2D texture, Body bulletBody) : base(texture, bulletBody)
         {
-            damage = 40;
+            damage = 30;
             outer_radius = 100f;
         }
 

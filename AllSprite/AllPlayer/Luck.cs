@@ -27,11 +27,6 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
                     break;
                 case Singleton.GameState.LuckTurn:
-                    if (Singleton.Instance._prvGameState != Singleton.GameState.LuckTurn)
-                    {
-                        foreach (GameSprite spite in gameObject) spite.body.BodyType = BodyType.Kinematic;
-                        body.BodyType = BodyType.Dynamic;
-                    }
                     controlHandler(gameObject, gameTime);
                     break;
                 case Singleton.GameState.WisdomShooting:
@@ -58,6 +53,34 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             
             DrawHP(spriteBatch, Singleton.Instance.rl_hp_bar, new Vector2(998, 35), new Vector2(324, 31), new Vector2(1028, 57),true);
             base.Draw(spriteBatch);
+        }
+
+        public override Bullet createBullet()
+        {
+            World w = body.World;
+            Body bulletBody = w.CreateCircle(10f * Singleton.worldScale, 1f, bodyType: BodyType.Dynamic);
+            bulletBody.Mass = 0;
+            Bullet bullet;
+            switch (Singleton.Instance.ammo & Singleton.AmmoType.Behavior)
+            {
+                case Singleton.AmmoType.explosionBullet:
+                    bullet = new explosionBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
+                    break;
+                case Singleton.AmmoType.bounceBullet:
+                    bullet = new bounceBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
+                    {
+                        bounceTime = (uint)Singleton.Instance.rnd.Next(0, 4),
+                    };
+                    break;
+                case Singleton.AmmoType.boostBullet:
+                    bullet = new boostBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
+                    break;
+                case Singleton.AmmoType.nomalBullet:
+                default:
+                    bullet = new Bullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
+                    break;
+            }
+            return bullet;
         }
     }
 }
