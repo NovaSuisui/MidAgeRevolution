@@ -178,3 +178,17 @@ D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeR
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\re_b.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rl_win.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_win.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\exit.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\start.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\title.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\animator.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\detail.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\mm_b.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\religious_new.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\return.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\re_b.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rl_win.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_win.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial_title.xnb

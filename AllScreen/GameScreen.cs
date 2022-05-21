@@ -41,13 +41,6 @@ namespace MidAgeRevolution.AllScreen
             world.ContactManager.CollideMultithreadThreshold = 256;
             world.Tag = _gameObj;
 
-            Vertices borders = new Vertices(4);
-            borders.Add(new Vector2(0, 36));  // Lower left
-            borders.Add(new Vector2(64, 36));   // Lower right
-            borders.Add(new Vector2(64, -60));  // Upper right
-            borders.Add(new Vector2(0, -60)); // Upper left
-            Body border = world.CreateLoopShape(borders);
-            border.SetCollidesWith(Category.All & ~Category.Cat2);
             debugView = new DebugView(world);
             debugView.LoadContent(Singleton.Instance.GraphicsDevice, Singleton.Instance.Content);
             debugView.Flags = DebugViewFlags.None;
@@ -63,6 +56,14 @@ namespace MidAgeRevolution.AllScreen
 
         public override void Update(Screen gameScreen,GameTime gameTime)
         {
+            if(Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.P) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.P))
+            {
+
+                Singleton.Instance._nextGameState = Singleton.GameState.Setup;
+                Singleton.Instance._gameResult = Singleton.GameResult.None;
+                Singleton.Instance._mainState = Singleton.MainState.gamePlay;
+            }
+
             int numSprite = _gameObj.Count;
             switch (Singleton.Instance._gameState)
             {
@@ -70,7 +71,17 @@ namespace MidAgeRevolution.AllScreen
                     if (Singleton.Instance._prvGameState != Singleton.GameState.Setup) loadedContent = false;
                     if(loadedContent == false)
                     {
+                        world.Clear();
                         _gameObj.Clear();
+
+                        Vertices borders = new Vertices(4);
+                        borders.Add(new Vector2(0, 36));  // Lower left
+                        borders.Add(new Vector2(64, 36));   // Lower right
+                        borders.Add(new Vector2(64, -60));  // Upper right
+                        borders.Add(new Vector2(0, -60)); // Upper left
+                        Body border = world.CreateLoopShape(borders);
+                        border.SetCollidesWith(Category.All & ~Category.Cat2);
+
                         wisdom = new Wisdom(Singleton.Instance.sc, world)
                         {
                             // position = new Vector2(320, 600),
@@ -171,14 +182,14 @@ namespace MidAgeRevolution.AllScreen
             {
                 label = "Luck Win";
                 Singleton.Instance._nextGameState = Singleton.GameState.End;
-                Singleton.Instance.gameResult = Singleton.GameResult.LuckWin;
+                Singleton.Instance._gameResult = Singleton.GameResult.LuckWin;
                 Singleton.Instance._mainState = Singleton.MainState.gameEnd;
             }
             else if (!luck.isAlive)
             {
                 label = "Wisdom Win";
                 Singleton.Instance._nextGameState = Singleton.GameState.End;
-                Singleton.Instance.gameResult = Singleton.GameResult.WisdomWin;
+                Singleton.Instance._gameResult = Singleton.GameResult.WisdomWin;
                 Singleton.Instance._mainState = Singleton.MainState.gameEnd;
             }
 

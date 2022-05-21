@@ -60,11 +60,12 @@ namespace MidAgeRevolution
 
         public enum GameResult
         {
+            None,
             LuckWin,
             WisdomWin,
         }
 
-        public GameResult gameResult;
+        public GameResult _gameResult;
 
         public enum AmmoType
         {
@@ -95,6 +96,7 @@ namespace MidAgeRevolution
             nomalBullet = 0,        // 00
             bounceBullet = 64,       // 01
             explosionBullet = 128,    // 10
+            boostBullet = 192,      // 11
 
             // 1 bit (8) if bullet apply physics to the word
             applyPhysics = 256, 

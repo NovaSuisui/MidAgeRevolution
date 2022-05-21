@@ -74,7 +74,7 @@ namespace MidAgeRevolution.AllButton
                             if (Singleton.Instance.CurrentMouse.X < position.X + 60 &&
                                 Singleton.Instance.CurrentMouse.X > position.X)
                             {
-                                Singleton.Instance.ammo = Singleton.AmmoType.x2dmg | Singleton.AmmoType.fire_debuf | Singleton.AmmoType.bounceBullet;
+                                Singleton.Instance.ammo = Singleton.AmmoType.x2dmg | Singleton.AmmoType.fire_debuf | Singleton.AmmoType.boostBullet;
                                 CurrentSkill = 0;
                                 setAmmoWisdom();
                             }

@@ -204,7 +204,13 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.AmmoType.bounceBullet:
                     bullet = new bounceBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
                     {
-                        damage = 10
+                        damage = 30,
+                    };
+                    break;
+                case Singleton.AmmoType.boostBullet:
+                    bullet = new boostBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
+                    {
+                        damage = 0
                     };
                     break;
                 case Singleton.AmmoType.nomalBullet:
