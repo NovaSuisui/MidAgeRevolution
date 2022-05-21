@@ -161,6 +161,7 @@ namespace MidAgeRevolution
                     _screen[1].Draw(_spriteBatch);
                     //_spriteBatch.DrawString(_spriteFont, _screen[1].label, new Vector2(100, 100), Color.Black);
                     _spriteBatch.DrawString(_spriteFont, _screen[1].label, new Vector2(100, 100), Color.Black, 0, Vector2.Zero, new Vector2(5, 5), SpriteEffects.None, 0f);
+                    //win
 
                     break;
                 default:
