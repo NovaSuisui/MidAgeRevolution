@@ -147,6 +147,51 @@ namespace MidAgeRevolution
         public Texture2D sc_win;
         public Texture2D mm_b; //back to mainmenu button
         public Texture2D re_b; //restart game button
+
+        //rework 
+
+        //luck tower
+        public Texture2D lt_1;
+        public Texture2D lt_2;
+        public Texture2D lt_3;
+        public Texture2D lt_4_1;
+        public Texture2D lt_4_2;
+        public Texture2D lt_5;
+        public Texture2D lt_6;
+        public Texture2D lt_7;
+        public Texture2D lt_8;
+        public Texture2D lt_9;
+        public Texture2D lt_10;
+        public Texture2D lt_11;
+        public Texture2D lt_12;
+        public Texture2D lt_13;
+        public Texture2D lt_14;
+        public Texture2D lt_15;
+        public Texture2D lt_16;
+        public Texture2D lt_17;
+        public Texture2D lt_18;
+
+        //wisdom tower
+        public Texture2D wt_1;
+        public Texture2D wt_2;
+        public Texture2D wt_3;
+        public Texture2D wt_4;
+        public Texture2D wt_5;
+        public Texture2D wt_6;
+        public Texture2D wt_7;
+        public Texture2D wt_8;
+        public Texture2D wt_9;
+        public Texture2D wt_10;
+        public Texture2D wt_11;
+        public Texture2D wt_12;
+        public Texture2D wt_13;
+        public Texture2D wt_14;
+        public Texture2D wt_15;
+        public Texture2D wt_16;
+        public Vector2 TopLeft(Texture2D texture, Vector2 position)
+        {
+            return position + new Vector2(texture.Width / 2, texture.Height / 2);
+        }
         public static float Degree2Radian(float degrees) { return (float)(degrees * (Math.PI / 180)); }
         //singleton
         private static Singleton instance;

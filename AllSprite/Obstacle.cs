@@ -24,6 +24,16 @@ namespace MidAgeRevolution.AllSprite
             body.Tag = this;
         }
 
+        public Obstacle(Texture2D texture, Body body) : base(texture)
+        {
+            colour = Color.White;
+
+            this.body = body;
+            body.FixedRotation = true;
+            body.OnCollision += collisionHandler;
+            body.Tag = this;
+        }
+
         bool collisionHandler(Fixture sender, Fixture other, Contact contact)
         {
             
