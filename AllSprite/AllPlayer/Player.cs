@@ -56,8 +56,8 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         {
             //body = world.CreateRectangle(collisionBox.X * Singleton.worldScale, collisionBox.Y * Singleton.worldScale, 1f, bodyType: BodyType.Dynamic);
             body = world.CreateBody();
-            body.CreateRectangle(32 * Singleton.worldScale, 60 * Singleton.worldScale,1,new Vector2(0,10*Singleton.worldScale));
-            body.CreateCircle(10 * Singleton.worldScale, 1,new Vector2(0,-30*Singleton.worldScale));
+            body.CreateRectangle(30 * Singleton.worldScale, 35 * Singleton.worldScale,1,new Vector2(0,5*Singleton.worldScale));
+            body.CreateCircle(7 * Singleton.worldScale, 1,new Vector2(0,-22*Singleton.worldScale));
             body.BodyType = BodyType.Dynamic;
             body.FixedRotation = true;
             body.OnCollision += collisionHandler;
