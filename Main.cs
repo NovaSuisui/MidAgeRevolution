@@ -206,7 +206,7 @@ namespace MidAgeRevolution
         }
         private void _resClick(object sender, EventArgs e)
         {
-            Singleton.Instance._gameState = Singleton.GameState.Setup;
+            Singleton.Instance._nextGameState = Singleton.GameState.Setup;
             Singleton.Instance._mainState = Singleton.MainState.gamePlay;
             Singleton.Instance._gameResult = Singleton.GameResult.None;
         }
