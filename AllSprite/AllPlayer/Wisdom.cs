@@ -70,7 +70,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            DrawHP(spriteBatch, Singleton.Instance.sc_hp_bar, new Vector2(100, 35), new Vector2(324, 31), new Vector2(247, 57));
+            DrawHP(spriteBatch, Singleton.Instance.sc_hp_bar, new Vector2(101, 35), new Vector2(324, 31), new Vector2(247, 57));
             base.Draw(spriteBatch);
         }
     }
