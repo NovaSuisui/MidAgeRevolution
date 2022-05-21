@@ -47,7 +47,7 @@ namespace MidAgeRevolution.AllSprite
             damageTimer = 0.5f;
             hp_timer = 0.7f;
             hit_point = hit_point - Damage;
-            hit_point = Math.Clamp(hit_point, 0, 100);
+            hit_point = Math.Clamp(hit_point, 0, MaxHP);
         }
 
         public void ApplyStatus(Singleton.StatusEffect statusEffect)

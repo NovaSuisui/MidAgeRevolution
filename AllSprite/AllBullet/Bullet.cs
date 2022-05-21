@@ -145,7 +145,6 @@ namespace MidAgeRevolution.AllSprite
                 }
             }
             string side = (obstacle.side == Side.Wisdom) ? "Wisdom" : "Luck";
-            obstacle.hit_point = Math.Clamp(obstacle.hit_point, 0, 100);
             Debug.WriteLine($"{side}'bock HP = {obstacle.hit_point}");
         }
 

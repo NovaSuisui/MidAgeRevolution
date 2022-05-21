@@ -32,6 +32,7 @@ namespace MidAgeRevolution.AllScreen
         public float wind = 0.0f;
         private Button _skill;
         private float timer;
+        private bool enableDebug =true;
 
         public GameScreen(Main game, Texture2D texture) : base(game, texture)
         {
@@ -63,7 +64,11 @@ namespace MidAgeRevolution.AllScreen
 
         public override void Update(Screen gameScreen, GameTime gameTime)
         {
-            if (Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.P) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.P))
+            if(Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.F2) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.F2))
+            {
+                enableDebug = !enableDebug;
+            }
+            if (Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.F1) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.F1))
             {
                 Singleton.Instance._nextGameState = Singleton.GameState.Setup;
                 Singleton.Instance._gameResult = Singleton.GameResult.None;
@@ -81,10 +86,10 @@ namespace MidAgeRevolution.AllScreen
                         _gameObj.Clear();
 
                         Vertices borders = new Vertices(4);
-                        borders.Add(new Vector2(0, 36));  // Lower left
-                        borders.Add(new Vector2(64, 36));   // Lower right
-                        borders.Add(new Vector2(64, -60));  // Upper right
-                        borders.Add(new Vector2(0, -60)); // Upper left
+                        borders.Add(new Vector2(0, 800*Singleton.worldScale));  // Lower left
+                        borders.Add(new Vector2(1900 * Singleton.worldScale, 800 * Singleton.worldScale));   // Lower right
+                        borders.Add(new Vector2(1900 * Singleton.worldScale, -1500 * Singleton.worldScale));  // Upper right
+                        borders.Add(new Vector2(0, -1500 * Singleton.worldScale)); // Upper left
                         Body border = world.CreateLoopShape(borders);
                         border.SetCollidesWith(Category.All & ~Category.Cat2);
                         wisdom = new Wisdom(Singleton.Instance.sc, world)
@@ -250,11 +255,12 @@ namespace MidAgeRevolution.AllScreen
                         _gameObj[i].Draw(spriteBatch);
                     }
                     spriteBatch.End();
-
-                    debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
+                    if(enableDebug)
+                        debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
 
                     spriteBatch.Begin();
                     spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, Color.Green, 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
                     break;
             }
 
@@ -291,7 +297,7 @@ namespace MidAgeRevolution.AllScreen
                     hitbox_size = new Vector2(width, height),
                     side = objectside,
                     rotation = Singleton.Degree2Radian(90)
-                };
+                });
             }
             for (int i = 0; i < 4; i++)
             {
@@ -332,6 +338,7 @@ namespace MidAgeRevolution.AllScreen
         }
         private void createLuckTower(GameSprite.Side objectside)
         {
+            Vertices triangle = new Vertices(3);
             Body body;
             float width, height, x, y;
 
@@ -341,6 +348,14 @@ namespace MidAgeRevolution.AllScreen
             height = 96.22f;
             x = 1074.86f;
             y = 398.0f;
+            /*float width2 = width / 2 * Singleton.worldScale;
+            float height2 = (height) / 2 * Singleton.worldScale;
+            triangle.Add(new Vector2(-width2,height2));
+            triangle.Add(new Vector2(width2, height2));
+            triangle.Add(new Vector2(0, -height2+20*Singleton.worldScale));
+            body = world.CreateBody();
+            body.CreatePolygon(triangle, 1f);
+            triangle.Clear();*/
             body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
             _gameObj.Add(new Obstacle(Singleton.Instance.lt_1, body)
             {
@@ -352,6 +367,14 @@ namespace MidAgeRevolution.AllScreen
             height = 96.22f;
             x = 1305.72f;
             y = 401.87f;
+            /*width2 = width / 2 * Singleton.worldScale;
+            height2 = (height) / 2 * Singleton.worldScale;
+            triangle.Add(new Vector2(-width2, height2));
+            triangle.Add(new Vector2(width2, height2));
+            triangle.Add(new Vector2(0, -height2 + 20 * Singleton.worldScale));
+            body = world.CreateBody();
+            body.CreatePolygon(triangle, 1f);
+            triangle.Clear();*/
             body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
             _gameObj.Add(new Obstacle(Singleton.Instance.lt_1, body)
             {
@@ -385,6 +408,14 @@ namespace MidAgeRevolution.AllScreen
             height = 87.82f;
             x = 1142.67f;
             y = 487.76f;
+            /*width2 = width / 2 * Singleton.worldScale;
+            height2 = (height) / 2 * Singleton.worldScale;
+            triangle.Add(new Vector2(-width2, height2));
+            triangle.Add(new Vector2(width2, height2));
+            triangle.Add(new Vector2(0, -height2));
+            body = world.CreateBody();
+            body.CreatePolygon(triangle, 1f);
+            triangle.Clear();*/
             body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
             _gameObj.Add(new Obstacle(Singleton.Instance.lt_4_2, body)
             {

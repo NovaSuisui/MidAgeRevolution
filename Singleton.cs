@@ -124,11 +124,6 @@ namespace MidAgeRevolution
         public AmmoType ammo = AmmoType.x1dmg;
         public SpriteFont testfont;
 
-        public Vector2 TopLeft(Texture2D texture, Vector2 position)
-        {
-            return position + new Vector2(texture.Width / 2, texture.Height / 2);
-        }
-
         public enum StatusEffect
         {
             fire,
