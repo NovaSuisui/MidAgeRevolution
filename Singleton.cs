@@ -62,7 +62,7 @@ namespace MidAgeRevolution
         {
             None,
             LuckWin,
-            WisdomWin,
+            WisdomWin
         }
 
         public GameResult _gameResult;
@@ -142,6 +142,11 @@ namespace MidAgeRevolution
         public Texture2D tu_title;
         public Texture2D tu_detail;
 
+        //win texture2d pop up
+        public Texture2D rl_win;
+        public Texture2D sc_win;
+        public Texture2D mm_b; //back to mainmenu button
+        public Texture2D re_b; //restart game button
         public static float Degree2Radian(float degrees) { return (float)(degrees * (Math.PI / 180)); }
         //singleton
         private static Singleton instance;

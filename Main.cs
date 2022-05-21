@@ -21,8 +21,8 @@ namespace MidAgeRevolution
 
         private List<Screen> _screen;
             
-        Texture2D test;
-
+        Texture2D test, restart_tex2d, mainmenu_tex2d, rl_win_popup, sc_win_popup;
+        private Button _res, _mm;
         public Main()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -82,6 +82,29 @@ namespace MidAgeRevolution
             Singleton.Instance.GraphicsDevice = _graphics.GraphicsDevice;
             Singleton.Instance.testfont = this.Content.Load<SpriteFont>("Test/font0");
 
+            //win texture2D pop up
+            Singleton.Instance.mm_b = this.Content.Load<Texture2D>("Asset/mm_b");
+            Singleton.Instance.re_b = this.Content.Load<Texture2D>("Asset/re_b");
+            Singleton.Instance.sc_win = this.Content.Load<Texture2D>("Asset/sc_win");
+            Singleton.Instance.rl_win = this.Content.Load<Texture2D>("Asset/rl_win");
+
+            rl_win_popup = (Texture2D)Singleton.Instance.rl_win;
+            sc_win_popup = (Texture2D)Singleton.Instance.sc_win;
+            restart_tex2d = (Texture2D)Singleton.Instance.re_b;
+            mainmenu_tex2d = (Texture2D)Singleton.Instance.mm_b;
+            _res = new MenuButton(restart_tex2d)
+            {
+                Position = new Vector2(792, 578)
+            };
+
+            _res.onClick += _resClick;
+
+            _mm = new MenuButton(mainmenu_tex2d)
+            {
+                Position = new Vector2(1042, 578)
+            };
+
+            _mm.onClick += _mmClick;
         }
 
         protected override void Update(GameTime gameTime)
@@ -122,8 +145,9 @@ namespace MidAgeRevolution
                     break;
 
                 case Singleton.MainState.gameEnd:
-                    _screen[1].Update(_screen[1],gameTime);
-
+                    _screen[1].Update(_screen[1], gameTime);
+                    _res.Update(gameTime);
+                    _mm.Update(gameTime);
                     //Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;
             }
@@ -161,7 +185,16 @@ namespace MidAgeRevolution
                     _screen[1].Draw(_spriteBatch);
                     //_spriteBatch.DrawString(_spriteFont, _screen[1].label, new Vector2(100, 100), Color.Black);
                     _spriteBatch.DrawString(_spriteFont, _screen[1].label, new Vector2(100, 100), Color.Black, 0, Vector2.Zero, new Vector2(5, 5), SpriteEffects.None, 0f);
-
+                    //win
+                    if(Singleton.Instance.gameResult == Singleton.GameResult.LuckWin)
+                    {
+                        _spriteBatch.Draw(rl_win_popup, new Vector2(320, 216), Color.White);
+                    } else
+                    {
+                        _spriteBatch.Draw(sc_win_popup, new Vector2(320, 216), Color.White);
+                    }
+                    _res.Draw(_spriteBatch);
+                    _mm.Draw(_spriteBatch);
                     break;
                 default:
                     break;
@@ -170,6 +203,16 @@ namespace MidAgeRevolution
             _spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+        private void _resClick(object sender, EventArgs e)
+        {
+            Singleton.Instance._gameState = Singleton.GameState.Setup;
+            Singleton.Instance._mainState = Singleton.MainState.gamePlay;
+            Singleton.Instance.gameResult = Singleton.GameResult.None;
+        }
+        private void _mmClick(object sender, EventArgs e)
+        {
+            Singleton.Instance._mainState = Singleton.MainState.mainMenu;
         }
     }
 }
