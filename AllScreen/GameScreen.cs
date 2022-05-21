@@ -25,9 +25,12 @@ namespace MidAgeRevolution.AllScreen
         DebugView debugView;
         BasicEffect batchEffect;
         private List<GameSprite> _gameObj;
+        private Luck luck;
+        private Wisdom wisdom;
         private bool loadedContent;
         public float wind =0.0f;
         private Button _skill;
+        private float timer;
 
         public GameScreen(Main game, Texture2D texture) : base(game, texture)
         {
@@ -36,6 +39,7 @@ namespace MidAgeRevolution.AllScreen
             world.ContactManager.VelocityConstraintsMultithreadThreshold = 256;
             world.ContactManager.PositionConstraintsMultithreadThreshold = 256;
             world.ContactManager.CollideMultithreadThreshold = 256;
+            world.Tag = _gameObj;
 
             Vertices borders = new Vertices(4);
             borders.Add(new Vector2(0, 36));  // Lower left
@@ -67,17 +71,18 @@ namespace MidAgeRevolution.AllScreen
                     if(loadedContent == false)
                     {
                         _gameObj.Clear();
-                        _gameObj.Add(new Wisdom(Singleton.Instance.sc, world)
+                        wisdom = new Wisdom(Singleton.Instance.sc, world)
                         {
                             // position = new Vector2(320, 600),
                             position = new Vector2(450, 200),
-                        });
-                        _gameObj.Add(new Luck(Singleton.Instance.rl, world)
+                        };
+                        _gameObj.Add(wisdom);
+                        luck = new Luck(Singleton.Instance.rl, world)
                         {
-                            // position = new Vector2(1220, 600),
                             position = new Vector2(1296, 220),
                             turnLeft = true
-                        });
+                        };
+                        _gameObj.Add(luck);
 
                         createTower(new Vector2(200f, 300f), GameSprite.Side.Wisdom);
                         createTower(new Vector2(1000f, 300f), GameSprite.Side.Luck);
@@ -121,7 +126,7 @@ namespace MidAgeRevolution.AllScreen
                     if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomShooting) Debug.WriteLine("WisdomShooting");
                     if (Singleton.Instance._prvGameState==Singleton.GameState.WisdomShooting)
                     {
-                        if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.LuckTurn;
+                        if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.WisdomEndTurn;
                     }
                     break;
 
@@ -129,17 +134,17 @@ namespace MidAgeRevolution.AllScreen
                     if (Singleton.Instance._prvGameState != Singleton.GameState.LuckShooting) Debug.WriteLine("LuckShooting");
                     if (Singleton.Instance._prvGameState == Singleton.GameState.LuckShooting)
                     {
-                        if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.WisdomTurn;
+                        if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.LuckEndTurn;
                     }
                     break;
 
                 case Singleton.GameState.WisdomEndTurn:
-                    
+                        Singleton.Instance._nextGameState = Singleton.GameState.LuckTurn;
 
                     break;
 
                 case Singleton.GameState.LuckEndTurn:
-                    
+                        Singleton.Instance._nextGameState = Singleton.GameState.WisdomTurn;
                     break;
             }
 
@@ -161,25 +166,21 @@ namespace MidAgeRevolution.AllScreen
                     numSprite--;
                 }
             }
-            /*
-                        if (!_gameObj[0].isActive)
-                        {
-                            label = "Luck Win";
-                            Singleton.Instance._mainState = Singleton.MainState.gameEnd;
-                        }
-                        else if(!_gameObj[1].isActive)
-                        {
-                            label = "Wisdom Win";
-                            Singleton.Instance._mainState = Singleton.MainState.gameEnd;
-                        }
 
-                        for (int i = 2; i < _gameObj.Count; i++)
-                        {
-                            if (!_gameObj[i].isActive)
-                            {
-                                _gameObj.RemoveAt(i);
-                            }
-                        }*/
+            if (!wisdom.isAlive)
+            {
+                label = "Luck Win";
+                Singleton.Instance._nextGameState = Singleton.GameState.End;
+                Singleton.Instance.gameResult = Singleton.GameResult.LuckWin;
+                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+            }
+            else if (!luck.isAlive)
+            {
+                label = "Wisdom Win";
+                Singleton.Instance._nextGameState = Singleton.GameState.End;
+                Singleton.Instance.gameResult = Singleton.GameResult.WisdomWin;
+                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+            }
 
             world.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalSeconds, (1f / 30f)));
             base.Update(gameScreen);
@@ -187,10 +188,6 @@ namespace MidAgeRevolution.AllScreen
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if(loadedContent == false)
-            {
-                return;
-            }
             switch (Singleton.Instance._gameState)
             {
                 /*case Singleton.GameState.Setup:
@@ -202,7 +199,7 @@ namespace MidAgeRevolution.AllScreen
                     }*/
 
                     spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-                    _skill.Draw(spriteBatch);
+                    if(_skill!=null) _skill.Draw(spriteBatch);
                     spriteBatch.End();
 
                     batchEffect.View = Camera2D.GetView();

@@ -50,25 +50,72 @@ namespace MidAgeRevolution
             WisdomShooting,
             LuckShooting,
             WisdomEndTurn,
-            LuckEndTurn
+            LuckEndTurn,
+            End,
         }
 
         public GameState _gameState /*= GameState.Setup*/;
         public GameState _prvGameState;
         public GameState _nextGameState;
 
+        public enum GameResult
+        {
+            LuckWin,
+            WisdomWin,
+        }
+
+        public GameResult gameResult;
+
         public enum AmmoType
         {
-            normal,
-            x0dmg,
-            x0p5dmg,
-            x1p5dmg,
-            x2dmg,
-            x3dmg,
-            otk
+            /*
+                16 bit controll Ammotype
+                3 3 2-1 3 2 2 
+             */
+            // 3 bit (0-2) for damage 7 option
+            MultiplyDamage = 0b111,
+            x1dmg =   0,  // 000
+            x0dmg   =   1,  // 001
+            x0p3dmg =   2,  // 010
+            x0p5dmg =   3,  // 011
+            x0p6dmg =   4,  // 100
+            x1p5dmg =   5,  // 101
+            x2dmg   =   6,  // 110
+            x3dmg   =   7,  // 111
+
+            // 3 bit (3-5) for debuf 7 option
+            DebufAmmo = 0b111000,
+            none_debuf = 0,     // 000
+            fire_debuf = 8,     // 001
+            week_debuf = 16,    // 010
+            random_debuf = 24,  // 011
+
+            // 2 bit (6-7) for Bullet Behavior
+            Behavior = 0b11000000,
+            nomalBullet = 0,        // 00
+            bounceBullet = 64,       // 01
+            explosionBullet = 128,    // 10
+
+            // 1 bit (8) if bullet apply physics to the word
+            applyPhysics = 256, 
+
+
+            // 3 bit (9-11) for extra ammo
+            Shooting = 0b111000000000,
+            x1ammo = 0,         // 000
+            x3ammo = 512,        // 001
+            x2time = 1048,        // 010      
+
+            otk = 0b1100000000000001
         }
-        public AmmoType ammo = AmmoType.normal;
+        public AmmoType ammo = AmmoType.x1dmg;
         public SpriteFont testfont;
+
+        public enum StatusEffect
+        {
+            fire,
+            weak
+        }
 
         //texture2d
         public Texture2D sc;

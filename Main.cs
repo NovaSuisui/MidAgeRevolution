@@ -122,7 +122,7 @@ namespace MidAgeRevolution
                     break;
 
                 case Singleton.MainState.gameEnd:
-                    //_screen[1].Update(_screen[1]);
+                    _screen[1].Update(_screen[1],gameTime);
 
                     //Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;

@@ -27,7 +27,28 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         public static float wind = 0.0f;
 
         public float hit_point = 100f;
-        
+        public float prv_damage = 0f;
+        public float damageTimer = 0.0f;
+        float animated_HP = 100f;
+        public bool isAlive = true;
+
+        public IDictionary<Singleton.StatusEffect, uint> statusEffect = new Dictionary<Singleton.StatusEffect, uint>()
+        {
+            { Singleton.StatusEffect.fire, 0},
+        };
+
+        public void ApplyDamage(float Damage)
+        {
+            prv_damage = Damage + prv_damage * (damageTimer / 0.5f);
+            damageTimer = 0.5f;
+            hit_point = hit_point - Damage;
+            hit_point = Math.Clamp(hit_point, 0, 100);
+        }
+
+        public void ApplyStatus(Singleton.StatusEffect statusEffect)
+        {
+            if (statusEffect == Singleton.StatusEffect.fire) this.statusEffect[Singleton.StatusEffect.fire] = 5;
+        }
 
         public Player(Texture2D texture, World world) : base(texture)
         {
@@ -122,44 +143,90 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         public bool freeFall()
         {
             return body.ContactList == null;
-            /*if (body.ContactList != null)
-            {
-                return false;
-            }
-            else
-            {
-                body.LinearVelocity *= new Vector2(0, 1);
-                return true;
-            }*/
         }
         #endregion
-
         public void shoot(List<GameSprite> gameObject)
         {
-            World w = body.World;
-            
-            Body bulletBody = w.CreateCircle(10f*Singleton.worldScale, 1f, bodyType: BodyType.Dynamic);
-            float x = (float)Math.Cos(Singleton.Degree2Radian(aimAngle));
-            float y = (float)Math.Sin(Singleton.Degree2Radian(aimAngle));
-            bulletBody.Mass = 0;
-            bulletBody.Position = (position + new Vector2((turnLeft)? -x:x, -y)*60)*Singleton.worldScale;
-            bulletBody.ApplyForce(new Vector2((turnLeft) ? -x : x, -y) * (400+power*10));
-            bulletBody.ApplyForce(new Vector2(wind*20, 0));
-            bulletBody.ApplyTorque((turnLeft)?-5 :5f);
-
-            Bullet bullet = new Bullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
+            int bulletPerShot = 1;
+            switch (Singleton.Instance.ammo & Singleton.AmmoType.Shooting)
             {
-                damage = 20,
-            };
-            bullet.side = side;
-            gameObject.Add(bullet);
+                case Singleton.AmmoType.x3ammo:
+                    bulletPerShot = 3;
+                    break;
+                case Singleton.AmmoType.x1ammo:
+                default:
+                    bulletPerShot = 1;
+                    break;
+            }
+
+            int mid = bulletPerShot / 2;
+            for(int i = 0; i<bulletPerShot; i++)
+            {
+                float bulletAngle = aimAngle + (i - mid) * 30f/ bulletPerShot;
+                float x = (float)Math.Cos(Singleton.Degree2Radian(bulletAngle));
+                float y = (float)-Math.Sin(Singleton.Degree2Radian(bulletAngle));
+                if (turnLeft) x = -x;
+                Bullet bullet = createBullet();
+                bullet.body.Position = (position + new Vector2(x, y) * 60) * Singleton.worldScale;
+                bullet.body.ApplyForce(new Vector2(x, y) * (400 + power * 10));
+                bullet.body.ApplyForce(new Vector2(wind * 20, 0));
+                bullet.body.ApplyTorque((turnLeft) ? -5 : 5);
+                bullet.side = side;
+                gameObject.Add(bullet);
+            }
+
+            if((int)(Singleton.Instance.ammo & Singleton.AmmoType.applyPhysics) !=0)
+            {
+                foreach(GameSprite sprite in gameObject)
+                {
+                    sprite.body.BodyType = BodyType.Dynamic;
+                }
+            }
             if (Singleton.Instance._gameState == Singleton.GameState.WisdomTurn) Singleton.Instance._nextGameState = Singleton.GameState.WisdomShooting;
             if (Singleton.Instance._gameState == Singleton.GameState.LuckTurn) Singleton.Instance._nextGameState = Singleton.GameState.LuckShooting;
 
         }
+
+        public Bullet createBullet()
+        {
+            World w = body.World;
+            Body bulletBody = w.CreateCircle(10f * Singleton.worldScale, 1f, bodyType: BodyType.Dynamic);
+            bulletBody.Mass = 0;
+            Bullet bullet;
+            switch (Singleton.Instance.ammo & (Singleton.AmmoType)0b11000000)
+            {
+                case Singleton.AmmoType.explosionBullet:
+                    bullet = new explosionBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
+                    {
+                        damage = 40,
+                    };
+                    break;
+                case Singleton.AmmoType.bounceBullet:
+                    bullet = new bounceBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
+                    {
+                        damage = 10
+                    };
+                    break;
+                case Singleton.AmmoType.nomalBullet:
+                default :
+                    bullet = new Bullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
+                    {
+                        damage = 20,
+                    };
+                    break;
+            }
+            return bullet;
+        }
+
         public override void Update(List<GameSprite> gameObject, GameTime gameTime)
         {
-            if (hit_point <= 0 || position.Y > Singleton.WINDOWS_SIZE_Y) isActive = false;
+            if(damageTimer > 0)
+            {
+                damageTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                damageTimer = Math.Clamp(damageTimer, 0, 0.5f);
+                animated_HP = (hit_point + prv_damage * (damageTimer / 0.5f));
+            }
+            //if (hit_point <= 0 || position.Y > Singleton.WINDOWS_SIZE_Y) isActive = false;
             switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
@@ -177,6 +244,13 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 case Singleton.GameState.LuckEndTurn:
                     break;
             }
+            if (position.Y > Singleton.WINDOWS_SIZE_Y + 250 && Singleton.Instance._gameState != Singleton.GameState.End) this.ApplyDamage(hit_point);
+            if (hit_point <= 0 && isAlive)
+            { 
+                isAlive = false;
+                Remove(body.World);
+            }
+            
             base.Update(gameObject, gameTime);
         }
 
@@ -195,28 +269,28 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public void DrawHP(SpriteBatch spriteBatch,Texture2D border, Vector2 borderPosition, Vector2 hpSize, Vector2 hpPosition, bool decreedToRight = false)
         {
-            if(hit_point > HPcolorpoint[_HPcolor_ptr1] && _HPcolor_ptr2 > 0)
+            if (animated_HP > HPcolorpoint[_HPcolor_ptr1] && _HPcolor_ptr2 > 0)
             {
                 _HPcolor_ptr2--;
                 if (_HPcolor_ptr1 > 0) _HPcolor_ptr1--;
             }
-            if (hit_point < HPcolorpoint[_HPcolor_ptr2] && _HPcolor_ptr1 < HPcolors.Length - 1)
+            if (animated_HP < HPcolorpoint[_HPcolor_ptr2] && _HPcolor_ptr1 < HPcolors.Length - 1)
             {
                 _HPcolor_ptr1++;
                 if (_HPcolor_ptr2 < HPcolors.Length - 1) _HPcolor_ptr2++;
             }
             float MIN = (_HPcolor_ptr1 == HPcolors.Length - 1)? float.MinValue :HPcolorpoint[_HPcolor_ptr2];
             float MAX = (_HPcolor_ptr2 == 0)? float.MaxValue : HPcolorpoint[_HPcolor_ptr1];
-            float p = (hit_point - MIN)/ (MAX - MIN);
+            float p = (animated_HP - MIN)/ (MAX - MIN);
             Color hp_color = new Color(p * HPcolors[_HPcolor_ptr1] + (1 - p) * HPcolors[_HPcolor_ptr2]);
             spriteBatch.Draw(border, borderPosition * Singleton.worldScale, null, Color.White, 0f, Vector2.Zero, 1f * Singleton.worldScale, SpriteEffects.None, 0f);
             if(decreedToRight)
             {
-                spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(hpPosition.X+hpSize.X, hpPosition.Y) * Singleton.worldScale, null, hp_color, 0f, new Vector2(1, 0f), new Vector2(hpSize.X * (this.hit_point / 100f), hpSize.Y) * Singleton.worldScale, SpriteEffects.None, 0f);
+                spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(hpPosition.X+hpSize.X, hpPosition.Y) * Singleton.worldScale, null, hp_color, 0f, new Vector2(1, 0f), new Vector2(hpSize.X * (animated_HP / 100f), hpSize.Y) * Singleton.worldScale, SpriteEffects.None, 0f);
             }
             else
             {
-                spriteBatch.Draw(Singleton.Instance.ghb, hpPosition * Singleton.worldScale, null, hp_color, 0f, new Vector2(0, 0f), new Vector2(hpSize.X * (this.hit_point/100f), hpSize.Y) * Singleton.worldScale, SpriteEffects.None, 0f);
+                spriteBatch.Draw(Singleton.Instance.ghb, hpPosition * Singleton.worldScale, null, hp_color, 0f, new Vector2(0, 0f), new Vector2(hpSize.X * (animated_HP / 100f), hpSize.Y) * Singleton.worldScale, SpriteEffects.None, 0f);
             }
         }
     }
