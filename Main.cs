@@ -52,7 +52,7 @@ namespace MidAgeRevolution
             // TODO: use this.Content to load your game content here
             test = this.Content.Load<Texture2D>("Test/test0");
             Singleton.Instance.sc = this.Content.Load<Texture2D>("Asset/science");
-            Singleton.Instance.rl = this.Content.Load<Texture2D>("Asset/religious");
+            Singleton.Instance.rl = this.Content.Load<Texture2D>("Asset/religious_new");
             Singleton.Instance.sc_hp_bar = this.Content.Load<Texture2D>("Asset/sc_health_bar");
             Singleton.Instance.rl_hp_bar = this.Content.Load<Texture2D>("Asset/rl_health_bar");
             Singleton.Instance.screenBorder = this.Content.Load<Texture2D>("Asset/play_screen_border");
@@ -69,6 +69,10 @@ namespace MidAgeRevolution
             Singleton.Instance.ex_btn = this.Content.Load<Texture2D>("Asset/exit");
             Singleton.Instance.ghibi = this.Content.Load<Texture2D>("Asset/animator");
 
+            //tutorial texture2D
+            Singleton.Instance.re_btn = this.Content.Load<Texture2D>("Asset/return");
+            Singleton.Instance.tu_title = this.Content.Load<Texture2D>("Asset/tutorial_title");
+            Singleton.Instance.tu_detail = this.Content.Load<Texture2D>("Asset/detail");
             Singleton.Instance.ghb = new Texture2D(GraphicsDevice, 1, 1);
             Singleton.Instance.ghb.SetData(new[] { Color.White });
 
@@ -77,6 +81,7 @@ namespace MidAgeRevolution
             Singleton.Instance.Content = Content;
             Singleton.Instance.GraphicsDevice = _graphics.GraphicsDevice;
             Singleton.Instance.testfont = this.Content.Load<SpriteFont>("Test/font0");
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -99,7 +104,7 @@ namespace MidAgeRevolution
                 case Singleton.MainState.start:
                     _screen.Add(new MenuScreen(this, test)); //0
                     _screen.Add(new GameScreen(this, test)); //1
-                    //_screen.Add(new Tutorial(this, test)); //2
+                    _screen.Add(new Tutorial(this, test)); //2
                     Singleton.Instance._mainState = Singleton.MainState.mainMenu;
                     break;
 
@@ -108,12 +113,11 @@ namespace MidAgeRevolution
                     break;
 
                 case Singleton.MainState.tutorial:
-                    //_screen[2].Update(_screen[2]);
+                    _screen[2].Update(_screen[2], gameTime);
                     break;
 
                 case Singleton.MainState.gamePlay:
                     _screen[1].Update(_screen[1], gameTime);
-
                     //Singleton.Instance._mainState = Singleton.MainState.gameEnd;
                     break;
 
@@ -146,7 +150,7 @@ namespace MidAgeRevolution
 
                     break;
                 case Singleton.MainState.tutorial:
-                    _screen[2].Draw(_spriteBatch);
+                    _screen[2].Draw(_spriteBatch, gameTime);
 
                     break;
                 case Singleton.MainState.gamePlay:
