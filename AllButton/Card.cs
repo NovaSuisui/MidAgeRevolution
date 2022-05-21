@@ -61,7 +61,7 @@ namespace MidAgeRevolution.AllButton
                         }
                         CurrentSkill = -1;
                         PreviousSkill = -1;
-                        Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                        Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
                         randomAmmo();
                     }
                     else
@@ -74,7 +74,7 @@ namespace MidAgeRevolution.AllButton
                             if (Singleton.Instance.CurrentMouse.X < position.X + 60 &&
                                 Singleton.Instance.CurrentMouse.X > position.X)
                             {
-                                Singleton.Instance.ammo = Singleton.AmmoType.x2dmg;
+                                Singleton.Instance.ammo = Singleton.AmmoType.x2dmg | Singleton.AmmoType.fire_debuf | Singleton.AmmoType.bounceBullet;
                                 CurrentSkill = 0;
                                 setAmmoWisdom();
                             }
@@ -98,7 +98,7 @@ namespace MidAgeRevolution.AllButton
                         }
                         CurrentSkill = -1;
                         PreviousSkill = -1;
-                        Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                        Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
                         randomAmmo();
                     }
                     else
@@ -148,7 +148,7 @@ namespace MidAgeRevolution.AllButton
                     }
                     CurrentSkill = -1;
                     PreviousSkill = -1;
-                    Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                    Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
 
                     break;
                 case Singleton.GameState.LuckEndTurn:
@@ -158,7 +158,7 @@ namespace MidAgeRevolution.AllButton
                     }
                     CurrentSkill = -1;
                     PreviousSkill = -1;
-                    Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                    Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
                     randomAmmo();
 
                     break;
@@ -247,11 +247,11 @@ namespace MidAgeRevolution.AllButton
                 wisdomSkillCount[CurrentSkill]++;
                 skillColor[CurrentSkill] = Color.White;
                 PreviousSkill = -1;
-                Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
             }
             else
             {
-                Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
             }
         }
 
@@ -274,11 +274,11 @@ namespace MidAgeRevolution.AllButton
             {
                 skillColor[CurrentSkill] = Color.White;
                 CurrentSkill = -1;
-                Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
             }
             else
             {
-                Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
             }
 
             PreviousSkill = CurrentSkill;
@@ -289,7 +289,7 @@ namespace MidAgeRevolution.AllButton
             switch (luckSkill[CurrentSkill])
             {
                 case 1:
-                    Singleton.Instance.ammo = Singleton.AmmoType.normal;
+                    Singleton.Instance.ammo = Singleton.AmmoType.x1dmg;
                     break;
                 case 2:
                     Singleton.Instance.ammo = Singleton.AmmoType.x0dmg;

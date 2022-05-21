@@ -238,25 +238,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\Nattanon\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\KMITL\\Year 2\\Season 2\\Computer Game Progamming\\._Final Project\\Github\\MidAgeRevolution\\MidAgeRevolution.csproj",
+      "projectUniqueName": "D:\\Test\\MidAgeRevolution\\MidAgeRevolution.csproj",
       "projectName": "MidAgeRevolution",
-      "projectPath": "D:\\KMITL\\Year 2\\Season 2\\Computer Game Progamming\\._Final Project\\Github\\MidAgeRevolution\\MidAgeRevolution.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\KMITL\\Year 2\\Season 2\\Computer Game Progamming\\._Final Project\\Github\\MidAgeRevolution\\obj\\",
+      "projectPath": "D:\\Test\\MidAgeRevolution\\MidAgeRevolution.csproj",
+      "packagesPath": "C:\\Users\\Nattanon\\.nuget\\packages\\",
+      "outputPath": "D:\\Test\\MidAgeRevolution\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nattanon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -316,7 +316,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
       }
     }
   }

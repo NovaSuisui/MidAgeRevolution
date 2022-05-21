@@ -51,6 +51,7 @@ namespace MidAgeRevolution.AllScreen
         {
             // Load into the game screen
             Singleton.Instance._mainState = Singleton.MainState.gamePlay;
+            Singleton.Instance._nextGameState = Singleton.GameState.Setup;
         }
         private void _tutorialClick(object sender, EventArgs e)
         {

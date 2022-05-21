@@ -53,20 +53,8 @@ namespace MidAgeRevolution.AllSprite
                     }
                     break;
                 case Singleton.GameState.WisdomShooting:
-                    if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomShooting)
-                    {
-                        body.ResetDynamics();
-                        body.BodyType = BodyType.Dynamic;
-                        body.FixedRotation = false;
-                    }
                     break;
                 case Singleton.GameState.LuckShooting:
-                    if (Singleton.Instance._prvGameState != Singleton.GameState.LuckShooting)
-                    {
-                        body.ResetDynamics();
-                        body.BodyType = BodyType.Dynamic;
-                        body.FixedRotation = false;
-                    }
                     break;
                 case Singleton.GameState.WisdomEndTurn:
                     if (hit_point < 33)

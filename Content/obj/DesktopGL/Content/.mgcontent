@@ -4,24 +4,24 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/animator.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/background.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/bg.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/exit.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/green_health.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/play_screen_border.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/religious.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/rl_health_bar.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/sc_health_bar.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/sc_tw_02_horizontal.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/sc_tw_02_vertical.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/science.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/start.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/title.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/tutorial.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Test/Arrow.png</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Test/font0.spritefont</File>
-    <File>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Test/test0.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/animator.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/background.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/bg.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/exit.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/green_health.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/play_screen_border.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/religious.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/rl_health_bar.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/sc_health_bar.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/sc_tw_02_horizontal.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/sc_tw_02_vertical.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/science.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/start.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/title.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/tutorial.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Test/Arrow.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Test/font0.spritefont</File>
+    <File>D:/Test/MidAgeRevolution/Content/Test/test0.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
