@@ -262,7 +262,7 @@ namespace MidAgeRevolution.AllScreen
 
         public void DrawChargeBar(SpriteBatch spriteBatch)
         {
-            Vector2 position = new Vector2(200, 800);
+            Vector2 position = new Vector2(375.0f, 810.0f);
             spriteBatch.Draw(Singleton.Instance.bg_cb, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
             if(playerDisplay != null) 
                 spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29, 21), null, Color.White, 0, Vector2.Zero, new Vector2(playerDisplay.power/100f,1), SpriteEffects.None, 0f);

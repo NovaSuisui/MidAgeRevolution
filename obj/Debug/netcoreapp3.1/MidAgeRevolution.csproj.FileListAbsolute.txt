@@ -263,3 +263,6 @@ D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\Wisd
 D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg_charge_bar.xnb
 D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\measure_bar.xnb
 D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\red_bar.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg_charge_bar.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\measure_bar.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\red_bar.xnb
