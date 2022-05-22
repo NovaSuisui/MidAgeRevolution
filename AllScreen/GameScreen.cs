@@ -252,9 +252,14 @@ namespace MidAgeRevolution.AllScreen
                 debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
 
             spriteBatch.Begin();
+            //เสา
             spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            //พื้นข้างล่าง
             spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, Color.Green, 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
             DrawChargeBar(spriteBatch);
+
+            //ลม
+            DrawWind(spriteBatch);
 
             base.Draw(spriteBatch);
 
@@ -267,6 +272,33 @@ namespace MidAgeRevolution.AllScreen
             if(playerDisplay != null) 
                 spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29, 21), null, Color.White, 0, Vector2.Zero, new Vector2(playerDisplay.power/100f,1), SpriteEffects.None, 0f);
             spriteBatch.Draw(Singleton.Instance.me_b, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+        }
+
+        public void DrawWind(SpriteBatch spriteBatch)
+        {
+            Vector2 position = new Vector2(0.0f, 100.0f);
+            Texture2D wd;
+            if (wind < -0.1)
+            {
+                if (-wind > 7.4) wd = Singleton.Instance.w_l_r;
+                else if (-wind > 4.9) wd = Singleton.Instance.w_l_o;
+                else if (-wind > 2.4) wd = Singleton.Instance.w_l_y;
+                else wd = Singleton.Instance.w_l_g;
+            }
+            else if (wind > 0.1)
+            {
+                if (wind > 7.4) wd = Singleton.Instance.w_r_r;
+                else if (wind > 4.9) wd = Singleton.Instance.w_r_o;
+                else if (wind > 2.4) wd = Singleton.Instance.w_r_y;
+                else wd = Singleton.Instance.w_r_g;
+            }
+            else wd = Singleton.Instance.w_0;
+            spriteBatch.Draw(Singleton.Instance.wind_border, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            spriteBatch.Draw(wd, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            if (playerDisplay == wisdom)
+            {
+                spriteBatch.DrawString(Singleton.Instance.testfont, String.Format("{0:0.0}",Math.Abs(wind)), position+new Vector2(50,100), Color.Black, 0, Vector2.Zero, Vector2.One*1.3f, SpriteEffects.None, 0f) ;
+            }
         }
 
         public bool isWorldStop()

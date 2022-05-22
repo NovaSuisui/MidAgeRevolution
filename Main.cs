@@ -134,6 +134,18 @@ namespace MidAgeRevolution
             Singleton.Instance.rb = this.Content.Load<Texture2D>("Asset/red_bar");
             Singleton.Instance.me_b = this.Content.Load<Texture2D>("Asset/measure_bar");
 
+            //wind
+            Singleton.Instance.wind_border = this.Content.Load<Texture2D>("Asset/wind/base");
+            Singleton.Instance.w_0 = this.Content.Load<Texture2D>("Asset/wind/none");
+            Singleton.Instance.w_l_g = this.Content.Load<Texture2D>("Asset/wind/l_g");
+            Singleton.Instance.w_l_y = this.Content.Load<Texture2D>("Asset/wind/l_y");
+            Singleton.Instance.w_l_o = this.Content.Load<Texture2D>("Asset/wind/l_o");
+            Singleton.Instance.w_l_r = this.Content.Load<Texture2D>("Asset/wind/l_r");
+            Singleton.Instance.w_r_g = this.Content.Load<Texture2D>("Asset/wind/r_g");
+            Singleton.Instance.w_r_y = this.Content.Load<Texture2D>("Asset/wind/r_y");
+            Singleton.Instance.w_r_o = this.Content.Load<Texture2D>("Asset/wind/r_o");
+            Singleton.Instance.w_r_r = this.Content.Load<Texture2D>("Asset/wind/r_r");
+
             rl_win_popup = (Texture2D)Singleton.Instance.rl_win;
             sc_win_popup = (Texture2D)Singleton.Instance.sc_win;
             restart_tex2d = (Texture2D)Singleton.Instance.re_b;

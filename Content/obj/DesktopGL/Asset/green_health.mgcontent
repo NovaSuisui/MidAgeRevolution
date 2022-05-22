@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/green_health.png</SourceFile>
-  <SourceTime>2022-05-11T00:01:34.1941162+07:00</SourceTime>
-  <DestFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/bin/DesktopGL/Asset/green_health.xnb</DestFile>
-  <DestTime>2022-05-22T15:34:01.1565666+07:00</DestTime>
+  <SourceFile>D:/Test/MidAgeRevolution/Content/Asset/green_health.png</SourceFile>
+  <SourceTime>2022-05-14T18:27:27.8680395+07:00</SourceTime>
+  <DestFile>D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Asset/green_health.xnb</DestFile>
+  <DestTime>2022-05-22T15:39:43.0553992+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

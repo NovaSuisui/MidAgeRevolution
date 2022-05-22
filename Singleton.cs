@@ -204,6 +204,18 @@ namespace MidAgeRevolution
         public Texture2D bg_cb;
         public Texture2D rb;
         public Texture2D me_b;
+
+        //wind texture
+        public Texture2D wind_border;
+        public Texture2D w_l_g;
+        public Texture2D w_l_y;
+        public Texture2D w_l_o;
+        public Texture2D w_l_r;
+        public Texture2D w_r_g;
+        public Texture2D w_r_y;
+        public Texture2D w_r_o;
+        public Texture2D w_r_r;
+        public Texture2D w_0;
         public Vector2 TopLeft(Texture2D texture, Vector2 position)
         {
             return position + new Vector2(texture.Width / 2, texture.Height / 2);
