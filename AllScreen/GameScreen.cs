@@ -30,7 +30,8 @@ namespace MidAgeRevolution.AllScreen
         private Wisdom wisdom;
         private bool loadedContent;
         public float wind = 0.0f;
-        private Button _skill;
+        private Button _wisdomSkill;
+        private Button _luckSkill;
         private float timer;
         private bool enableDebug =true;
         private Player playerDisplay;
@@ -114,12 +115,19 @@ namespace MidAgeRevolution.AllScreen
                         //createTower(new Vector2(200f, 300f), GameSprite.Side.Wisdom);
                         //createTower(new Vector2(1000f, 300f), GameSprite.Side.Luck);
 
-                        _skill = new Card(test)
+                        _wisdomSkill = new IconButton(test)
                         {
                             position = new Vector2(200, 200),
                             field_size = new Vector2(60, 60)
                         };
-                        _skill.Update(_skill);
+                        _wisdomSkill.Update(_wisdomSkill);
+
+                        _luckSkill = new Card(test)
+                        {
+                            position = new Vector2(200, 200),
+                            field_size = new Vector2(60, 60)
+                        };
+                        _luckSkill.Update(_luckSkill);
 
                         loadedContent = true;
                     }
@@ -140,7 +148,8 @@ namespace MidAgeRevolution.AllScreen
 
                         setupPlayTurn();
                     }
-                    _skill.Update(_skill);
+                    _wisdomSkill.Update(_wisdomSkill);
+                    //_luckSkill.Update(_luckSkill);
                     break;
 
                 case Singleton.GameState.LuckTurn:
@@ -154,7 +163,8 @@ namespace MidAgeRevolution.AllScreen
 
                         setupPlayTurn();
                     }
-                    _skill.Update(_skill);
+                    //_wisdomSkill.Update(_wisdomSkill);
+                    _luckSkill.Update(_luckSkill);
                     break;
 
                 case Singleton.GameState.WisdomShooting:
@@ -194,10 +204,14 @@ namespace MidAgeRevolution.AllScreen
                     break;
 
                 case Singleton.GameState.WisdomEndTurn:
-                        Singleton.Instance._nextGameState = Singleton.GameState.LuckTurn;
+                    _wisdomSkill.Update(_wisdomSkill);
+                    //_luckSkill.Update(_wisdomSkill);
+                    Singleton.Instance._nextGameState = Singleton.GameState.LuckTurn;
                     break;
 
                 case Singleton.GameState.LuckEndTurn:
+                    //_wisdomSkill.Update(_wisdomSkill);
+                    _luckSkill.Update(_wisdomSkill);
                     Singleton.Instance._nextGameState = Singleton.GameState.WisdomTurn;
                     break;
             }
@@ -243,7 +257,8 @@ namespace MidAgeRevolution.AllScreen
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            if (_skill != null) _skill.Draw(spriteBatch);
+            if (_wisdomSkill != null) _wisdomSkill.Draw(spriteBatch);
+            if (_luckSkill != null) _luckSkill.Draw(spriteBatch);
             spriteBatch.End();
 
             batchEffect.View = Camera2D.GetView();
