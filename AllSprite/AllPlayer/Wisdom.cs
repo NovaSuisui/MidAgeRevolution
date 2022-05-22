@@ -28,6 +28,31 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             return true;
         }
 
+        public override Bullet createBullet()
+        {
+            World w = body.World;
+            Body bulletBody = w.CreateCircle(10f * Singleton.worldScale, 1f, bodyType: BodyType.Dynamic);
+            bulletBody.Mass = 1;
+            Bullet bullet;
+            switch (Singleton.Instance.ammo & Singleton.AmmoType.Behavior)
+            {
+                case Singleton.AmmoType.explosionBullet:
+                    bullet = new explosionBullet(Singleton.Instance.flask, bulletBody);
+                    break;
+                case Singleton.AmmoType.bounceBullet:
+                    bullet = new bounceBullet(Singleton.Instance.flask, bulletBody);
+                    break;
+                case Singleton.AmmoType.boostBullet:
+                    bullet = new boostBullet(Singleton.Instance.flask, bulletBody);
+                    break;
+                case Singleton.AmmoType.nomalBullet:
+                default:
+                    bullet = new Bullet(Singleton.Instance.flask, bulletBody);
+                    break;
+            }
+            return bullet;
+        }
+
         public override void separationHandler(Fixture sender, Fixture other, Contact contact)
         {
             base.separationHandler(sender, other, contact);

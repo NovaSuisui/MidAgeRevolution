@@ -81,6 +81,7 @@ namespace MidAgeRevolution
             x3dmg   =   2,  // 010
             xrndAdmg   =   3,  //011
             xrndBdmg =   4,  //100
+            x1p5dmg = 5,
 
             // 2 bit (3-4) for debuf 7 option
             DebufAmmo = 0b11000,
@@ -225,10 +226,18 @@ namespace MidAgeRevolution
         public Texture2D cd_split;
         public Texture2D cd_x2;
         public Texture2D cd_x3;
+        public Texture2D cd_wdult;
+        public Texture2D cd_card;
 
         //debuf
         public Texture2D fire;
         public Texture2D poision;
+
+        //bullet
+        public Texture2D flask;
+        public Texture2D bible;
+
+        public Texture2D[] WisdomSkill;
 
         public Vector2 TopLeft(Texture2D texture, Vector2 position)
         {

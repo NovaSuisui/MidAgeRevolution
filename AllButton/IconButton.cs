@@ -68,21 +68,21 @@ namespace MidAgeRevolution.AllButton
                         if (Singleton.Instance.CurrentMouse.X < position.X + Singleton.Instance.SKILL_SIZE &&
                             Singleton.Instance.CurrentMouse.X > position.X)
                         {
-                            Singleton.Instance.ammo = Singleton.AmmoType.x2dmg | Singleton.AmmoType.fire_debuf | Singleton.AmmoType.bounceBullet;
+                            Singleton.Instance.ammo = Singleton.AmmoType.bounceBullet;
                             CurrentSkill = 0;
                             setAmmoWisdom();
                         }
                         else if (Singleton.Instance.CurrentMouse.X < position.X + Singleton.Instance.SKILL_SIZE * 2 &&
                             Singleton.Instance.CurrentMouse.X > position.X + Singleton.Instance.SKILL_SIZE)
                         {
-                            Singleton.Instance.ammo = Singleton.AmmoType.x3dmg | Singleton.AmmoType.bounceBullet;
+                            Singleton.Instance.ammo = Singleton.AmmoType.applyPhysics;
                             CurrentSkill = 1;
                             setAmmoWisdom();
                         }
                         else if (Singleton.Instance.CurrentMouse.X < position.X + Singleton.Instance.SKILL_SIZE * 3 &&
                             Singleton.Instance.CurrentMouse.X > position.X + Singleton.Instance.SKILL_SIZE * 2)
                         {
-                            Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
+                            Singleton.Instance.ammo = Singleton.AmmoType.x2dmg;
                             CurrentSkill = 2;
                             setAmmoWisdom();
                         }
@@ -96,21 +96,21 @@ namespace MidAgeRevolution.AllButton
                         else if (Singleton.Instance.CurrentMouse.X < position.X + Singleton.Instance.SKILL_SIZE * 5 &&
                             Singleton.Instance.CurrentMouse.X > position.X + Singleton.Instance.SKILL_SIZE * 4)
                         {
-                            Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
+                            Singleton.Instance.ammo = Singleton.AmmoType.x3ammo;
                             CurrentSkill = 4;
                             setAmmoWisdom();
                         }
                         else if (Singleton.Instance.CurrentMouse.X < position.X + Singleton.Instance.SKILL_SIZE * 6 &&
                             Singleton.Instance.CurrentMouse.X > position.X + Singleton.Instance.SKILL_SIZE * 5)
                         {
-                            Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
+                            Singleton.Instance.ammo = Singleton.AmmoType.fire_debuf;
                             CurrentSkill = 5;
                             setAmmoWisdom();
                         }
                         else if (Singleton.Instance.CurrentMouse.X < position.X + Singleton.Instance.SKILL_SIZE * 7 &&
                             Singleton.Instance.CurrentMouse.X > position.X + Singleton.Instance.SKILL_SIZE * 6)
                         {
-                            Singleton.Instance.ammo = Singleton.AmmoType.x3dmg;
+                            Singleton.Instance.ammo = Singleton.AmmoType.boostBullet | Singleton.AmmoType.x3ammo | Singleton.AmmoType.fire_debuf ;
                             CurrentSkill = 6;
                             setAmmoWisdom();
                         }
@@ -159,8 +159,8 @@ namespace MidAgeRevolution.AllButton
                     for (int i = 0; i < wisdomSkillCount.Length; i++)
                     {
                         //spriteBatch.Draw(_texture, new Vector2(position.X + 60 * i, position.Y), null, skillColor[i], 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-                        spriteBatch.Draw(_texture, new Rectangle(rect.X + (i * rect.Width), rect.Y, rect.Width, rect.Height), skillColor[i]);
-                        spriteBatch.DrawString(Singleton.Instance.testfont, "" + wisdomSkillCount[i], new Vector2(position.X + Singleton.Instance.SKILL_SIZE * i, 265), Color.Black, 0, Vector2.Zero, new Vector2(5, 5), SpriteEffects.None, 0f);
+                        spriteBatch.Draw(Singleton.Instance.WisdomSkill[i], new Rectangle(rect.X + (i * rect.Width), rect.Y, rect.Width, rect.Height), skillColor[i]);
+                        spriteBatch.DrawString(Singleton.Instance.testfont, "" + wisdomSkillCount[i], new Vector2(position.X + Singleton.Instance.SKILL_SIZE * i, position.Y), Color.Black, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
                     }
 
                     break;

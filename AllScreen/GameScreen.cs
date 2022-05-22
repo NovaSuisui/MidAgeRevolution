@@ -33,7 +33,7 @@ namespace MidAgeRevolution.AllScreen
         private Button _wisdomSkill;
         private Button _luckSkill;
         private float timer;
-        private bool enableDebug =true;
+        private bool enableDebug =false;
         private Player playerDisplay;
 
         public GameScreen(Main game, Texture2D texture) : base(game, texture)
@@ -117,14 +117,14 @@ namespace MidAgeRevolution.AllScreen
 
                         _wisdomSkill = new IconButton(test)
                         {
-                            position = new Vector2(200, 200),
+                            position = new Vector2(200, 820),
                             field_size = new Vector2(60, 60)
                         };
                         _wisdomSkill.Update(_wisdomSkill);
 
                         _luckSkill = new Card(test)
                         {
-                            position = new Vector2(200, 200),
+                            position = new Vector2(900, 820),
                             field_size = new Vector2(60, 60)
                         };
                         _luckSkill.Update(_luckSkill);
@@ -257,8 +257,6 @@ namespace MidAgeRevolution.AllScreen
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            if (_wisdomSkill != null) _wisdomSkill.Draw(spriteBatch);
-            if (_luckSkill != null) _luckSkill.Draw(spriteBatch);
             spriteBatch.End();
 
             batchEffect.View = Camera2D.GetView();
@@ -276,6 +274,8 @@ namespace MidAgeRevolution.AllScreen
             //พื้นข้างล่าง
             spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, new Color(226,227,227), 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
             DrawChargeBar(spriteBatch);
+            if (_wisdomSkill != null) _wisdomSkill.Draw(spriteBatch);
+            if (_luckSkill != null) _luckSkill.Draw(spriteBatch);
 
             //ลม
             DrawWind(spriteBatch);

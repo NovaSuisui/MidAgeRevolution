@@ -147,15 +147,33 @@ namespace MidAgeRevolution
             Singleton.Instance.w_r_r = this.Content.Load<Texture2D>("Asset/wind/r_r");
 
             //card
-            Singleton.Instance.cd_bounce = this.Content.Load<Texture2D>("Asset/card/Bounce");
+            Singleton.Instance.cd_bounce = this.Content.Load<Texture2D>("Asset/card/Untitled-2");
             Singleton.Instance.cd_explosion = this.Content.Load<Texture2D>("Asset/card/Explosion");
-            Singleton.Instance.cd_pluck = this.Content.Load<Texture2D>("Asset/card/Pluck");
+            Singleton.Instance.cd_pluck = this.Content.Load<Texture2D>("Asset/card/Puush");
             Singleton.Instance.cd_split = this.Content.Load<Texture2D>("Asset/card/Split");
             Singleton.Instance.cd_x2 = this.Content.Load<Texture2D>("Asset/card/x2");
             Singleton.Instance.cd_x3 = this.Content.Load<Texture2D>("Asset/card/x3");
 
+            Singleton.Instance.cd_wdult = this.Content.Load<Texture2D>("Asset/card/WisdomUlt");
+            Singleton.Instance.cd_card = this.Content.Load<Texture2D>("Asset/card/luckyCard");
+
+            Singleton.Instance.WisdomSkill = new Texture2D[]
+            {
+                Singleton.Instance.cd_bounce,
+                Singleton.Instance.cd_pluck,
+                Singleton.Instance.cd_x2,
+                Singleton.Instance.cd_x3,
+                Singleton.Instance.cd_split,
+                Singleton.Instance.cd_explosion,
+                Singleton.Instance.cd_wdult
+            };
+
             Singleton.Instance.fire = this.Content.Load<Texture2D>("Asset/debuf/fire");
             Singleton.Instance.poision = this.Content.Load<Texture2D>("Asset/debuf/poison_bubble");
+
+            //bullet
+            Singleton.Instance.flask = this.Content.Load<Texture2D>("Asset/bullet/flask");
+            Singleton.Instance.bible = this.Content.Load<Texture2D>("Asset/bullet/bible");
 
             rl_win_popup = (Texture2D)Singleton.Instance.rl_win;
             sc_win_popup = (Texture2D)Singleton.Instance.sc_win;

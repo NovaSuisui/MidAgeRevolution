@@ -105,8 +105,8 @@ namespace MidAgeRevolution.AllButton
                 case Singleton.GameState.LuckTurn:
                     for (int i = 0; i < 3; i++)
                     {
-                        spriteBatch.Draw(_texture, new Rectangle(rect.X + (i * rect.Width), rect.Y, rect.Width, rect.Height), skillColor[i]);
-                        spriteBatch.DrawString(Singleton.Instance.testfont, "" + luckSkill[i], new Vector2(position.X + 60 * i, 265), Color.Black, 0, Vector2.Zero, new Vector2(5, 5), SpriteEffects.None, 0f);
+                        spriteBatch.Draw(Singleton.Instance.cd_card, new Rectangle(rect.X + (i * rect.Width), rect.Y, Singleton.Instance.cd_card.Width, Singleton.Instance.cd_card.Height), skillColor[i]);
+                        //spriteBatch.DrawString(Singleton.Instance.testfont, "" + luckSkill[i], new Vector2(position.X + 60 * i, 265), Color.Black, 0, Vector2.Zero, new Vector2(5, 5), SpriteEffects.None, 0f);
                     }
 
                     break;
@@ -157,25 +157,25 @@ namespace MidAgeRevolution.AllButton
             switch (luckSkill[CurrentSkill])
             {
                 case 1:
-                    Singleton.Instance.ammo = Singleton.AmmoType.otk | Singleton.AmmoType.useItem;
+                    Singleton.Instance.ammo = Singleton.AmmoType.bounceBullet | Singleton.AmmoType.applyPhysics;
                     break;
                 case 2:
                     Singleton.Instance.ammo = Singleton.AmmoType.xrndBdmg | Singleton.AmmoType.xrndammo;
                     break;
                 case 3:
-                    Singleton.Instance.ammo = Singleton.AmmoType.xrndBdmg | Singleton.AmmoType.xrndammo;
+                    Singleton.Instance.ammo =  Singleton.AmmoType.xrndAdmg;
                     break;
                 case 4:
-                    Singleton.Instance.ammo = Singleton.AmmoType.xrndBdmg | Singleton.AmmoType.xrndammo;
+                    Singleton.Instance.ammo = Singleton.AmmoType.xrndBdmg | Singleton.AmmoType.bounceBullet | Singleton.AmmoType.xrndammo;
                     break;
                 case 5:
-                    Singleton.Instance.ammo = Singleton.AmmoType.x2dmg | Singleton.AmmoType.xrndammo;
+                    Singleton.Instance.ammo = Singleton.AmmoType.xrndBdmg | Singleton.AmmoType.turnOffWind;
                     break;
                 case 6:
-                    Singleton.Instance.ammo = Singleton.AmmoType.x3dmg | Singleton.AmmoType.xrndammo;
+                    Singleton.Instance.ammo = Singleton.AmmoType.fire_debuf | Singleton.AmmoType.xrndammo;
                     break;
                 case 7:
-                    Singleton.Instance.ammo = Singleton.AmmoType.otk;
+                    Singleton.Instance.ammo = Singleton.AmmoType.otk | Singleton.AmmoType.useItem;
                     break;
             }
         }

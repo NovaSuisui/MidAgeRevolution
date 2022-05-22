@@ -64,20 +64,20 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             switch (Singleton.Instance.ammo & Singleton.AmmoType.Behavior)
             {
                 case Singleton.AmmoType.explosionBullet:
-                    bullet = new explosionBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
+                    bullet = new explosionBullet(Singleton.Instance.bible, bulletBody);
                     break;
                 case Singleton.AmmoType.bounceBullet:
-                    bullet = new bounceBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody)
+                    bullet = new bounceBullet(Singleton.Instance.bible, bulletBody)
                     {
                         bounceTime = (uint)Singleton.Instance.rnd.Next(0, 4),
                     };
                     break;
                 case Singleton.AmmoType.boostBullet:
-                    bullet = new boostBullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
+                    bullet = new boostBullet(Singleton.Instance.bible, bulletBody);
                     break;
                 case Singleton.AmmoType.nomalBullet:
                 default:
-                    bullet = new Bullet(Singleton.Instance.Content.Load<Texture2D>("Test/test0"), bulletBody);
+                    bullet = new Bullet(Singleton.Instance.bible, bulletBody);
                     break;
             }
             return bullet;

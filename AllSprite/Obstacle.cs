@@ -10,9 +10,9 @@ namespace MidAgeRevolution.AllSprite
 {
     class Obstacle : GameSprite
     {
-        public float MaxHP = 300f;
-        public float hit_point = 300f;
-        public float prv_hitpoint = 300f;
+        public float MaxHP = 200f;
+        public float hit_point = 200f;
+        public float prv_hitpoint = 200f;
         public float damageTimer = 0.0f;
         public float hp_timer = 0.0f;
         public Obstacle(Texture2D texture,World world) : base(texture)
@@ -40,7 +40,7 @@ namespace MidAgeRevolution.AllSprite
 
         public IDictionary<Singleton.StatusEffect, uint> statusEffect = new Dictionary<Singleton.StatusEffect, uint>()
         {
-            { Singleton.StatusEffect.fire, 1},
+            { Singleton.StatusEffect.fire, 0},
         };
         public void ApplyDamage(float Damage)
         {
