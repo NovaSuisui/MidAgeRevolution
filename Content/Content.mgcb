@@ -133,6 +133,18 @@
 /processorParam:TextureFormat=Color
 /build:Asset/card/x3.png
 
+#begin Asset/debuf/fire.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/debuf/fire.png
+
 #begin Asset/detail.png
 /importer:TextureImporter
 /processor:TextureProcessor

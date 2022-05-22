@@ -218,6 +218,15 @@ namespace MidAgeRevolution
         public Texture2D w_0;
 
         // card 
+        public Texture2D cd_bounce;
+        public Texture2D cd_explosion;
+        public Texture2D cd_pluck;
+        public Texture2D cd_split;
+        public Texture2D cd_x2;
+        public Texture2D cd_x3;
+
+        //debuf
+        public Texture2D fire;
 
         public Vector2 TopLeft(Texture2D texture, Vector2 position)
         {

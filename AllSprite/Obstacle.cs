@@ -57,7 +57,6 @@ namespace MidAgeRevolution.AllSprite
 
         bool collisionHandler(Fixture sender, Fixture other, Contact contact)
         {
-            
             return true;
         }
 
@@ -103,12 +102,36 @@ namespace MidAgeRevolution.AllSprite
                         ApplyDamage(10f);
                         statusEffect[Singleton.StatusEffect.fire]--;
                     }
+                    if (hit_point/MaxHP < 0.33)
+                    {
+                        colour = Color.Red;
+                    }
+                    else if (hit_point / MaxHP < 0.66)
+                    {
+                        colour = Color.Orange;
+                    }
+                    else
+                    {
+                        colour = Color.White;
+                    }
                     break;
                 case Singleton.GameState.LuckEndTurn:
                     if (statusEffect[Singleton.StatusEffect.fire] > 0 && side == Side.Luck)
                     {
                         ApplyDamage(10f);
                         statusEffect[Singleton.StatusEffect.fire]--;
+                    }
+                    if (hit_point / MaxHP < 0.33)
+                    {
+                        colour = Color.Red;
+                    }
+                    else if (hit_point / MaxHP < 0.66)
+                    {
+                        colour = Color.Orange;
+                    }
+                    else
+                    {
+                        colour = Color.White;
                     }
                     break;
             }
@@ -121,12 +144,18 @@ namespace MidAgeRevolution.AllSprite
             base.Update(gameObject, gameTime);
         }
 
+        Vector2 fire_texel = Vector2.One / new Vector2(Singleton.Instance.fire.Width, Singleton.Instance.fire.Height);
+        Vector2 fire_scale = new Vector2(1, 0.7f);
+        Vector2 fire_origin = new Vector2(Singleton.Instance.fire.Width / 2, Singleton.Instance.fire.Height);
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (statusEffect[Singleton.StatusEffect.fire] > 0) colour = Color.Orange;
-            else colour = Color.White;
             base.Draw(spriteBatch);
-            if(hp_timer > 0)
+            if (statusEffect[Singleton.StatusEffect.fire] > 0)
+            {
+                spriteBatch.Draw(Singleton.Instance.fire, (position + new Vector2(0,_texture.Height/2))*Singleton.worldScale, null, Color.White, 0f, fire_origin, (fire_texel * fire_scale * new Vector2(_texture.Width,_texture.Height)) * Singleton.worldScale, SpriteEffects.None, 0f);
+            }
+            else colour = Color.White;
+            if (hp_timer > 0)
             {
                 DrawHP(spriteBatch, Singleton.Instance.ghb, position, new Vector2(30 , 4), position, false);
                 hp_timer -= (float)Singleton.Instance._time.ElapsedGameTime.TotalSeconds;

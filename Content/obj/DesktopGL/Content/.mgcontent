@@ -14,6 +14,7 @@
     <File>D:/Test/MidAgeRevolution/Content/Asset/card/Split.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/card/x2.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/card/x3.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/debuf/fire.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/detail.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/exit.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/green_health.png</File>
@@ -85,6 +86,7 @@
     <File>D:/Test/MidAgeRevolution/Content/Test/test0.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

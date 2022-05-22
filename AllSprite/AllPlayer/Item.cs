@@ -12,14 +12,15 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             Wisdom w = gameObject[0] as Wisdom;
             Luck l = gameObject[1] as Luck;
             int change = Singleton.Instance.rnd.Next(0, 100);
-            if (change < 30)
+            if (change < 20)
             {
+                Debug.WriteLine("salt");
                 return;
             }
             else
             {
                 change = Singleton.Instance.rnd.Next(0, 100);
-                if (change < 5) l.ApplyDamage(l.hit_point);
+                if (change < 100) l.ApplyDamage(l.hit_point);
                 else w.ApplyDamage(w.hit_point);
             }
         }

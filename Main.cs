@@ -146,6 +146,16 @@ namespace MidAgeRevolution
             Singleton.Instance.w_r_o = this.Content.Load<Texture2D>("Asset/wind/r_o");
             Singleton.Instance.w_r_r = this.Content.Load<Texture2D>("Asset/wind/r_r");
 
+            //card
+            Singleton.Instance.cd_bounce = this.Content.Load<Texture2D>("Asset/card/Bounce");
+            Singleton.Instance.cd_explosion = this.Content.Load<Texture2D>("Asset/card/Explosion");
+            Singleton.Instance.cd_pluck = this.Content.Load<Texture2D>("Asset/card/Pluck");
+            Singleton.Instance.cd_split = this.Content.Load<Texture2D>("Asset/card/Split");
+            Singleton.Instance.cd_x2 = this.Content.Load<Texture2D>("Asset/card/x2");
+            Singleton.Instance.cd_x3 = this.Content.Load<Texture2D>("Asset/card/x3");
+
+            Singleton.Instance.fire = this.Content.Load<Texture2D>("Asset/debuf/fire");
+
             rl_win_popup = (Texture2D)Singleton.Instance.rl_win;
             sc_win_popup = (Texture2D)Singleton.Instance.sc_win;
             restart_tex2d = (Texture2D)Singleton.Instance.re_b;

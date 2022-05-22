@@ -65,6 +65,7 @@ namespace MidAgeRevolution.AllScreen
 
         public override void Update(Screen gameScreen, GameTime gameTime)
         {
+            int numSprite = _gameObj.Count;
             if(Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.F2) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.F2))
             {
                 enableDebug = !enableDebug;
@@ -74,9 +75,10 @@ namespace MidAgeRevolution.AllScreen
                 Singleton.Instance._nextGameState = Singleton.GameState.Setup;
                 Singleton.Instance._gameResult = Singleton.GameResult.None;
                 Singleton.Instance._mainState = Singleton.MainState.gamePlay;
+                numSprite = 0;
+                return;
             }
 
-            int numSprite = _gameObj.Count;
             switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
@@ -88,8 +90,8 @@ namespace MidAgeRevolution.AllScreen
 
                         Vertices borders = new Vertices(4);
                         borders.Add(new Vector2(0, 800*Singleton.worldScale));  // Lower left
-                        borders.Add(new Vector2(1900 * Singleton.worldScale, 800 * Singleton.worldScale));   // Lower right
-                        borders.Add(new Vector2(1900 * Singleton.worldScale, -1500 * Singleton.worldScale));  // Upper right
+                        borders.Add(new Vector2(1600 * Singleton.worldScale, 800 * Singleton.worldScale));   // Lower right
+                        borders.Add(new Vector2(1600 * Singleton.worldScale, -1500 * Singleton.worldScale));  // Upper right
                         borders.Add(new Vector2(0, -1500 * Singleton.worldScale)); // Upper left
                         Body border = world.CreateLoopShape(borders);
                         border.SetCollidesWith(Category.All & ~Category.Cat2);
@@ -130,6 +132,7 @@ namespace MidAgeRevolution.AllScreen
                 case Singleton.GameState.WisdomTurn:
                     if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomTurn)
                     {
+                        wisdom.disableControll = false;
                         playerDisplay = wisdom;
                         wind = Singleton.Instance.rnd.Next(-100, 100) / 10f;
                         Player.wind = this.wind;
@@ -143,6 +146,7 @@ namespace MidAgeRevolution.AllScreen
                 case Singleton.GameState.LuckTurn:
                     if (Singleton.Instance._prvGameState != Singleton.GameState.LuckTurn)
                     {
+                        luck.disableControll = false;
                         playerDisplay = luck;
                         wind = Singleton.Instance.rnd.Next(-100, 100) / 10f;
                         Player.wind = this.wind;
@@ -156,6 +160,7 @@ namespace MidAgeRevolution.AllScreen
                 case Singleton.GameState.WisdomShooting:
                     if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomShooting)
                     {
+                        wisdom.disableControll = true;
                         Debug.WriteLine("WisdomShooting");
                         foreach (GameSprite sprite in _gameObj)
                         {
@@ -173,6 +178,7 @@ namespace MidAgeRevolution.AllScreen
                 case Singleton.GameState.LuckShooting:
                     if (Singleton.Instance._prvGameState != Singleton.GameState.LuckShooting)
                     {
+                        luck.disableControll = true;
                         Debug.WriteLine("LuckShooting");
                         foreach (GameSprite sprite in _gameObj)
                         {
@@ -255,7 +261,7 @@ namespace MidAgeRevolution.AllScreen
             //เสา
             spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             //พื้นข้างล่าง
-            spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, Color.Green, 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
+            spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, Color.Wheat, 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
             DrawChargeBar(spriteBatch);
 
             //ลม
@@ -267,10 +273,12 @@ namespace MidAgeRevolution.AllScreen
 
         public void DrawChargeBar(SpriteBatch spriteBatch)
         {
-            Vector2 position = new Vector2(375.0f, 810.0f);
+            if(playerDisplay == null) return;
+            Vector2 position;
+            if (playerDisplay == wisdom) position = new Vector2(500.0f, 810.0f);
+            else position = new Vector2(375.0f, 810.0f);
             spriteBatch.Draw(Singleton.Instance.bg_cb, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
-            if(playerDisplay != null) 
-                spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29, 21), null, Color.White, 0, Vector2.Zero, new Vector2(playerDisplay.power/100f,1), SpriteEffects.None, 0f);
+            spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29, 21), null, Color.White, 0, Vector2.Zero, new Vector2(playerDisplay.power/100f,1), SpriteEffects.None, 0f);
             if (playerDisplay == wisdom) spriteBatch.Draw(Singleton.Instance.me_b, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
         }
 

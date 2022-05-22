@@ -33,6 +33,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         public float damageTimer = 0.0f;
         float animated_HP = 300f;
         public bool isAlive = true;
+        public bool disableControll = true;
 
         public IDictionary<Singleton.StatusEffect, uint> statusEffect = new Dictionary<Singleton.StatusEffect, uint>()
         {
@@ -101,7 +102,8 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         private int powerSpeed = 60;
         public virtual void controlHandler(List<GameSprite> gameObject, GameTime gameTime)
         {
-            if (freeFall()) return;
+            
+            if (freeFall()|| disableControll) return;
             if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space))
             {
                 charger(Keys.Space);

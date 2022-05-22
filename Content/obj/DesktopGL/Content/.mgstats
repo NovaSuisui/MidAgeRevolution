@@ -9,6 +9,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "D:/Test/MidAgeRevolution/Content/Asset/card/Split.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/card/Split.xnb","TextureProcessor","Texture2DContent",185202,575361,0.0235488
 "D:/Test/MidAgeRevolution/Content/Asset/card/x2.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/card/x2.xnb","TextureProcessor","Texture2DContent",192549,575361,0.0259169
 "D:/Test/MidAgeRevolution/Content/Asset/card/x3.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/card/x3.xnb","TextureProcessor","Texture2DContent",188735,575361,0.0236966
+"D:/Test/MidAgeRevolution/Content/Asset/debuf/fire.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/debuf/fire.xnb","TextureProcessor","Texture2DContent",38469,769369,0.229569
 "D:/Test/MidAgeRevolution/Content/Asset/detail.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/detail.xnb","TextureProcessor","Texture2DContent",122745,3144661,0.1966233
 "D:/Test/MidAgeRevolution/Content/Asset/exit.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/exit.xnb","TextureProcessor","Texture2DContent",23410,140085,0.0158886
 "D:/Test/MidAgeRevolution/Content/Asset/green_health.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/green_health.xnb","TextureProcessor","Texture2DContent",225,40261,0.003867
