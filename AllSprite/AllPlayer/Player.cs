@@ -85,7 +85,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         public void moveLeft()
         {
             if (body.LinearVelocity.X > 0) body.ResetDynamics();
-            if(Math.Abs(body.LinearVelocity.X) < limitSpeed) body.ApplyForce(new Vector2(-Movespeed,-15f));
+            if(Math.Abs(body.LinearVelocity.X) < limitSpeed) body.ApplyForce(new Vector2(-Movespeed,-4f));
             spriteEffects = SpriteEffects.FlipHorizontally;
             turnLeft = true;
         }
@@ -93,7 +93,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         public void moveRight()
         {
             if (body.LinearVelocity.X < 0) body.ResetDynamics();
-            if (Math.Abs(body.LinearVelocity.X) < limitSpeed) body.ApplyForce(new Vector2(Movespeed, -15f));
+            if (Math.Abs(body.LinearVelocity.X) < limitSpeed) body.ApplyForce(new Vector2(Movespeed, -4f));
             spriteEffects = SpriteEffects.None;
             turnLeft = false;
         }
@@ -169,7 +169,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                     break;
                     
             }
-            
+            power = 0;
         }
 
         public void useItem(List<GameSprite> gameObject)

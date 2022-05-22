@@ -271,7 +271,7 @@ namespace MidAgeRevolution.AllScreen
             spriteBatch.Draw(Singleton.Instance.bg_cb, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
             if(playerDisplay != null) 
                 spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29, 21), null, Color.White, 0, Vector2.Zero, new Vector2(playerDisplay.power/100f,1), SpriteEffects.None, 0f);
-            spriteBatch.Draw(Singleton.Instance.me_b, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            if (playerDisplay == wisdom) spriteBatch.Draw(Singleton.Instance.me_b, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
         }
 
         public void DrawWind(SpriteBatch spriteBatch)
@@ -294,7 +294,14 @@ namespace MidAgeRevolution.AllScreen
             }
             else wd = Singleton.Instance.w_0;
             spriteBatch.Draw(Singleton.Instance.wind_border, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
-            spriteBatch.Draw(wd, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            if (wind < -0.1)
+            {
+                spriteBatch.Draw(wd, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            }
+            else if (wind > 0.1)
+            {
+                spriteBatch.Draw(wd, position+ new Vector2(7f,0), null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            }
             if (playerDisplay == wisdom)
             {
                 spriteBatch.DrawString(Singleton.Instance.testfont, String.Format("{0:0.0}",Math.Abs(wind)), position+new Vector2(50,100), Color.Black, 0, Vector2.Zero, Vector2.One*1.3f, SpriteEffects.None, 0f) ;
