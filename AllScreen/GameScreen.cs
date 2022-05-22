@@ -273,15 +273,15 @@ namespace MidAgeRevolution.AllScreen
                 debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
 
             spriteBatch.Begin();
-            //เสา
-            spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             //พื้นข้างล่าง
-            spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, Color.Wheat, 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
+            spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, new Color(226,227,227), 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
             DrawChargeBar(spriteBatch);
 
             //ลม
             DrawWind(spriteBatch);
 
+            //เสา
+            spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
 
         }

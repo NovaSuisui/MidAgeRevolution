@@ -155,11 +155,11 @@ namespace MidAgeRevolution.AllSprite
                 spriteBatch.Draw(Singleton.Instance.fire, (position + new Vector2(0,_texture.Height/2))*Singleton.worldScale, null, Color.White, 0f, fire_origin, (fire_texel * fire_scale * new Vector2(_texture.Width,_texture.Height)) * Singleton.worldScale, SpriteEffects.None, 0f);
             }
             else colour = Color.White;
-            if (hp_timer > 0)
+            /*if (hp_timer > 0)
             {
                 DrawHP(spriteBatch, Singleton.Instance.ghb, position, new Vector2(30 , 4), position, false);
                 hp_timer -= (float)Singleton.Instance._time.ElapsedGameTime.TotalSeconds;
-            }
+            }*/
         }
 
         public void DrawHP(SpriteBatch spriteBatch, Texture2D border, Vector2 borderPosition, Vector2 hpSize, Vector2 hpPosition, bool decreedToRight = false)

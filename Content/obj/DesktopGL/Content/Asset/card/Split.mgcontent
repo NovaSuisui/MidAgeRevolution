@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/Asset/card/Split.png</SourceFile>
-  <SourceTime>2022-05-22T18:38:07.4266372+07:00</SourceTime>
-  <DestFile>D:/HW/Year2/2/Computer Game/Final/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/card/Split.xnb</DestFile>
-  <DestTime>2022-05-22T18:38:36.120963+07:00</DestTime>
+  <SourceFile>D:/Test/MidAgeRevolution/Content/Asset/card/Split.png</SourceFile>
+  <SourceTime>2022-05-22T02:12:21.8426501+07:00</SourceTime>
+  <DestFile>D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/card/Split.xnb</DestFile>
+  <DestTime>2022-05-22T20:03:07.4170431+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
