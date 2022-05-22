@@ -877,18 +877,6 @@
 /processorParam:TextureFormat=Color
 /build:Asset/wind/l_y.png
 
-#begin Asset/wind/l_y.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Asset/wind/l_y.png
-
 #begin Asset/wind/none.png
 /importer:TextureImporter
 /processor:TextureProcessor
