@@ -27,6 +27,7 @@ namespace MidAgeRevolution
         public GameTime _time;
 
         public float TEXTURE_SIZE = 60;
+        public float SKILL_SIZE = 60;
 
         public GraphicsDevice GraphicsDevice;
         public ContentManager Content;
