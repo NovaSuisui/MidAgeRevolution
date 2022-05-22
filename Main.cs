@@ -10,6 +10,7 @@ using MidAgeRevolution.AllButton;
 using MidAgeRevolution.AllScreen;
 using MidAgeRevolution.AllSprite;
 using MidAgeRevolution.AllSprite.AllPlayer;
+using Microsoft.Xna.Framework.Audio;
 
 namespace MidAgeRevolution
 {
@@ -147,15 +148,23 @@ namespace MidAgeRevolution
             Singleton.Instance.w_r_r = this.Content.Load<Texture2D>("Asset/wind/r_r");
 
             //card
-            Singleton.Instance.cd_bounce = this.Content.Load<Texture2D>("Asset/card/Bounce");
+            Singleton.Instance.cd_bounce = this.Content.Load<Texture2D>("Asset/card/Untitled-2");
             Singleton.Instance.cd_explosion = this.Content.Load<Texture2D>("Asset/card/Explosion");
-            Singleton.Instance.cd_pluck = this.Content.Load<Texture2D>("Asset/card/Pluck");
+            Singleton.Instance.cd_pluck = this.Content.Load<Texture2D>("Asset/card/Puush");
             Singleton.Instance.cd_split = this.Content.Load<Texture2D>("Asset/card/Split");
             Singleton.Instance.cd_x2 = this.Content.Load<Texture2D>("Asset/card/x2");
             Singleton.Instance.cd_x3 = this.Content.Load<Texture2D>("Asset/card/x3");
 
             Singleton.Instance.fire = this.Content.Load<Texture2D>("Asset/debuf/fire");
             Singleton.Instance.poision = this.Content.Load<Texture2D>("Asset/debuf/poison_bubble");
+
+            //sound effect
+            Singleton.Instance.mm_song = this.Content.Load<SoundEffect>("Asset/sound/mainmenu_song").CreateInstance();
+            Singleton.Instance.ps_song = this.Content.Load<SoundEffect>("Asset/sound/playscene_song").CreateInstance();
+            Singleton.Instance.click = this.Content.Load<SoundEffect>("Asset/sound/click").CreateInstance();
+
+            Singleton.Instance.mm_song.Volume = 0.05f;
+            Singleton.Instance.ps_song.Volume = 0.05f;
 
             rl_win_popup = (Texture2D)Singleton.Instance.rl_win;
             sc_win_popup = (Texture2D)Singleton.Instance.sc_win;
@@ -240,15 +249,12 @@ namespace MidAgeRevolution
                     break;
                 case Singleton.MainState.mainMenu:
                     _screen[0].Draw(_spriteBatch, gameTime);
-
                     break;
                 case Singleton.MainState.tutorial:
                     _screen[2].Draw(_spriteBatch, gameTime);
-
                     break;
                 case Singleton.MainState.gamePlay:
                     _screen[1].Draw(_spriteBatch);
-
                     break;
                 case Singleton.MainState.gameEnd:
                     _screen[1].Draw(_spriteBatch);

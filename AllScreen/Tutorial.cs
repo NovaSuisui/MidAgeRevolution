@@ -30,11 +30,12 @@ namespace MidAgeRevolution.AllScreen
         }
         private void _returnClick(object sender, EventArgs e)
         {
+            Singleton.Instance.click.Play();
             Singleton.Instance._mainState = Singleton.MainState.mainMenu;
         }
         public override void Update(Screen gameScreen, GameTime gameTime)
         {
-
+            Singleton.Instance.mm_song.Play();
             _return.Update(gameTime);
             base.Update(gameScreen);
         }

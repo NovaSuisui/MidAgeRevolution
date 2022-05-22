@@ -354,9 +354,7 @@ D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Conte
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_y.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\Arrow.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Aether.Physics2D.Diagnostics.dll
-D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Bounce.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Explosion.xnb
-D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Pluck.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Split.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\x2.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\x3.xnb
@@ -372,3 +370,11 @@ D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeR
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_r.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_y.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bullet\bible.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Puush.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Untitled-2.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\debuf\poison_bubble.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\Poiter.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sound\click.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sound\mainmenu_song.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sound\playscene_song.ogg
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sound\playscene_song.xnb

@@ -66,6 +66,7 @@ namespace MidAgeRevolution.AllScreen
 
         public override void Update(Screen gameScreen, GameTime gameTime)
         {
+            Singleton.Instance.ps_song.Play();
             int numSprite = _gameObj.Count;
             if(Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.F2) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.F2))
             {
@@ -237,6 +238,7 @@ namespace MidAgeRevolution.AllScreen
 
             if (!wisdom.isAlive)
             {
+                Singleton.Instance.ps_song.Stop();
                 label = "Luck Win";
                 Singleton.Instance._nextGameState = Singleton.GameState.End;
                 Singleton.Instance._gameResult = Singleton.GameResult.LuckWin;
@@ -244,6 +246,7 @@ namespace MidAgeRevolution.AllScreen
             }
             else if (!luck.isAlive)
             {
+                Singleton.Instance.ps_song.Stop();
                 label = "Wisdom Win";
                 Singleton.Instance._nextGameState = Singleton.GameState.End;
                 Singleton.Instance._gameResult = Singleton.GameResult.WisdomWin;
