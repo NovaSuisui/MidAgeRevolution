@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 using MidAgeRevolution.AllButton;
 using MidAgeRevolution;
@@ -50,22 +51,27 @@ namespace MidAgeRevolution.AllScreen
         private void _startClick(object sender, EventArgs e)
         {
             // Load into the game screen
+            Singleton.Instance.click.Play();
+            Singleton.Instance.mm_song.Stop();
             Singleton.Instance._mainState = Singleton.MainState.gamePlay;
             Singleton.Instance._nextGameState = Singleton.GameState.Setup;
         }
         private void _tutorialClick(object sender, EventArgs e)
         {
             // Load into the game screen
+            Singleton.Instance.click.Play();
             Singleton.Instance._mainState = Singleton.MainState.tutorial;
         }
         private void _exitClick(object sender, EventArgs e)
         {
             // Load into the game screen
+            Singleton.Instance.click.Play();
             _game.Exit();
         }
         public override void Update(Screen gameScreen, GameTime gameTime)
         {
-            
+            Singleton.Instance.ps_song.Stop();
+            Singleton.Instance.mm_song.Play();
             _start.Update(gameTime);
             _tutorial.Update(gameTime);
             _exit.Update(gameTime);

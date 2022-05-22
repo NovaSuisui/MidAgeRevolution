@@ -14,12 +14,14 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "D:/Test/MidAgeRevolution/Content/Asset/card/x2.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/card/x2.xnb","TextureProcessor","Texture2DContent",57341,160085,0.0072075
 "D:/Test/MidAgeRevolution/Content/Asset/card/x3.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/card/x3.xnb","TextureProcessor","Texture2DContent",57598,160085,0.0215688
 "D:/Test/MidAgeRevolution/Content/Asset/debuf/fire.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/debuf/fire.xnb","TextureProcessor","Texture2DContent",38469,769369,0.0261885
+"D:/Test/MidAgeRevolution/Content/Asset/debuf/poison_bubble.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/debuf/poison_bubble.xnb","TextureProcessor","Texture2DContent",4857,22585,0.1815374
 "D:/Test/MidAgeRevolution/Content/Asset/detail.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/detail.xnb","TextureProcessor","Texture2DContent",122745,3144661,0.4141903
 "D:/Test/MidAgeRevolution/Content/Asset/exit.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/exit.xnb","TextureProcessor","Texture2DContent",23410,140085,0.0700515
 "D:/Test/MidAgeRevolution/Content/Asset/green_health.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/green_health.xnb","TextureProcessor","Texture2DContent",225,40261,0.0228252
 "D:/Test/MidAgeRevolution/Content/Asset/measure_bar.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/measure_bar.xnb","TextureProcessor","Texture2DContent",1840,273217,0.0430481
 "D:/Test/MidAgeRevolution/Content/Asset/mm_b.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/mm_b.xnb","TextureProcessor","Texture2DContent",8645,45325,0.0217725
 "D:/Test/MidAgeRevolution/Content/Asset/play_screen_border.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/play_screen_border.xnb","TextureProcessor","Texture2DContent",61290,5196885,0.2549832
+"D:/Test/MidAgeRevolution/Content/Asset/Poiter.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/Poiter.xnb","TextureProcessor","Texture2DContent",197,1945,0.0019286
 "D:/Test/MidAgeRevolution/Content/Asset/re_b.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/re_b.xnb","TextureProcessor","Texture2DContent",8771,45325,0.0071454
 "D:/Test/MidAgeRevolution/Content/Asset/red_bar.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/red_bar.xnb","TextureProcessor","Texture2DContent",433,122701,0.0035359
 "D:/Test/MidAgeRevolution/Content/Asset/return.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/return.xnb","TextureProcessor","Texture2DContent",26009,140085,0.0061936
@@ -66,6 +68,9 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "D:/Test/MidAgeRevolution/Content/Asset/sc_tw_02_horizontal.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sc_tw_02_horizontal.xnb","TextureProcessor","Texture2DContent",3107,11845,0.0053606
 "D:/Test/MidAgeRevolution/Content/Asset/sc_tw_02_vertical.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sc_tw_02_vertical.xnb","TextureProcessor","Texture2DContent",3268,11845,0.0016786
 "D:/Test/MidAgeRevolution/Content/Asset/sc_win.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sc_win.xnb","TextureProcessor","Texture2DContent",156351,2121941,0.0736804
+"D:/Test/MidAgeRevolution/Content/Asset/sound/click.wav","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sound/click.xnb","SoundEffectProcessor","SoundEffectContent",60390,40269,1.9487844
+"D:/Test/MidAgeRevolution/Content/Asset/sound/mainmenu_song.wav","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sound/mainmenu_song.xnb","SoundEffectProcessor","SoundEffectContent",8418176,8418237,1.4871539
+"D:/Test/MidAgeRevolution/Content/Asset/sound/playscene_song.mp3","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/sound/playscene_song.xnb","SoundEffectProcessor","SoundEffectContent",3289143,16911653,1.8646408
 "D:/Test/MidAgeRevolution/Content/Asset/start.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/start.xnb","TextureProcessor","Texture2DContent",25388,140085,0.0098522
 "D:/Test/MidAgeRevolution/Content/Asset/title.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/title.xnb","TextureProcessor","Texture2DContent",111498,552637,0.0200239
 "D:/Test/MidAgeRevolution/Content/Asset/tutorial.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/tutorial.xnb","TextureProcessor","Texture2DContent",27188,140085,0.0048649

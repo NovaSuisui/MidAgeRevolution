@@ -10,6 +10,7 @@ using MidAgeRevolution.AllButton;
 using MidAgeRevolution.AllScreen;
 using MidAgeRevolution.AllSprite;
 using MidAgeRevolution.AllSprite.AllPlayer;
+using Microsoft.Xna.Framework.Audio;
 
 namespace MidAgeRevolution
 {
@@ -174,6 +175,13 @@ namespace MidAgeRevolution
             //bullet
             Singleton.Instance.flask = this.Content.Load<Texture2D>("Asset/bullet/flask");
             Singleton.Instance.bible = this.Content.Load<Texture2D>("Asset/bullet/bible");
+            //sound effect
+            Singleton.Instance.mm_song = this.Content.Load<SoundEffect>("Asset/sound/mainmenu_song").CreateInstance();
+            Singleton.Instance.ps_song = this.Content.Load<SoundEffect>("Asset/sound/playscene_song").CreateInstance();
+            Singleton.Instance.click = this.Content.Load<SoundEffect>("Asset/sound/click").CreateInstance();
+
+            Singleton.Instance.mm_song.Volume = 0.05f;
+            Singleton.Instance.ps_song.Volume = 0.05f;
 
             rl_win_popup = (Texture2D)Singleton.Instance.rl_win;
             sc_win_popup = (Texture2D)Singleton.Instance.sc_win;
@@ -258,15 +266,12 @@ namespace MidAgeRevolution
                     break;
                 case Singleton.MainState.mainMenu:
                     _screen[0].Draw(_spriteBatch, gameTime);
-
                     break;
                 case Singleton.MainState.tutorial:
                     _screen[2].Draw(_spriteBatch, gameTime);
-
                     break;
                 case Singleton.MainState.gamePlay:
                     _screen[1].Draw(_spriteBatch);
-
                     break;
                 case Singleton.MainState.gameEnd:
                     _screen[1].Draw(_spriteBatch);

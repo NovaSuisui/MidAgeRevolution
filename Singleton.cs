@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-
+using Microsoft.Xna.Framework.Audio;
 namespace MidAgeRevolution
 {
     class Singleton
@@ -228,6 +228,9 @@ namespace MidAgeRevolution
         public Texture2D cd_x3;
         public Texture2D cd_wdult;
         public Texture2D cd_card;
+
+        //sound effect
+        public SoundEffectInstance mm_song, ps_song, click;
 
         //debuf
         public Texture2D fire;

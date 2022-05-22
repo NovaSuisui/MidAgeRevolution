@@ -73,6 +73,9 @@
     <File>D:/Test/MidAgeRevolution/Content/Asset/sc_tw_02_horizontal.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/sc_tw_02_vertical.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/sc_win.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/sound/click.wav</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/sound/mainmenu_song.wav</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/sound/playscene_song.mp3</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/start.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/title.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/tutorial.png</File>
@@ -92,6 +95,9 @@
     <File>D:/Test/MidAgeRevolution/Content/Test/test0.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
