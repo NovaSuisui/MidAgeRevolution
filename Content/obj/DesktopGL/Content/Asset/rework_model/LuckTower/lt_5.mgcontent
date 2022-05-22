@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Test/MidAgeRevolution/Content/Asset/rework_model/LuckTower/lt_5.png</SourceFile>
-  <SourceTime>2022-05-22T03:27:12.2600672+07:00</SourceTime>
-  <DestFile>D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/rework_model/LuckTower/lt_5.xnb</DestFile>
-  <DestTime>2022-05-22T03:29:58.9651995+07:00</DestTime>
+  <SourceFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/rework_model/LuckTower/lt_5.png</SourceFile>
+  <SourceTime>2022-05-22T01:14:26.956183+07:00</SourceTime>
+  <DestFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/rework_model/LuckTower/lt_5.xnb</DestFile>
+  <DestTime>2022-05-22T13:41:47.4079099+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

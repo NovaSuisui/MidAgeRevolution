@@ -129,6 +129,11 @@ namespace MidAgeRevolution
             Singleton.Instance.wt_15 = this.Content.Load<Texture2D>("Asset/rework_model/WisdomTower/wt_15");
             Singleton.Instance.wt_16 = this.Content.Load<Texture2D>("Asset/rework_model/WisdomTower/wt_16");
 
+            //charge bar texture2D
+            Singleton.Instance.bg_cb = this.Content.Load<Texture2D>("Asset/rework_model/bg_charge_bar");
+            Singleton.Instance.rb = this.Content.Load<Texture2D>("Asset/rework_model/red_bar");
+            Singleton.Instance.me_b = this.Content.Load<Texture2D>("Asset/rework_model/measure_bar");
+
             rl_win_popup = (Texture2D)Singleton.Instance.rl_win;
             sc_win_popup = (Texture2D)Singleton.Instance.sc_win;
             restart_tex2d = (Texture2D)Singleton.Instance.re_b;

@@ -199,6 +199,11 @@ namespace MidAgeRevolution
         public Texture2D wt_14;
         public Texture2D wt_15;
         public Texture2D wt_16;
+
+        //charge bar 
+        public Texture2D bg_cb;
+        public Texture2D rb;
+        public Texture2D me_b;
         public Vector2 TopLeft(Texture2D texture, Vector2 position)
         {
             return position + new Vector2(texture.Width / 2, texture.Height / 2);

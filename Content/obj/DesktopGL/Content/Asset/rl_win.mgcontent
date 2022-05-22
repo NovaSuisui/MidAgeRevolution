@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Test/MidAgeRevolution/Content/Asset/rl_win.png</SourceFile>
-  <SourceTime>2022-05-21T21:14:24.2502258+07:00</SourceTime>
-  <DestFile>D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/rl_win.xnb</DestFile>
-  <DestTime>2022-05-22T03:29:59.2155372+07:00</DestTime>
+  <SourceFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/rl_win.png</SourceFile>
+  <SourceTime>2022-05-21T14:22:32.8752655+07:00</SourceTime>
+  <DestFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/rl_win.xnb</DestFile>
+  <DestTime>2022-05-22T13:41:47.5870321+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
