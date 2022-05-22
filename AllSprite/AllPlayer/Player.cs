@@ -98,7 +98,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
             turnLeft = false;
         }
 
-        private int i = 1;
+        private int powerSpeed = 60;
         public virtual void controlHandler(List<GameSprite> gameObject, GameTime gameTime)
         {
             if (freeFall()) return;
@@ -147,8 +147,9 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         public void charger(Keys keys)
         {
             if (Singleton.Instance.PrevoiusKey.IsKeyUp(keys)) power = 1;
-            if (power % 100 == 0) i = -i;
-            power += i;
+            if (power % 100 == 0) powerSpeed = -powerSpeed;
+            power += powerSpeed *(float) Singleton.Instance._time.ElapsedGameTime.TotalSeconds ;
+            power = Math.Clamp(power, 0, 100f);
             Debug.WriteLine(power);
         }
         public bool freeFall()

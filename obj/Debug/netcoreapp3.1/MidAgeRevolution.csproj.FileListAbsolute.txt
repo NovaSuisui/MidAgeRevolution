@@ -260,3 +260,6 @@ D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\Wisd
 D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_7.xnb
 D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_8.xnb
 D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_9.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg_charge_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\measure_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\red_bar.xnb

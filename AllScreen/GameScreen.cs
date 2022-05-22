@@ -33,6 +33,7 @@ namespace MidAgeRevolution.AllScreen
         private Button _skill;
         private float timer;
         private bool enableDebug =true;
+        private Player playerDisplay;
 
         public GameScreen(Main game, Texture2D texture) : base(game, texture)
         {
@@ -129,6 +130,7 @@ namespace MidAgeRevolution.AllScreen
                 case Singleton.GameState.WisdomTurn:
                     if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomTurn)
                     {
+                        playerDisplay = wisdom;
                         wind = Singleton.Instance.rnd.Next(-100, 100) / 10f;
                         Player.wind = this.wind;
                         Debug.WriteLine($"WisdomTurn wind:{wind}");
@@ -141,6 +143,7 @@ namespace MidAgeRevolution.AllScreen
                 case Singleton.GameState.LuckTurn:
                     if (Singleton.Instance._prvGameState != Singleton.GameState.LuckTurn)
                     {
+                        playerDisplay = luck;
                         wind = Singleton.Instance.rnd.Next(-100, 100) / 10f;
                         Player.wind = this.wind;
                         Debug.WriteLine($"LuckTurn wind:{wind}");
@@ -233,38 +236,37 @@ namespace MidAgeRevolution.AllScreen
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            switch (Singleton.Instance._gameState)
+            spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            if (_skill != null) _skill.Draw(spriteBatch);
+            spriteBatch.End();
+
+            batchEffect.View = Camera2D.GetView();
+            batchEffect.Projection = Camera2D.GetProjection();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, RasterizerState.CullNone, batchEffect);
+            for (int i = _gameObj.Count - 1; i >= 0; i--)
             {
-                /*case Singleton.GameState.Setup:
-                    break;*/
-                default:
-                    /*foreach (GameSprite obj in _gameObj)
-                    {
-                        obj.Draw(spriteBatch);
-                    }*/
-
-                    spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-                    if (_skill != null) _skill.Draw(spriteBatch);
-                    spriteBatch.End();
-
-                    batchEffect.View = Camera2D.GetView();
-                    batchEffect.Projection = Camera2D.GetProjection();
-                    spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, RasterizerState.CullNone, batchEffect);
-                    for (int i = _gameObj.Count - 1; i >= 0; i--)
-                    {
-                        _gameObj[i].Draw(spriteBatch);
-                    }
-                    spriteBatch.End();
-                    if(enableDebug)
-                        debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
-
-                    spriteBatch.Begin();
-                    spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-                    spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, Color.Green, 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
-                    break;
+                _gameObj[i].Draw(spriteBatch);
             }
+            spriteBatch.End();
+            if(enableDebug)
+                debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
+
+            spriteBatch.Begin();
+            spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, Color.Green, 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
+            DrawChargeBar(spriteBatch);
 
             base.Draw(spriteBatch);
+
+        }
+
+        public void DrawChargeBar(SpriteBatch spriteBatch)
+        {
+            Vector2 position = new Vector2(200, 800);
+            spriteBatch.Draw(Singleton.Instance.bg_cb, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            if(playerDisplay != null) 
+                spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29, 21), null, Color.White, 0, Vector2.Zero, new Vector2(playerDisplay.power/100f,1), SpriteEffects.None, 0f);
+            spriteBatch.Draw(Singleton.Instance.me_b, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
         }
 
         public bool isWorldStop()
