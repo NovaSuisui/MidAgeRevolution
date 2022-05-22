@@ -40,7 +40,7 @@ namespace MidAgeRevolution.AllSprite
 
         public IDictionary<Singleton.StatusEffect, uint> statusEffect = new Dictionary<Singleton.StatusEffect, uint>()
         {
-            { Singleton.StatusEffect.fire, 0},
+            { Singleton.StatusEffect.fire, 1},
         };
         public void ApplyDamage(float Damage)
         {
@@ -147,12 +147,19 @@ namespace MidAgeRevolution.AllSprite
         Vector2 fire_texel = Vector2.One / new Vector2(Singleton.Instance.fire.Width, Singleton.Instance.fire.Height);
         Vector2 fire_scale = new Vector2(1, 0.7f);
         Vector2 fire_origin = new Vector2(Singleton.Instance.fire.Width / 2, Singleton.Instance.fire.Height);
+
+        Vector2 poision_texel = Vector2.One / new Vector2(Singleton.Instance.poision.Width, Singleton.Instance.poision.Height);
+        Vector2 poision_scale = new Vector2(1, 1f);
+        Vector2 poision_origin = new Vector2(Singleton.Instance.poision.Width / 2, Singleton.Instance.poision.Height);
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
             if (statusEffect[Singleton.StatusEffect.fire] > 0)
             {
+                if (side == Side.Wisdom)
                 spriteBatch.Draw(Singleton.Instance.fire, (position + new Vector2(0,_texture.Height/2))*Singleton.worldScale, null, Color.White, 0f, fire_origin, (fire_texel * fire_scale * new Vector2(_texture.Width,_texture.Height)) * Singleton.worldScale, SpriteEffects.None, 0f);
+                else
+                spriteBatch.Draw(Singleton.Instance.poision, (position + new Vector2(0, _texture.Height / 2)) * Singleton.worldScale, null, Color.White, 0f, poision_origin, (poision_texel * poision_scale * Math.Min(_texture.Width, _texture.Height)) * Singleton.worldScale, SpriteEffects.None, 0f);
             }
             else colour = Color.White;
             /*if (hp_timer > 0)

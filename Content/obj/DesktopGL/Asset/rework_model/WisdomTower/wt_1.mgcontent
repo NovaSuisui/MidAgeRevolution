@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/Asset/rework_model/WisdomTower/wt_1.png</SourceFile>
-  <SourceTime>2022-05-22T00:53:16.8534526+07:00</SourceTime>
-  <DestFile>D:/KMITL/Year 2/Season 2/Computer Game Progamming/._Final Project/Github/MidAgeRevolution/Content/bin/DesktopGL/Asset/rework_model/WisdomTower/wt_1.xnb</DestFile>
-  <DestTime>2022-05-22T20:32:08.9493991+07:00</DestTime>
+  <SourceFile>D:/Test/MidAgeRevolution/Content/Asset/rework_model/WisdomTower/wt_1.png</SourceFile>
+  <SourceTime>2022-05-22T03:27:12.2610635+07:00</SourceTime>
+  <DestFile>D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Asset/rework_model/WisdomTower/wt_1.xnb</DestFile>
+  <DestTime>2022-05-22T20:52:56.1072387+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

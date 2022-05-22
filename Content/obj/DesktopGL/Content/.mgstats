@@ -1,3 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/Test/MidAgeRevolution/Content/Asset/debuf/poison_bubble.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/debuf/poison_bubble.xnb","TextureProcessor","Texture2DContent",4857,22585,0.1577775
+"D:/Test/MidAgeRevolution/Content/Asset/play_screen_border.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/play_screen_border.xnb","TextureProcessor","Texture2DContent",61290,5196885,0.374746
 "D:/Test/MidAgeRevolution/Content/Asset/rl_win.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/rl_win.xnb","TextureProcessor","Texture2DContent",115795,2121941,0.4467463
 "D:/Test/MidAgeRevolution/Content/Test/font0.spritefont","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Test/font0.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21538,0.1763504

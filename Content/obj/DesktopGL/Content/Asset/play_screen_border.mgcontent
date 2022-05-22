@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Test/MidAgeRevolution/Content/Asset/play_screen_border.png</SourceFile>
-  <SourceTime>2022-05-14T18:27:27.8690373+07:00</SourceTime>
+  <SourceTime>2022-05-22T20:41:34.9740698+07:00</SourceTime>
   <DestFile>D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Content/Asset/play_screen_border.xnb</DestFile>
-  <DestTime>2022-05-22T20:03:08.098272+07:00</DestTime>
+  <DestTime>2022-05-22T20:42:23.6367894+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

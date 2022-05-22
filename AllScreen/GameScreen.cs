@@ -290,8 +290,8 @@ namespace MidAgeRevolution.AllScreen
         {
             if(playerDisplay == null) return;
             Vector2 position;
-            if (playerDisplay == wisdom) position = new Vector2(746.0f, 803.0f);
-            else position = new Vector2(17.0f, 803.0f);
+            if (playerDisplay == wisdom) position = new Vector2(746.0f, 820.0f);
+            else position = new Vector2(17.0f, 820.0f);
 
             //draw border
             spriteBatch.Draw(Singleton.Instance.bg_cb, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);

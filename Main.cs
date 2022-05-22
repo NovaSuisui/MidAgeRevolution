@@ -155,6 +155,7 @@ namespace MidAgeRevolution
             Singleton.Instance.cd_x3 = this.Content.Load<Texture2D>("Asset/card/x3");
 
             Singleton.Instance.fire = this.Content.Load<Texture2D>("Asset/debuf/fire");
+            Singleton.Instance.poision = this.Content.Load<Texture2D>("Asset/debuf/poison_bubble");
 
             rl_win_popup = (Texture2D)Singleton.Instance.rl_win;
             sc_win_popup = (Texture2D)Singleton.Instance.sc_win;

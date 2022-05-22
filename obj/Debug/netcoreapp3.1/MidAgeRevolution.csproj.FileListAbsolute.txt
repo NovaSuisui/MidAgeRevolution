@@ -371,3 +371,4 @@ D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeR
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_o.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_r.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_y.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\debuf\poison_bubble.xnb

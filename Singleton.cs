@@ -228,6 +228,7 @@ namespace MidAgeRevolution
 
         //debuf
         public Texture2D fire;
+        public Texture2D poision;
 
         public Vector2 TopLeft(Texture2D texture, Vector2 position)
         {
