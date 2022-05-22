@@ -216,6 +216,9 @@ namespace MidAgeRevolution
         public Texture2D w_r_o;
         public Texture2D w_r_r;
         public Texture2D w_0;
+
+        // card 
+
         public Vector2 TopLeft(Texture2D texture, Vector2 position)
         {
             return position + new Vector2(texture.Width / 2, texture.Height / 2);
