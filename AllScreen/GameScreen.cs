@@ -273,15 +273,15 @@ namespace MidAgeRevolution.AllScreen
                 debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
 
             spriteBatch.Begin();
-            //เสา
-            spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             //พื้นข้างล่าง
-            spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, Color.Wheat, 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
+            spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, new Color(226,227,227), 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
             DrawChargeBar(spriteBatch);
 
             //ลม
             DrawWind(spriteBatch);
 
+            //เสา
+            spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             base.Draw(spriteBatch);
 
         }
@@ -290,16 +290,22 @@ namespace MidAgeRevolution.AllScreen
         {
             if(playerDisplay == null) return;
             Vector2 position;
-            if (playerDisplay == wisdom) position = new Vector2(500.0f, 810.0f);
-            else position = new Vector2(375.0f, 810.0f);
+            if (playerDisplay == wisdom) position = new Vector2(746.0f, 803.0f);
+            else position = new Vector2(17.0f, 803.0f);
+
+            //draw border
             spriteBatch.Draw(Singleton.Instance.bg_cb, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
-            spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29, 21), null, Color.White, 0, Vector2.Zero, new Vector2(playerDisplay.power/100f,1), SpriteEffects.None, 0f);
+            
+            //draw power
+            if (playerDisplay == wisdom) spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29, 21), null, Color.White, 0, Vector2.Zero, new Vector2(playerDisplay.power/100f,1), SpriteEffects.None, 0f);
+            else spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29+ Singleton.Instance.rb.Width, 21), null, Color.White, 0, new Vector2(Singleton.Instance.rb.Width, 0), new Vector2(playerDisplay.power / 100f, 1), SpriteEffects.None, 0f);
+            //draw indicator
             if (playerDisplay == wisdom) spriteBatch.Draw(Singleton.Instance.me_b, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
         }
 
         public void DrawWind(SpriteBatch spriteBatch)
         {
-            Vector2 position = new Vector2(0.0f, 100.0f);
+            Vector2 position = new Vector2(737.0f, 23.0f);
             Texture2D wd;
             if (wind < -0.1)
             {

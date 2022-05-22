@@ -160,6 +160,8 @@ namespace MidAgeRevolution.AllSprite
                     return 3f;
                 case Singleton.AmmoType.xrndBdmg:
                     return (Singleton.Instance.rnd.Next(0, 16) / 10f);
+                case Singleton.AmmoType.xrndAdmg:
+                    return (Singleton.Instance.rnd.Next(8, 41) / 10f);
                 default: return 1f;
             }
         }
