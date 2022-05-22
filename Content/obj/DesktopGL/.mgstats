@@ -17,6 +17,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "D:/Test/MidAgeRevolution/Content/Asset/measure_bar.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Asset/measure_bar.xnb","TextureProcessor","Texture2DContent",1840,273217,0.0174862
 "D:/Test/MidAgeRevolution/Content/Asset/mm_b.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Asset/mm_b.xnb","TextureProcessor","Texture2DContent",8645,45325,0.0035331
 "D:/Test/MidAgeRevolution/Content/Asset/play_screen_border.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Asset/play_screen_border.xnb","TextureProcessor","Texture2DContent",61290,5196885,0.2201508
+"D:/Test/MidAgeRevolution/Content/Asset/Poiter.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Asset/Poiter.xnb","TextureProcessor","Texture2DContent",197,1945,0.1478294
 "D:/Test/MidAgeRevolution/Content/Asset/re_b.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Asset/re_b.xnb","TextureProcessor","Texture2DContent",8771,45325,0.0057444
 "D:/Test/MidAgeRevolution/Content/Asset/red_bar.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Asset/red_bar.xnb","TextureProcessor","Texture2DContent",433,122701,0.0045309
 "D:/Test/MidAgeRevolution/Content/Asset/return.png","D:/Test/MidAgeRevolution/Content/bin/DesktopGL/Asset/return.xnb","TextureProcessor","Texture2DContent",26009,140085,0.010637

@@ -59,7 +59,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         {
             World w = body.World;
             Body bulletBody = w.CreateCircle(10f * Singleton.worldScale, 1f, bodyType: BodyType.Dynamic);
-            bulletBody.Mass = 0;
+            bulletBody.Mass = 1;
             Bullet bullet;
             switch (Singleton.Instance.ammo & Singleton.AmmoType.Behavior)
             {

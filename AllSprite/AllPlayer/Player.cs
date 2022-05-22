@@ -212,10 +212,10 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
                 Bullet bullet = createBullet();
                 bullet.body.Position = (position + new Vector2(x, y) * 60) * Singleton.worldScale;
                 // ใส่แรงยิง
-                bullet.body.ApplyForce(new Vector2(x, y) * (400 + power * 10));
+                bullet.body.ApplyForce(new Vector2(x, y) * (200+power*16));
                 // ใส่แรงลม
                 if ((Singleton.Instance.ammo & Singleton.AmmoType.turnOffWind) != 0)
-                    bullet.body.ApplyForce(new Vector2(wind * 20, 0));
+                    bullet.body.ApplyForce(new Vector2(wind * 400, 0));
                 // หมุนดิ้ว
                 bullet.body.ApplyTorque((turnLeft) ? -5 : 5);
                 bullet.side = side;
@@ -236,7 +236,7 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
         {
             World w = body.World;
             Body bulletBody = w.CreateCircle(10f * Singleton.worldScale, 1f, bodyType: BodyType.Dynamic);
-            bulletBody.Mass = 0;
+            bulletBody.Mass = 1;
             Bullet bullet;
             switch (Singleton.Instance.ammo & Singleton.AmmoType.Behavior)
             {
@@ -296,8 +296,9 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            float p = power/MaxHP;
-            Color color = new Color((p * new Vector3(255, 38, 0) + (1 - p) * new Vector3(0, 0, 0))/255);
+            float p = power/100f;
+            /*Color color = new Color((p * new Vector3(255, 38, 0) + (1 - p) * new Vector3(0, 0, 0))/255);*/
+            Color color = Color.Black;
             float x = (float)Math.Cos(Singleton.Degree2Radian(aimAngle));
             float y = (float)Math.Sin(Singleton.Degree2Radian(aimAngle));
             Vector2 arrowPositon = (position + new Vector2((turnLeft) ? -x : x, -y) * 50) * Singleton.worldScale;

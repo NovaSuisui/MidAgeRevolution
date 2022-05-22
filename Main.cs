@@ -59,7 +59,7 @@ namespace MidAgeRevolution
             Singleton.Instance.bg = this.Content.Load<Texture2D>("Asset/background");
             Singleton.Instance.sc_tw_02_v = this.Content.Load<Texture2D>("Asset/sc_tw_02_vertical");
             Singleton.Instance.sc_tw_02_h = this.Content.Load<Texture2D>("Asset/sc_tw_02_horizontal");
-            Singleton.Instance.Arrow = this.Content.Load<Texture2D>("Test/Arrow");
+            Singleton.Instance.Arrow = this.Content.Load<Texture2D>("Asset/Poiter");
             
             //main menu texture2D
             Singleton.Instance.menu_bg = this.Content.Load<Texture2D>("Asset/bg");

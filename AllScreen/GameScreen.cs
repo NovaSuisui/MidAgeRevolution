@@ -39,7 +39,7 @@ namespace MidAgeRevolution.AllScreen
         public GameScreen(Main game, Texture2D texture) : base(game, texture)
         {
             _gameObj = new List<GameSprite>();
-            world = new World(new Vector2(0.0f, 5f));
+            world = new World(new Vector2(0.0f, 15f));
             world.ContactManager.VelocityConstraintsMultithreadThreshold = 256;
             world.ContactManager.PositionConstraintsMultithreadThreshold = 256;
             world.ContactManager.CollideMultithreadThreshold = 256;

@@ -22,6 +22,7 @@
     <File>D:/Test/MidAgeRevolution/Content/Asset/measure_bar.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/mm_b.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/play_screen_border.png</File>
+    <File>D:/Test/MidAgeRevolution/Content/Asset/Poiter.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/re_b.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/red_bar.png</File>
     <File>D:/Test/MidAgeRevolution/Content/Asset/return.png</File>
@@ -87,6 +88,7 @@
     <File>D:/Test/MidAgeRevolution/Content/Test/test0.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

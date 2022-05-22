@@ -229,6 +229,18 @@
 /processorParam:TextureFormat=Color
 /build:Asset/play_screen_border.png
 
+#begin Asset/Poiter.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/Poiter.png
+
 #begin Asset/re_b.png
 /importer:TextureImporter
 /processor:TextureProcessor

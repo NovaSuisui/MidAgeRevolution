@@ -64,6 +64,9 @@ namespace MidAgeRevolution.AllSprite.AllPlayer
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            if (disableControll == false)
+                spriteBatch.DrawString(Singleton.Instance.testfont, String.Format("{0} degree", aimAngle), (position + new Vector2(-20, -80)) * Singleton.worldScale, Color.Black, 0, Vector2.Zero, Vector2.One * 0.8f * Singleton.worldScale, SpriteEffects.None, 0f);
+
             DrawHP(spriteBatch, Singleton.Instance.sc_hp_bar, new Vector2(101, 35), new Vector2(324, 31), new Vector2(247, 57));
             base.Draw(spriteBatch);
         }

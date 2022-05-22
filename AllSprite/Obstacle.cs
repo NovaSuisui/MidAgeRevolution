@@ -161,7 +161,6 @@ namespace MidAgeRevolution.AllSprite
                 else
                 spriteBatch.Draw(Singleton.Instance.poision, (position + new Vector2(0, _texture.Height / 2)) * Singleton.worldScale, null, Color.White, 0f, poision_origin, (poision_texel * poision_scale * Math.Min(_texture.Width, _texture.Height)) * Singleton.worldScale, SpriteEffects.None, 0f);
             }
-            else colour = Color.White;
             /*if (hp_timer > 0)
             {
                 DrawHP(spriteBatch, Singleton.Instance.ghb, position, new Vector2(30 , 4), position, false);
