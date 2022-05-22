@@ -61,7 +61,7 @@
 /processorParam:TextureFormat=Color
 /build:Asset/bg_charge_bar.png
 
-#begin Asset/card/Bounce.png
+#begin Asset/bullet/bible.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -71,7 +71,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Asset/card/Bounce.png
+/build:Asset/bullet/bible.png
 
 #begin Asset/card/Explosion.png
 /importer:TextureImporter
@@ -85,7 +85,7 @@
 /processorParam:TextureFormat=Color
 /build:Asset/card/Explosion.png
 
-#begin Asset/card/Pluck.png
+#begin Asset/card/Puush.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -95,7 +95,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Asset/card/Pluck.png
+/build:Asset/card/Puush.png
 
 #begin Asset/card/Split.png
 /importer:TextureImporter
@@ -108,6 +108,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Asset/card/Split.png
+
+#begin Asset/card/Untitled-2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Asset/card/Untitled-2.png
 
 #begin Asset/card/x2.png
 /importer:TextureImporter
