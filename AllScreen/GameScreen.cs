@@ -1,254 +1,846 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
+using System.Diagnostics;
+using System.Text;
+using System.Collections.Generic;
+using System;
+
+using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Diagnostics;
+using tainicom.Aether.Physics2D.Common;
+
+using MidAgeRevolution.ScreenSystem;
 using MidAgeRevolution.AllSprite;
 using MidAgeRevolution.AllSprite.AllPlayer;
 using MidAgeRevolution.AllButton;
+using tainicom.Aether.Physics2D.Collision.Shapes;
 
 namespace MidAgeRevolution.AllScreen
 {
     class GameScreen : Screen
     {
+        World world;
+        DebugView debugView;
+        BasicEffect batchEffect;
         private List<GameSprite> _gameObj;
-        private Button _skill;
+        private Luck luck;
+        private Wisdom wisdom;
+        private bool loadedContent;
+        public float wind = 0.0f;
+        private Button _wisdomSkill;
+        private Button _luckSkill;
+        private float timer;
+        private bool enableDebug =false;
+        private Player playerDisplay;
 
-        public GameScreen(Texture2D texture) : base(texture)
+        public GameScreen(Main game, Texture2D texture) : base(game, texture)
         {
             _gameObj = new List<GameSprite>();
+            world = new World(new Vector2(0.0f, 15f));
+            world.ContactManager.VelocityConstraintsMultithreadThreshold = 256;
+            world.ContactManager.PositionConstraintsMultithreadThreshold = 256;
+            world.ContactManager.CollideMultithreadThreshold = 256;
+            world.Tag = _gameObj;
+
+            debugView = new DebugView(world);
+            debugView.LoadContent(Singleton.Instance.GraphicsDevice, Singleton.Instance.Content);
+            debugView.Flags = DebugViewFlags.None;
+            debugView.Flags = (DebugViewFlags)2047;
+            /*debugView.AppendFlags(DebugViewFlags.Shape);*/
+
+
+            batchEffect = new BasicEffect(Singleton.Instance.GraphicsDevice);
+            batchEffect.VertexColorEnabled = true;
+            batchEffect.TextureEnabled = true;
+            loadedContent = false;
+        }
+        public void setupPlayTurn()
+        {
+            foreach (GameSprite sprite in _gameObj) sprite.body.BodyType = BodyType.Kinematic;
+            wisdom.body.BodyType = BodyType.Dynamic;
+            luck.body.BodyType = BodyType.Dynamic;
         }
 
-        public override void Update(Screen gameScreen)
+        public override void Update(Screen gameScreen, GameTime gameTime)
         {
+            Singleton.Instance.ps_song.Play();
+            int numSprite = _gameObj.Count;
+            if(Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.F2) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.F2))
+            {
+                enableDebug = !enableDebug;
+            }
+            if (Singleton.Instance.PrevoiusKey.IsKeyDown(Keys.F1) && Singleton.Instance.CurrentKey.IsKeyUp(Keys.F1))
+            {
+                Singleton.Instance._nextGameState = Singleton.GameState.Setup;
+                Singleton.Instance._gameResult = Singleton.GameResult.None;
+                Singleton.Instance._mainState = Singleton.MainState.gamePlay;
+                numSprite = 0;
+                return;
+            }
+
             switch (Singleton.Instance._gameState)
             {
                 case Singleton.GameState.Setup:
-                    _gameObj.Clear();
-                    _gameObj.Add(new Wisdom(Singleton.Instance.sc)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.Setup) loadedContent = false;
+                    if (loadedContent == false)
                     {
-                        position = new Vector2(304, 321),
-                        hitbox_size = new Vector2(50, 81.44f),
-                        side = GameSprite.Side_ID.Wisdom_player
-                    });
-                    _gameObj.Add(new Luck(Singleton.Instance.rl)
-                    {
-                        position = new Vector2(1296, 320),
-                        hitbox_size = new Vector2(50, 87.74f),
-                        side = GameSprite.Side_ID.Luck_player
-                    });
-                    _gameObj.Add(new Bullet(test)
-                    {
-                        //TO DO
-                    });
+                        world.Clear();
+                        _gameObj.Clear();
 
-                    _skill = new Card(test)
-                    {
-                        position = new Vector2(200, 200),
-                        field_size = new Vector2(60, 60)
-                    };
-                    _skill.Update(_skill);
+                        Vertices borders = new Vertices(4);
+                        borders.Add(new Vector2(0, 800*Singleton.worldScale));  // Lower left
+                        borders.Add(new Vector2(1600 * Singleton.worldScale, 800 * Singleton.worldScale));   // Lower right
+                        borders.Add(new Vector2(1600 * Singleton.worldScale, -1500 * Singleton.worldScale));  // Upper right
+                        borders.Add(new Vector2(0, -1500 * Singleton.worldScale)); // Upper left
+                        Body border = world.CreateLoopShape(borders);
+                        border.SetCollidesWith(Category.All & ~Category.Cat2);
+                        wisdom = new Wisdom(Singleton.Instance.sc, world)
+                        {
+                            // position = new Vector2(320, 600),
+                            position = new Vector2(219, 359),
+                        };
+                        _gameObj.Add(wisdom);
+                        luck = new Luck(Singleton.Instance.rl, world)
+                        {
+                            position = new Vector2(1236, 416),
+                            turnLeft = true
+                        };
+                        _gameObj.Add(luck);
 
-                    // horizontal wisdom
-                    for (int i = 0; i < 2; i++)
-                    {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
-                        {
-                            position = new Vector2(255 + (98 * i), 409),
-                            hitbox_size = new Vector2(98, 30),
-                            side = GameSprite.Side_ID.Wisdom_obstacle
-                        });
-                    }
-                    for (int i = 0; i < 4; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
-                            {
-                                position = new Vector2(157 + (98 * i), 537 + (128 * j)),
-                                hitbox_size = new Vector2(98, 30),
-                                side = GameSprite.Side_ID.Wisdom_obstacle
-                            });
-                        }
-                    }
-                    //vertical wisdom
-                    for (int i = 0; i < 3; i++)
-                    {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
-                        {
-                            position = new Vector2(240 + (98 * i), 439),
-                            hitbox_size = new Vector2(30, 98),
-                            side = GameSprite.Side_ID.Wisdom_obstacle
-                        });
-                    }
-                    for (int i = 0; i < 5; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
-                            {
-                                position = new Vector2(142 + (98 * i), 567 + (128 * j)),
-                                hitbox_size = new Vector2(30, 98),
-                                side = GameSprite.Side_ID.Wisdom_obstacle
-                            });
-                        }
-                    }
+                        //create Tower
+                        createLuckTower(GameSprite.Side.Luck);
+                        createWisdomTower(GameSprite.Side.Wisdom);
+                        //createTower(new Vector2(200f, 300f), GameSprite.Side.Wisdom);
+                        //createTower(new Vector2(1000f, 300f), GameSprite.Side.Luck);
 
-                    // horizontal luck
-                    for (int i = 0; i < 2; i++)
-                    {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
+                        _wisdomSkill = new IconButton(test)
                         {
-                            position = new Vector2(1188 + (98 * i), 409),
-                            hitbox_size = new Vector2(98, 30),
-                            side = GameSprite.Side_ID.Luck_obstacle
-                        });
-                    }
-                    for (int i = 0; i < 4; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_h)
-                            {
-                                position = new Vector2(1090 + (98 * i), 537 + (128 * j)),
-                                hitbox_size = new Vector2(98, 30),
-                                side = GameSprite.Side_ID.Luck_obstacle
-                            });
-                        }
-                    }
-                    //vertical luck
-                    for (int i = 0; i < 3; i++)
-                    {
-                        _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
-                        {
-                            position = new Vector2(1173 + (98 * i), 439),
-                            hitbox_size = new Vector2(30, 98),
-                            side = GameSprite.Side_ID.Luck_obstacle
-                        });
-                    }
-                    for (int i = 0; i < 5; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v)
-                            {
-                                position = new Vector2(1075 + (98 * i), 567 + (128 * j)),
-                                hitbox_size = new Vector2(30, 98),
-                                side = GameSprite.Side_ID.Luck_obstacle
-                            });
-                        }
-                    }
+                            position = new Vector2(200, 820),
+                            field_size = new Vector2(60, 60)
+                        };
+                        _wisdomSkill.Update(_wisdomSkill);
 
+                        _luckSkill = new Card(test)
+                        {
+                            position = new Vector2(900, 820),
+                            field_size = new Vector2(60, 60)
+                        };
+                        _luckSkill.Update(_luckSkill);
 
-                    Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
+                        loadedContent = true;
+                    }
+                    else
+                    {
+                        if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.WisdomTurn;
+                    }
                     break;
 
                 case Singleton.GameState.WisdomTurn:
-                    foreach (GameSprite obj in _gameObj)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomTurn)
                     {
-                        obj.Update(_gameObj, Singleton.Instance._time);
-                    }
-                    _skill.Update(_skill);
+                        wisdom.disableControll = false;
+                        playerDisplay = wisdom;
+                        wind = Singleton.Instance.rnd.Next(-100, 100) / 10f;
+                        Player.wind = this.wind;
+                        Debug.WriteLine($"WisdomTurn wind:{wind}");
 
+                        setupPlayTurn();
+                    }
+                    _wisdomSkill.Update(_wisdomSkill);
+                    //_luckSkill.Update(_luckSkill);
                     break;
 
                 case Singleton.GameState.LuckTurn:
-                    foreach (GameSprite obj in _gameObj)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.LuckTurn)
                     {
-                        obj.Update(_gameObj, Singleton.Instance._time);
-                    }
-                    _skill.Update(_skill);
+                        luck.disableControll = false;
+                        playerDisplay = luck;
+                        wind = Singleton.Instance.rnd.Next(-100, 100) / 10f;
+                        Player.wind = this.wind;
+                        Debug.WriteLine($"LuckTurn wind:{wind}");
 
+                        setupPlayTurn();
+                    }
+                    //_wisdomSkill.Update(_wisdomSkill);
+                    _luckSkill.Update(_luckSkill);
                     break;
 
                 case Singleton.GameState.WisdomShooting:
-                    foreach (GameSprite obj in _gameObj)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.WisdomShooting)
                     {
-                        obj.Update(_gameObj, Singleton.Instance._time);
+                        wisdom.disableControll = true;
+                        Debug.WriteLine("WisdomShooting");
+                        foreach (GameSprite sprite in _gameObj)
+                        {
+                            sprite.body.ResetDynamics();
+                            sprite.body.BodyType = BodyType.Kinematic; 
+                        }
+                        wisdom.shoot(_gameObj);
+                    } 
+                    if (Singleton.Instance._prvGameState==Singleton.GameState.WisdomShooting)
+                    {
+                        if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.WisdomEndTurn;
                     }
-
                     break;
 
                 case Singleton.GameState.LuckShooting:
-                    foreach (GameSprite obj in _gameObj)
+                    if (Singleton.Instance._prvGameState != Singleton.GameState.LuckShooting)
                     {
-                        obj.Update(_gameObj, Singleton.Instance._time);
+                        luck.disableControll = true;
+                        Debug.WriteLine("LuckShooting");
+                        foreach (GameSprite sprite in _gameObj)
+                        {
+                            sprite.body.ResetDynamics();
+                            sprite.body.BodyType = BodyType.Kinematic;
+                        }
+                        luck.shoot(_gameObj);
                     }
-
+                    if (Singleton.Instance._prvGameState == Singleton.GameState.LuckShooting)
+                    {
+                        if (isWorldStop()) Singleton.Instance._nextGameState = Singleton.GameState.LuckEndTurn;
+                    }
                     break;
 
                 case Singleton.GameState.WisdomEndTurn:
-                    foreach (GameSprite obj in _gameObj)
-                    {
-                        obj.Update(_gameObj, Singleton.Instance._time);
-                    }
-                    _skill.Update(_skill);
-                    Singleton.Instance._gameState = Singleton.GameState.LuckTurn;
-
+                    _wisdomSkill.Update(_wisdomSkill);
+                    //_luckSkill.Update(_wisdomSkill);
+                    Singleton.Instance._nextGameState = Singleton.GameState.LuckTurn;
                     break;
 
                 case Singleton.GameState.LuckEndTurn:
-                    foreach (GameSprite obj in _gameObj)
-                    {
-                        obj.Update(_gameObj, Singleton.Instance._time);
-                    }
-                    _skill.Update(_skill);
-
-                    Singleton.Instance._gameState = Singleton.GameState.WisdomTurn;
+                    //_wisdomSkill.Update(_wisdomSkill);
+                    _luckSkill.Update(_wisdomSkill);
+                    Singleton.Instance._nextGameState = Singleton.GameState.WisdomTurn;
                     break;
             }
 
-            if (!_gameObj[0].isActive)
+            for (int i = 0; i < numSprite; i++)
             {
-                label = "Luck Win";
-                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
-            }
-            else if(!_gameObj[1].isActive)
-            {
-                label = "Wisdom Win";
-                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
-            }
-
-            for (int i = 2; i < _gameObj.Count; i++)
-            {
-                if (!_gameObj[i].isActive)
+                if (_gameObj[i].isActive)
                 {
-                    _gameObj.RemoveAt(i);
+                    _gameObj[i].Update(_gameObj, Singleton.Instance._time);
                 }
             }
 
+            for (int i = 0; i < numSprite; i++)
+            {
+                if (!_gameObj[i].isActive)
+                {
+                    _gameObj[i].Remove(world);
+                    _gameObj.RemoveAt(i);
+                    i--;
+                    numSprite--;
+                }
+            }
+
+            if (!wisdom.isAlive)
+            {
+                Singleton.Instance.ps_song.Stop();
+                label = "Luck Win";
+                Singleton.Instance._nextGameState = Singleton.GameState.End;
+                Singleton.Instance._gameResult = Singleton.GameResult.LuckWin;
+                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+            }
+            else if (!luck.isAlive)
+            {
+                Singleton.Instance.ps_song.Stop();
+                label = "Wisdom Win";
+                Singleton.Instance._nextGameState = Singleton.GameState.End;
+                Singleton.Instance._gameResult = Singleton.GameResult.WisdomWin;
+                Singleton.Instance._mainState = Singleton.MainState.gameEnd;
+            }
+
+            world.Step(Math.Min((float)gameTime.ElapsedGameTime.TotalSeconds, (1f / 30f)));
             base.Update(gameScreen);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            switch (Singleton.Instance._gameState)
+            spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            spriteBatch.End();
+
+            batchEffect.View = Camera2D.GetView();
+            batchEffect.Projection = Camera2D.GetProjection();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, RasterizerState.CullNone, batchEffect);
+            for (int i = _gameObj.Count - 1; i >= 0; i--)
             {
-                case Singleton.GameState.Setup:
-                    spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-                    spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                _gameObj[i].Draw(spriteBatch);
+            }
+            spriteBatch.End();
+            if(enableDebug)
+                debugView.RenderDebugData(Camera2D.GetProjection(), Camera2D.GetView());
 
+            spriteBatch.Begin();
+            //พื้นข้างล่าง
+            spriteBatch.Draw(Singleton.Instance.ghb, new Vector2(0,800), null, new Color(226,227,227), 0, Vector2.Zero, new Vector2(Singleton.WINDOWS_SIZE_X,100), SpriteEffects.None, 0f);
+            DrawChargeBar(spriteBatch);
+            if (_wisdomSkill != null) _wisdomSkill.Draw(spriteBatch);
+            if (_luckSkill != null) _luckSkill.Draw(spriteBatch);
+
+            //ลม
+            DrawWind(spriteBatch);
+
+            //เสา
+            spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            base.Draw(spriteBatch);
+
+        }
+
+        public void DrawChargeBar(SpriteBatch spriteBatch)
+        {
+            if(playerDisplay == null) return;
+            Vector2 position;
+            if (playerDisplay == wisdom) position = new Vector2(746.0f, 820.0f);
+            else position = new Vector2(17.0f, 820.0f);
+
+            //draw border
+            spriteBatch.Draw(Singleton.Instance.bg_cb, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            
+            //draw power
+            if (playerDisplay == wisdom) spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29, 21), null, Color.White, 0, Vector2.Zero, new Vector2(playerDisplay.power/100f,1), SpriteEffects.None, 0f);
+            else spriteBatch.Draw(Singleton.Instance.rb, position + new Vector2(29+ Singleton.Instance.rb.Width, 21), null, Color.White, 0, new Vector2(Singleton.Instance.rb.Width, 0), new Vector2(playerDisplay.power / 100f, 1), SpriteEffects.None, 0f);
+            //draw indicator
+            if (playerDisplay == wisdom) spriteBatch.Draw(Singleton.Instance.me_b, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+        }
+
+        public void DrawWind(SpriteBatch spriteBatch)
+        {
+            Vector2 position = new Vector2(737.0f, 23.0f);
+            Texture2D wd;
+            if (wind < -0.1)
+            {
+                if (-wind > 7.4) wd = Singleton.Instance.w_l_r;
+                else if (-wind > 4.9) wd = Singleton.Instance.w_l_o;
+                else if (-wind > 2.4) wd = Singleton.Instance.w_l_y;
+                else wd = Singleton.Instance.w_l_g;
+            }
+            else if (wind > 0.1)
+            {
+                if (wind > 7.4) wd = Singleton.Instance.w_r_r;
+                else if (wind > 4.9) wd = Singleton.Instance.w_r_o;
+                else if (wind > 2.4) wd = Singleton.Instance.w_r_y;
+                else wd = Singleton.Instance.w_r_g;
+            }
+            else wd = Singleton.Instance.w_0;
+            spriteBatch.Draw(Singleton.Instance.wind_border, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            if (wind < -0.1)
+            {
+                spriteBatch.Draw(wd, position, null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            }
+            else if (wind > 0.1)
+            {
+                spriteBatch.Draw(wd, position+ new Vector2(7f,0), null, Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            }
+            if (playerDisplay == wisdom)
+            {
+                spriteBatch.DrawString(Singleton.Instance.testfont, String.Format("{0:0.0}",Math.Abs(wind)), position+new Vector2(50,100), Color.Black, 0, Vector2.Zero, Vector2.One*1.3f, SpriteEffects.None, 0f) ;
+            }
+        }
+
+        public bool isWorldStop()
+        {
+            bool allBodyStop = true;
+            var bodylist = world.BodyList;
+            foreach (var body in bodylist)
+            {
+                if (body.LinearVelocity != Vector2.Zero)
+                {
+                    allBodyStop = false;
                     break;
+                }
+            }
+            return allBodyStop;
+        }
 
-                default:
-                    /*foreach (GameSprite obj in _gameObj)
-                    {
-                        obj.Draw(spriteBatch);
-                    }*/
-                    spriteBatch.Draw(Singleton.Instance.bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-                    for (int i = _gameObj.Count - 1; i >= 0; i--)
-                    {
-                        _gameObj[i].Draw(spriteBatch);
-                    }
-                    _skill.Draw(spriteBatch);
+        private void createTower(Vector2 position, GameSprite.Side objectside)
+        {
+            float gap = 5f;
+            float height = 98f;
+            float width = 30f;
 
-                    spriteBatch.Draw(Singleton.Instance.screenBorder, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-                    break;
+            // horizontal wisdom
+            for (int i = 1; i < 3; i++)
+            {
+                _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v, world)
+                {
+                    position = new Vector2(position.X + height / 2 + (height * i), position.Y + ((height + width + gap * 2) * 0)),
+                    hitbox_size = new Vector2(width, height),
+                    side = objectside,
+                    rotation = Singleton.Degree2Radian(90)
+                });
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 1; j < 4; j++)
+                {
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v, world)
+                    {
+                        position = new Vector2(position.X + height / 2 + (height * i), position.Y + ((height + width + gap * 2) * j)),
+                        hitbox_size = new Vector2(width, height),
+                        side = objectside,
+                        rotation = Singleton.Degree2Radian(90)
+                    });
+                }
+            }
+            //vertical wisdom
+            for (int i = 1; i < 4; i++)
+            {
+                _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v, world)
+                {
+                    position = new Vector2(position.X + (height * i), position.Y + (width + height + 10) / 2 + ((height + width + gap * 2) * 0)),
+                    hitbox_size = new Vector2(width, height),
+                    side = objectside
+                });
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 1; j < 4; j++)
+                {
+                    _gameObj.Add(new Obstacle(Singleton.Instance.sc_tw_02_v, world)
+                    {
+                        position = new Vector2(position.X + (height * i), position.Y + (width + height + 10) / 2 + ((height + width + gap * 2) * j)),
+                        hitbox_size = new Vector2(width, height),
+                        side = objectside
+                    });
+                }
             }
 
-            base.Draw(spriteBatch);
+        }
+        private void createLuckTower(GameSprite.Side objectside)
+        {
+            Vertices triangle = new Vertices(3);
+            Body body;
+            float width, height, x, y;
+
+            //first row
+
+            width = 63.1f;
+            height = 96.22f;
+            x = 1074.86f;
+            y = 398.0f;
+            /*float width2 = width / 2 * Singleton.worldScale;
+            float height2 = (height) / 2 * Singleton.worldScale;
+            triangle.Add(new Vector2(-width2,height2));
+            triangle.Add(new Vector2(width2, height2));
+            triangle.Add(new Vector2(0, -height2+20*Singleton.worldScale));
+            body = world.CreateBody();
+            body.CreatePolygon(triangle, 1f);
+            triangle.Clear();*/
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_1, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_1, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 68.45f;
+            height = 96.22f;
+            x = 1305.72f;
+            y = 401.87f;
+            /*width2 = width / 2 * Singleton.worldScale;
+            height2 = (height) / 2 * Singleton.worldScale;
+            triangle.Add(new Vector2(-width2, height2));
+            triangle.Add(new Vector2(width2, height2));
+            triangle.Add(new Vector2(0, -height2 + 20 * Singleton.worldScale));
+            body = world.CreateBody();
+            body.CreatePolygon(triangle, 1f);
+            triangle.Clear();*/
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_1, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_2, new Vector2(x, y)),
+                side = objectside
+            });
+            //secibd row
+            x = 1071.96f;
+            y = 494.22f;
+            width = 74.58f;
+            height = 68.13f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_3, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_3, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 15.82f;
+            height = 22.92f;
+            x = 1216.93f;
+            y = 464.84f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_4_1, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_4_1, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 164.35f;
+            height = 87.82f;
+            x = 1142.67f;
+            y = 487.76f;
+            /*width2 = width / 2 * Singleton.worldScale;
+            height2 = (height) / 2 * Singleton.worldScale;
+            triangle.Add(new Vector2(-width2, height2));
+            triangle.Add(new Vector2(width2, height2));
+            triangle.Add(new Vector2(0, -height2));
+            body = world.CreateBody();
+            body.CreatePolygon(triangle, 1f);
+            triangle.Clear();*/
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_4_2, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_4_2, new Vector2(x, y)),
+                side = objectside
+            });
+            width = 71.68f;
+            height = 69.42f;
+            x = 1305.0f;
+            y = 493.0f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_5, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_5, new Vector2(x, y)),
+                side = objectside
+            });
+
+            //third row
+
+            width = 69.1f;
+            height = 111.39f;
+            x = 1074.86f;
+            y = 562.34f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_6, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_6, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 164.02f;
+            height = 41.33f;
+            x = 1142.67f;
+            y = 573.0f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_7, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_7, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 73.94f;
+            height = 107.84f;
+            x = 1305.07f;
+            y = 562.34f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_8, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_8, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 24.86f;
+            height = 191.47f;
+            x = 1050.0f;
+            y = 596.89f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_9, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_9, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 49.69f;
+            height = 60.06f;
+            x = 1143.31f;
+            y = 614.33f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_10, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_10, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 65.0f;
+            height = 60.06f;
+            x = 1193.0f;
+            y = 614.33f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_11, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_11, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 47.72f;
+            height = 60.06f;
+            x = 1258.0f;
+            y = 614.33f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_12, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_12, new Vector2(x, y)),
+                side = objectside
+            });
+
+            //fourth row
+
+            width = 68.45f;
+            height = 115.59f;
+            x = 1074.86f;
+            y = 673.74f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_13, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_13, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 49.69f;
+            height = 114.94f;
+            x = 1143.31f;
+            y = 674.38f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_14, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_14, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 65.0f;
+            height = 114.94f;
+            x = 1193.0f;
+            y = 674.38f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_15, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_15, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 46.34f;
+            height = 114.94f;
+            x = 1258.0f;
+            y = 674.38f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_16, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_16, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 74.58f;
+            height = 119.14f;
+            x = 1304.43f;
+            y = 669.54f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_17, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_17, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 23.25f;
+            height = 191.47f;
+            x = 1367.75f;
+            y = 596.25f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.lt_18, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.lt_18, new Vector2(x, y)),
+                side = objectside
+            });
+        }
+
+        private void createWisdomTower(GameSprite.Side objectside)
+        {
+            Body body;
+            float width, height, x, y;
+
+            //first row
+            width = 70.4f;
+            height = 86.11f;
+            x = 176.52f;
+            y = 446.62f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_1, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_1, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 75.16f;
+            height = 86.11f;
+            x = 246.92f;
+            y = 446.62f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_2, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_2, new Vector2(x, y)),
+                side = objectside
+            });
+
+            //second row
+            width = 51.84f;
+            height = 48.89f;
+            x = 166.92f;
+            y = 532.38f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_3, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_3, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 51.2f;
+            height = 48.89f;
+            x = 218.76f;
+            y = 532.38f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_4, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_4, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 51.96f;
+            height = 48.89f;
+            x = 269.96f;
+            y = 532.38f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_5, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_5, new Vector2(x, y)),
+                side = objectside
+            });
+
+            //third row
+            width = 78.08f;
+            height = 48.33f;
+            x = 167.56f;
+            y = 581.02f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_6, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_6, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 76.92f;
+            height = 48.33f;
+            x = 245.64f;
+            y = 581.02f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_7, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_7, new Vector2(x, y)),
+                side = objectside
+            });
+
+            //fourth row
+            width = 52.48f;
+            height = 49.44f;
+            x = 166.92f;
+            y = 629.02f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_8, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_8, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 51.2f;
+            height = 49.44f;
+            x = 219.4f;
+            y = 629.02f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_9, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_9, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 52.43f;
+            height = 49.44f;
+            x = 270.6f;
+            y = 629.02f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_10, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_10, new Vector2(x, y)),
+                side = objectside
+            });
+
+            //fifth row
+            width = 81.92f;
+            height = 48.89f;
+            x = 165f;
+            y = 678.3f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_11, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_11, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 77.52f;
+            height = 48.89f;
+            x = 249.62f;
+            y = 678.3f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_12, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_12, new Vector2(x, y)),
+                side = objectside
+            });
+
+            //sixth row
+            width = 40.32f;
+            height = 81.67f;
+            x = 165.0f;
+            y = 726.94f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_13, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_13, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 80.0f;
+            height = 81.67f;
+            x = 205.32f;
+            y = 726.94f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_14, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_14, new Vector2(x, y)),
+                side = objectside
+            });
+
+            width = 39.68f;
+            height = 81.67f;
+            x = 285.32f;
+            y = 726.94f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_15, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_15, new Vector2(x, y)),
+                side = objectside
+            });
+
+            //flag
+            width = 30.56f;
+            height = 39.44f;
+            x = 218.76f;
+            y = 407.58f;
+            body = world.CreateRectangle(width * Singleton.worldScale, height * Singleton.worldScale, 1.0f, bodyType: BodyType.Dynamic);
+            _gameObj.Add(new Obstacle(Singleton.Instance.wt_16, body)
+            {
+                position = Singleton.Instance.TopLeft(Singleton.Instance.wt_16, new Vector2(x, y)),
+                side = objectside
+            });
         }
     }
 }

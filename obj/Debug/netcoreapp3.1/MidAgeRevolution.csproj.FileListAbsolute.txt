@@ -62,9 +62,7 @@ D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\MidAgeRevoluti
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\religious.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\background.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\play_screen_border.xnb
-D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\religious.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rl_health_bar.xnb
-D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\science.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_health_bar.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02_horizontal.xnb
@@ -74,8 +72,6 @@ D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Conte
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\background.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\play_screen_border.xnb
-D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\religious.xnb
-D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\science.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_health_bar.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02_horizontal.xnb
 D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02_vertical.xnb
@@ -117,3 +113,268 @@ D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Conte
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\science.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\sc_health_bar.xnb
 D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\green_health.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\religious.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\rl_health_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\science.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\sc_health_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\background.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\green_health.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\play_screen_border.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rl_health_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_health_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02_horizontal.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_tw_02_vertical.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\font0.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\test0.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.exe
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.deps.json
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.runtimeconfig.json
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.runtimeconfig.dev.json
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MidAgeRevolution.pdb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Aether.Physics2D.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libSDL2-2.0.so.0
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libopenal.so.1
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\osx\native\libSDL2-2.0.0.dylib
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\osx\native\libopenal.1.dylib
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SDL2.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\soft_oal.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SDL2.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\soft_oal.dll
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.csproj.AssemblyReference.cache
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.GeneratedMSBuildEditorConfig.editorconfig
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.AssemblyInfoInputs.cache
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.AssemblyInfo.cs
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.csproj.CoreCompileInputs.cache
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.csproj.CopyComplete
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.dll
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.pdb
+D:\Test\MidAgeRevolution\obj\Debug\netcoreapp3.1\MidAgeRevolution.genruntimeconfig.cache
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\DiagnosticsFont.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Aether.Physics2D.Diagnostics.dll
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\Arrow.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\DiagnosticsFont.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\Arrow.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Aether.Physics2D.Diagnostics.dll
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\animator.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\exit.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\start.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\title.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\detail.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\return.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial_title.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\mm_b.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\re_b.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rl_win.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_win.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\exit.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\start.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\title.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\animator.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\detail.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\mm_b.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\return.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\re_b.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rl_win.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_win.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial_title.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\Character\religious.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\Character\science.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_1.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_10.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_11.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_12.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_13.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_14.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_15.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_16.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_17.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_18.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_2.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_3.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_4_1.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_4_2.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_5.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_6.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_7.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_8.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_9.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_1.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_10.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_11.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_12.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_13.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_14.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_15.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_16.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_2.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_3.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_4.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_5.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_6.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_7.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_8.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_9.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\Character\religious.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\Character\science.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_1.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_10.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_11.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_12.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_13.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_14.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_15.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_16.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_17.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_18.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_2.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_3.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_4_1.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_4_2.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_5.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_6.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_7.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_8.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_9.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_1.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_10.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_11.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_12.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_13.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_14.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_15.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_16.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_2.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_3.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_4.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_5.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_6.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_7.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_8.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_9.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg_charge_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\measure_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\red_bar.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg_charge_bar.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\measure_bar.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\red_bar.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\base.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_g.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_o.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_r.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_y.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\none.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_g.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_o.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_r.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_y.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Bounce.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Explosion.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Pluck.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Split.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\x2.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\x3.xnb
+D:\Test\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\debuf\fire.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\DiagnosticsFont.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\animator.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bg_charge_bar.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Bounce.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Explosion.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Pluck.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Split.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\x2.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\x3.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\debuf\fire.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\detail.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\exit.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\measure_bar.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\mm_b.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\red_bar.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\return.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\Character\religious.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\Character\science.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_1.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_10.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_11.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_12.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_13.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_14.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_15.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_16.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_17.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_18.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_2.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_3.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_4_1.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_4_2.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_5.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_6.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_7.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_8.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\LuckTower\lt_9.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_1.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_10.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_11.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_12.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_13.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_14.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_15.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_16.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_2.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_3.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_4.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_5.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_6.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_7.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_8.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rework_model\WisdomTower\wt_9.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\re_b.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\rl_win.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sc_win.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\start.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\title.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\tutorial_title.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\base.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_g.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_o.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_r.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_y.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\none.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_g.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_o.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_r.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_y.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Test\Arrow.xnb
+D:\HW\Year2\2\Computer Game\Final\MidAgeRevolution\bin\Debug\netcoreapp3.1\Aether.Physics2D.Diagnostics.dll
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Explosion.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Split.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\x2.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\x3.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\debuf\fire.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\base.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_g.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_o.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_r.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\l_y.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\none.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_g.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_o.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_r.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\wind\r_y.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\bullet\bible.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Puush.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\card\Untitled-2.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\debuf\poison_bubble.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\Poiter.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sound\click.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sound\mainmenu_song.xnb
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sound\playscene_song.ogg
+D:\KMITL\Year 2\Season 2\Computer Game Progamming\._Final Project\Github\MidAgeRevolution\bin\Debug\netcoreapp3.1\Content\Asset\sound\playscene_song.xnb
